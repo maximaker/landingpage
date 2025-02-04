@@ -1,0 +1,24 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8F9FA"/>
+  
+  <!-- Background Pattern -->
+  <circle cx="600" cy="315" r="250" fill="#FF5900" fillOpacity="0.1"/>
+  <circle cx="600" cy="315" r="200" fill="#FF5900" fillOpacity="0.05"/>
+  
+  <!-- Logo Symbol -->
+  <g transform="translate(450,215)">
+    <circle cx="150" cy="100" r="80" fill="#FF5900"/>
+    <path d="M100 100C100 72.3858 122.386 50 150 50C177.614 50 200 72.3858 200 100" 
+      stroke="white" strokeWidth="8" strokeLinecap="round"/>
+    <path d="M150 150C122.386 150 100 127.614 100 100" 
+      stroke="white" strokeWidth="8" strokeLinecap="round" strokeDasharray="4 4"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="600" y="450" fill="#1C1F26" fontSize="48" fontWeight="bold" textAnchor="middle" fontFamily="system-ui">
+    Digital Vitamins
+  </text>
+  <text x="600" y="500" fill="#3A4150" fontSize="24" textAnchor="middle" fontFamily="system-ui">
+    Product Health Check & Digital Solutions
+  </text>
+</svg> 
