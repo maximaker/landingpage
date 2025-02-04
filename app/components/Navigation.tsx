@@ -66,8 +66,8 @@ export function Navigation() {
         isMobileMenuOpen 
           ? 'bg-primary/70 backdrop-blur-md min-h-[65vh] text-primary-foreground' 
           : isScrolled 
-            ? 'bg-background/80 backdrop-blur-sm text-foreground h-auto'
-            : 'bg-transparent text-foreground h-auto'
+            ? 'bg-background/80 backdrop-blur-sm text-foreground h-16 sm:h-20'
+            : 'bg-transparent text-foreground h-16 sm:h-20'
       }`}>
         <div className="max-w-7xl mx-auto">
           {/* Header Bar */}
