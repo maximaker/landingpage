@@ -4,6 +4,9 @@ import { useState, useEffect } from 'react'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { usePathname } from 'next/navigation'
+import { Sun, Moon } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import { LanguageSwitcher } from '@/components/ui/language-switcher'
 
 const menuItems = [
   { label: 'About', href: '/about' },
@@ -54,20 +57,19 @@ export function Navigation() {
   }
 
   return (
-    <header 
+    <header
       className={`fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 ${
-        isScrollingDown && !isMobileMenuOpen 
-          ? '-translate-y-full shadow-none' 
-          : 'translate-y-0'
-      } ${isScrolled ? 'shadow-lg backdrop-blur-lg' : ''}`}
-      role="banner"
+        isScrollingDown && isScrolled ? '-translate-y-full' : 'translate-y-0'
+      }`}
     >
+
+
       <div className={`transition-all duration-300 ${
         isMobileMenuOpen 
-          ? 'bg-primary/70 backdrop-blur-md min-h-[65vh] text-primary-foreground' 
+          ? 'bg-background/90 backdrop-blur-md min-h-[65vh] text-foreground' 
           : isScrolled 
-            ? 'bg-background/80 backdrop-blur-sm text-foreground h-16 sm:h-20'
-            : 'bg-transparent text-foreground h-16 sm:h-20'
+            ? 'bg-background/80 backdrop-blur-sm text-foreground h-auto'
+            : 'bg-transparent text-foreground h-auto'
       }`}>
         <div className="max-w-7xl mx-auto">
           {/* Header Bar */}
@@ -105,35 +107,18 @@ export function Navigation() {
             </nav>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center gap-4">
-              <ThemeToggle />
+            <div className="md:hidden flex items-center">
               <button 
                 onClick={toggleMobileMenu}
-                className={`group px-3 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/20 ${
+                className={`group px-4 py-2 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/20 font-medium ${
                   isMobileMenuOpen 
-                    ? 'bg-primary-foreground/10' 
+                    ? 'bg-primary text-primary-foreground' 
                     : 'hover:bg-foreground/5'
                 }`}
                 aria-expanded={isMobileMenuOpen}
                 aria-label="Toggle mobile menu"
               >
-                <div className="relative w-6 h-5">
-                  <span className={`absolute left-0 block w-6 h-0.5 transform transition-all duration-300 ${
-                    isMobileMenuOpen
-                      ? 'top-2 rotate-45 bg-primary-foreground'
-                      : 'top-0 bg-foreground'
-                  }`} />
-                  <span className={`absolute left-0 block w-6 h-0.5 transition-all duration-300 ${
-                    isMobileMenuOpen
-                      ? 'opacity-0'
-                      : 'top-2 bg-foreground'
-                  }`} />
-                  <span className={`absolute left-0 block w-6 h-0.5 transform transition-all duration-300 ${
-                    isMobileMenuOpen
-                      ? 'top-2 -rotate-45 bg-primary-foreground'
-                      : 'top-4 bg-foreground'
-                  }`} />
-                </div>
+                {isMobileMenuOpen ? 'CLOSE' : 'MENU'}
               </button>
             </div>
           </div>
@@ -147,8 +132,9 @@ export function Navigation() {
             }`}
             role="navigation"
           >
-            <div className="min-h-[calc(65vh-4rem)] flex items-center justify-center py-8">
-              <div className="w-full max-w-[280px] mx-auto px-4 space-y-2">
+            <div className="min-h-[calc(65vh-4rem)] flex items-end justify-end py-12 px-6">
+              <div className="w-full max-w-[320px] space-y-4">
+                {/* Menu Items */}
                 {menuItems.map((item, index) => {
                   const isActive = pathname === item.href
                   return (
@@ -156,17 +142,17 @@ export function Navigation() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className={`group flex items-center justify-between py-3 px-4 rounded-xl transition-all duration-200 ${
+                      className={`group flex items-center justify-between py-5 px-6 rounded-xl transition-all duration-200 active:scale-98 touch-manipulation ${
                         isActive
-                          ? 'bg-primary-foreground/20 text-primary-foreground'
-                          : 'text-primary-foreground/80 hover:bg-primary-foreground/10'
+                          ? 'bg-primary/10 text-primary shadow-sm'
+                          : 'text-foreground hover:bg-muted/50'
                       }`}
                       style={{ transitionDelay: `${index * 50}ms` }}
                       aria-current={isActive ? 'page' : undefined}
                     >
-                      <span className="font-medium">{item.label}</span>
+                      <span className="text-[0.9rem] font-bold tracking-wide">{item.label}</span>
                       <svg 
-                        className={`w-4 h-4 transform transition-transform duration-200 ${
+                        className={`w-6 h-6 transform transition-transform duration-200 ${
                           isActive ? 'translate-x-0' : 'translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100'
                         }`}
                         viewBox="0 0 24 24" 
@@ -179,6 +165,11 @@ export function Navigation() {
                     </Link>
                   )
                 })}
+                {/* Theme and Language Controls */}
+                <div className="flex items-center justify-between gap-4 mt-8 px-6">
+                  <ThemeToggle />
+                  <LanguageSwitcher />
+                </div>
               </div>
             </div>
           </div>

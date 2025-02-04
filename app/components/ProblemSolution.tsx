@@ -140,42 +140,42 @@ export function ProblemSolution() {
         </div>
 
         {/* Pain Points and Solutions */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-24">
           {PAIN_POINTS.map((point, index) => (
             <div 
               key={index}
-              className="relative group p-8 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300"
+              className="relative group p-8 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
             >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
-                {point.icon}
-              </div>
-              
-              <div className="pt-6">
-                {/* Before */}
+              <div className="flex flex-col h-full">
+                {/* Problem Section */}
                 <div className="mb-8">
-                  <h3 className="text-xl font-semibold mb-2 text-foreground">
+                  <div className="text-2xl text-primary mb-4">
+                    {point.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-200">
                     {point.title}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-200">
                     {point.description}
                   </p>
                 </div>
 
-                {/* Divider */}
-                <div className="relative h-px w-full bg-border my-8">
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                {/* Divider with Arrow */}
+                <div className="relative py-6">
+                  <div className="absolute left-0 right-0 top-1/2 h-px bg-border group-hover:bg-primary/20 transition-colors duration-200" />
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center transform group-hover:scale-110 transition-transform duration-200">
                     <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M12 5v14M5 12h14"/>
                     </svg>
                   </div>
                 </div>
 
-                {/* After */}
+                {/* Solution Section */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-2 text-primary">
+                  <h3 className="text-xl font-semibold mb-3 text-primary">
                     {point.solution}
                   </h3>
-                  <p className="text-muted-foreground">
+                  <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-200">
                     {point.solutionDesc}
                   </p>
                 </div>
@@ -271,4 +271,4 @@ export function ProblemSolution() {
       </div>
     </section>
   )
-} 
+}
