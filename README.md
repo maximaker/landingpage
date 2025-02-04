@@ -1,6 +1,8 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Modern Landing Page
 
-## Getting Started
+A modern, responsive landing page built with Next.js 14 and TailwindCSS.
+
+## 🚀 Getting Started
 
 First, run the development server:
 
@@ -16,21 +18,34 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Built With
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- [Next.js 14](https://nextjs.org/) - The React Framework
+- [TailwindCSS](https://tailwindcss.com) - For styling
+- [TypeScript](https://www.typescriptlang.org/) - For type safety
+- Modern UI/UX principles
 
-## Learn More
+## 📦 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+├── app/              # Next.js 14 app directory
+├── components/       # Reusable components
+├── public/          # Static assets
+└── styles/          # Global styles
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔑 Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Responsive design
+- Modern UI/UX
+- Performance optimized
+- SEO friendly
+- Type-safe development
 
-## Deploy on Vercel
+## 📝 License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+This project is open source and available under the MIT License.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🚀 Deployment
+
+Deployed on [Vercel](https://vercel.com).
