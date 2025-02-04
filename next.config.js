@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  swcMinify: true,
+  experimental: {
+    optimizeCss: true,
+    legacyBrowsers: false,
+  },
   transpilePackages: [
     "@radix-ui",
     "class-variance-authority",
@@ -8,6 +13,9 @@ const nextConfig = {
     "tailwind-merge",
     "lucide-react"
   ],
+  env: {
+    PORT: "3001"
+  },
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -47,11 +55,7 @@ const nextConfig = {
           },
           {
             key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload'
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
+            value: 'max-age=31536000; includeSubDomains'
           },
           {
             key: 'X-Frame-Options',
@@ -62,13 +66,17 @@ const nextConfig = {
             value: 'nosniff'
           },
           {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
+          },
+          {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
+            value: 'strict-origin-when-cross-origin'
           }
         ]
       }
     ]
   }
-}
+};
 
-module.exports = nextConfig 
+module.exports = nextConfig;
