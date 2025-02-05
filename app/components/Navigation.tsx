@@ -52,6 +52,23 @@ export function Navigation() {
     }
   }, [isMobileMenuOpen])
 
+  // Handle click outside for mobile menu
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      const mobileMenu = document.querySelector('[role="navigation"]')
+      const menuButton = e.target as HTMLElement
+      
+      if (isMobileMenuOpen && mobileMenu && 
+          !mobileMenu.contains(e.target as Node) && 
+          !menuButton.closest('button')) {
+        setIsMobileMenuOpen(false)
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [isMobileMenuOpen])
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
   }
@@ -68,8 +85,8 @@ export function Navigation() {
         isMobileMenuOpen 
           ? 'bg-background/90 backdrop-blur-md min-h-[65vh] text-foreground' 
           : isScrolled 
-            ? 'bg-background/80 backdrop-blur-sm text-foreground h-auto'
-            : 'bg-transparent text-foreground h-auto'
+            ? 'bg-background/80 backdrop-blur-sm text-foreground h-16 sm:h-20'
+            : 'bg-transparent text-foreground h-16 sm:h-20'
       }`}>
         <div className="max-w-7xl mx-auto">
           {/* Header Bar */}
@@ -118,7 +135,22 @@ export function Navigation() {
                 aria-expanded={isMobileMenuOpen}
                 aria-label="Toggle mobile menu"
               >
-                {isMobileMenuOpen ? 'CLOSE' : 'MENU'}
+                {isMobileMenuOpen ? (
+                  <svg
+                    className="w-5 h-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 6L6 18" />
+                    <path d="M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <span className="text-[0.85rem] font-bold">MENU</span>
+                )}
               </button>
             </div>
           </div>
