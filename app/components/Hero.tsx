@@ -31,11 +31,11 @@ export function Hero() {
           </div>
 
           {/* Main heading */}
-          <h1 className="relative text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight fade-in delay-1">
+          <h1 className="relative text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight fade-in delay-1 leading-[1.2] sm:leading-[2]">  
             <span className="block text-foreground">
               Is your digital product
             </span>
-            <span className="block mt-2 sm:mt-4 text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80 dark:from-primary dark:via-primary/90 dark:to-primary/70">
+            <span className="block mt-2 sm:mt-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80 dark:from-primary dark:via-primary/90 dark:to-primary/70">
               as healthy as it could be?
             </span>
           </h1>
@@ -71,7 +71,7 @@ export function Hero() {
           </div>
 
           {/* Metrics */}
-          <div className="pt-12 sm:pt-16 pb-24 fade-in delay-4">
+          <div className="pt-12 sm:pt-16 fade-in delay-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 max-w-4xl mx-auto">
               {METRICS.map((metric, index) => (
                 <div 
@@ -90,13 +90,16 @@ export function Hero() {
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 fade-in delay-5 z-10">
-            <div className="flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors cursor-pointer">
-              <span className="text-sm font-medium">Scroll to explore</span>
-              <div className="relative">
-                <div className="absolute inset-0 bg-card/80 dark:bg-card/60 blur-sm rounded-full" />
+          <div className="relative mt-16 fade-in delay-5">
+            <div 
+              className="group flex flex-col items-center gap-3 text-muted-foreground/80 hover:text-primary transition-all duration-300 cursor-pointer transform hover:scale-105"
+              onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+            >
+              <span className="text-sm font-medium tracking-wide group-hover:tracking-wider transition-all duration-300">Scroll to explore</span>
+              <div className="relative p-2">
+                <div className="absolute inset-0 bg-card/90 dark:bg-card/70 blur-md rounded-full group-hover:bg-primary/10 transition-colors duration-300" />
                 <svg 
-                  className="w-6 h-6 animate-bounce relative" 
+                  className="w-6 h-6 animate-bounce relative group-hover:animate-pulse" 
                   viewBox="0 0 24 24" 
                   fill="none" 
                   stroke="currentColor" 
