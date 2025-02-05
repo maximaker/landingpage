@@ -152,21 +152,24 @@ export function TopReasons() {
 
         <div>
           <Tabs defaultValue={tabs[0].value} className="mt-12">
-            <TabsList className="flex flex-col items-center justify-center gap-4 sm:flex-row md:gap-8 mb-12">
+            <TabsList className="flex flex-row justify-center gap-2 w-full mb-8 bg-transparent p-0">
               {tabs.map((tab) => (
                 <TabsTrigger
                   key={tab.value}
                   value={tab.value}
-                  className="group flex items-center gap-3 rounded-full px-6 py-3 text-base font-medium text-muted-foreground transition-all duration-200
-                    hover:bg-card/80 hover:text-foreground
-                    data-[state=active]:bg-primary/[0.03] data-[state=active]:text-primary 
-                    border border-border data-[state=active]:border-primary/20
-                    focus:outline-none focus:ring-2 focus:ring-primary/20 backdrop-blur-sm"
+                  className="flex-1 flex items-center justify-center gap-2 px-4 py-2
+                    text-sm sm:text-base font-medium
+                    text-muted-foreground
+                    hover:text-foreground
+                    data-[state=active]:text-primary data-[state=active]:bg-white dark:data-[state=active]:bg-white/90
+                    rounded-lg
+                    transition-all duration-200"
                 >
-                  <div className="p-2 rounded-full bg-card/50 dark:bg-card/40 group-hover:bg-card/80 group-data-[state=active]:bg-primary/[0.03] transition-colors duration-200">
-                    {tab.icon}
-                  </div>
-                  {tab.label}
+                  {tab.icon}
+                  <span className="hidden sm:inline">{tab.label}</span>
+                  <span className="sm:hidden">
+                    {tab.value === 'expert-care' ? 'Care' : tab.value === 'track-record' ? 'Trust' : 'Support'}
+                  </span>
                 </TabsTrigger>
               ))}
             </TabsList>
@@ -188,12 +191,15 @@ export function TopReasons() {
                       {tab.content.description}
                     </p>
                     <Button 
-                      className="group mt-4 w-fit bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm hover:shadow transition-all duration-200 rounded-full px-6" 
+                      className="mt-4 w-full sm:w-auto px-6 py-3
+                        bg-primary hover:bg-primary/90 text-primary-foreground
+                        flex items-center justify-center gap-2
+                        transition-all duration-200" 
                       size="lg"
                     >
                       <span>{tab.content.buttonText}</span>
                       <svg 
-                        className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" 
+                        className="w-4 h-4" 
                         viewBox="0 0 24 24" 
                         fill="none" 
                         stroke="currentColor" 
