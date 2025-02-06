@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'AVA';
+  src: url('/fonts/AVA.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('/fonts/Ubuntu-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito Sans';
+  src: url('/fonts/NunitoSans-VariableFont_YTLC,opsz,wdth,wght.ttf') format('truetype');
+  font-weight: 200 900;
+  font-style: normal;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -47,17 +69,32 @@
     --input: 217.2 32.6% 12%;
     --ring: 24 100% 50%;
   }
+
+  html {
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', system-ui, sans-serif;
+    font-weight: 700;
+  }
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  @font-face {
+    font-family: 'YourCustomFont';
+    src: url('/fonts/your-custom-font.woff2') format('woff2'),
+         url('/fonts/your-custom-font.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
   }
+}
+
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
-}
 
 /* Smooth theme transition */
 * {

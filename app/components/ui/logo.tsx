@@ -14,24 +14,14 @@ export function Logo({ className = '' }: LogoProps) {
         className="text-primary"
       >
         <path
-          d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2z"
-          stroke="currentColor"
-          strokeWidth="2"
-        />
-        <path
-          d="M16 7v18M7 16h18"
+          d="M6 22L13 8h6l7 14M9 16h14"
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
-        />
-        <path
-          d="M12 12l8 8m0-8l-8 8"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
-      <span className="text-lg font-bold text-foreground">Digital Vitamins</span>
+      <span style={{ fontFamily: 'AVA' }} className="text-lg font-bold text-foreground">Digital Vitamins</span>
     </div>
   )
 }
