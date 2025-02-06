@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { useState } from "react"
+import { useState, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLocalStorage } from "@/hooks/use-local-storage"
 
@@ -20,67 +20,130 @@ const QUIZ_QUESTIONS: Question[] = [
     id: 1,
     question: "What's your primary goal for your digital product?",
     options: [
-      "Increase user engagement",
-      "Improve conversion rates",
-      "Enhance user experience",
-      "Scale the platform"
+      "Increase user engagement and retention",
+      "Boost conversion rates and sales",
+      "Enhance user experience and satisfaction",
+      "Scale and improve performance"
     ]
   },
   {
     id: 2,
-    question: "What's your biggest challenge right now?",
+    question: "How complex is your current digital product?",
     options: [
-      "Technical debt",
-      "User retention",
-      "Performance issues",
-      "Design inconsistency"
+      "Simple (landing page or basic web app)",
+      "Moderate (multi-page application with some features)",
+      "Complex (full-featured platform with multiple integrations)",
+      "Enterprise (large-scale system with complex architecture)"
     ]
   },
   {
     id: 3,
-    question: "How mature is your product?",
+    question: "What's your current development stage?",
     options: [
-      "Just an idea",
-      "Early prototype",
-      "Live with users",
-      "Established product"
+      "Planning phase",
+      "Early development",
+      "Live product needing improvements",
+      "Scaling existing solution"
     ]
   },
   {
     id: 4,
-    question: "What's your team size?",
+    question: "What's your biggest challenge right now?",
     options: [
-      "Solo founder",
-      "2-5 people",
-      "6-20 people",
-      "20+ people"
+      "User acquisition and retention",
+      "Technical performance issues",
+      "Design and usability problems",
+      "Scaling and infrastructure"
     ]
   }
-]
+];
+
+const SOLUTIONS = {
+  engagement: {
+    name: "Vitamin E: Engagement Booster",
+    description: "Perfect for products needing enhanced user engagement and retention strategies.",
+    timeEstimate: { min: 2, max: 4 },
+    features: [
+      "User behavior analytics",
+      "Engagement optimization",
+      "Retention strategies",
+      "Community building tools"
+    ]
+  },
+  conversion: {
+    name: "Vitamin C: Conversion Catalyst",
+    description: "Ideal for businesses focusing on improving conversion rates and sales performance.",
+    timeEstimate: { min: 3, max: 6 },
+    features: [
+      "Conversion funnel optimization",
+      "A/B testing framework",
+      "Sales analytics",
+      "Customer journey mapping"
+    ]
+  },
+  experience: {
+    name: "Vitamin X: Experience Enhancer",
+    description: "Comprehensive solution for elevating user experience and satisfaction.",
+    timeEstimate: { min: 4, max: 8 },
+    features: [
+      "UX audit and optimization",
+      "Interface redesign",
+      "Accessibility improvements",
+      "User testing framework"
+    ]
+  },
+  performance: {
+    name: "Vitamin P: Performance Plus",
+    description: "Advanced solution for scaling and optimizing technical performance.",
+    timeEstimate: { min: 6, max: 12 },
+    features: [
+      "Performance optimization",
+      "Infrastructure scaling",
+      "Security enhancements",
+      "Load balancing setup"
+    ]
+  }
+};
+
+
 
 export function InteractiveQuiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0)
   const [answers, setAnswers] = useLocalStorage<QuizAnswers>("quiz-answers", {})
   const [showResults, setShowResults] = useState(false)
   const [isAnimating, setIsAnimating] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [lastActiveElement, setLastActiveElement] = useState<number | null>(null)
 
-  const handleAnswer = (questionId: number, answerIndex: number) => {
+  const handleAnswer = async (questionId: number, answerIndex: number) => {
     if (isAnimating) return
 
-    setIsAnimating(true)
-    setAnswers({
-      ...answers,
-      [questionId]: answerIndex
-    })
+    try {
+      setIsAnimating(true)
+      setIsLoading(true)
+      setError(null)
+      setLastActiveElement(answerIndex)
 
-    setTimeout(() => {
+      // Simulate API call for answer processing
+      await new Promise(resolve => setTimeout(resolve, 500))
+
+      setAnswers({
+        ...answers,
+        [questionId]: answerIndex
+      })
+
       if (currentQuestion < QUIZ_QUESTIONS.length - 1) {
         setCurrentQuestion(prev => prev + 1)
       } else {
         setShowResults(true)
       }
+    } catch (err) {
+      setError('Failed to process your answer. Please try again.')
+    } finally {
       setIsAnimating(false)
-    }, 500)
+      setIsLoading(false)
+    }
   }
 
   const resetQuiz = () => {
@@ -91,13 +154,48 @@ export function InteractiveQuiz() {
 
   const getRecommendation = () => {
     const recommendations = {
-      awareness: "Vitamin A: Awareness - UX audits and competitive analysis",
-      clarity: "Vitamin C: Clarity - Feature prioritization and journey mapping",
-      direction: "Vitamin D: Direction - Wireframing and scalability planning",
-      execution: "Vitamin E: Execution - UI/UX design and prototyping",
-      continuity: "Vitamin K: Continuity - Maintenance and performance tracking",
-      progress: "Vitamin P: Progress - A/B testing and engagement strategies",
-      innovation: "Vitamin I: Innovation - Emerging tech and vision-driven features"
+      awareness: {
+        name: "Vitamin A: Awareness",
+        description: "UX audits and competitive analysis to understand your market position",
+        timeEstimate: { min: 2, max: 4 },
+        features: ["Comprehensive UX audit", "Competitor analysis", "User behavior tracking", "Market positioning report"]
+      },
+      clarity: {
+        name: "Vitamin C: Clarity",
+        description: "Feature prioritization and journey mapping for clear product direction",
+        timeEstimate: { min: 3, max: 6 },
+        features: ["User journey mapping", "Feature prioritization matrix", "Stakeholder workshops", "Product roadmap"]
+      },
+      direction: {
+        name: "Vitamin D: Direction",
+        description: "Wireframing and scalability planning for sustainable growth",
+        timeEstimate: { min: 4, max: 8 },
+        features: ["High-fidelity wireframes", "Scalability assessment", "Technical architecture", "Growth strategy"]
+      },
+      execution: {
+        name: "Vitamin E: Execution",
+        description: "UI/UX design and prototyping for exceptional user experience",
+        timeEstimate: { min: 6, max: 12 },
+        features: ["UI/UX design system", "Interactive prototypes", "User testing", "Implementation support"]
+      },
+      continuity: {
+        name: "Vitamin K: Continuity",
+        description: "Maintenance and performance tracking for consistent excellence",
+        timeEstimate: { min: 3, max: 6 },
+        features: ["Performance monitoring", "Regular maintenance", "Update strategy", "Health reports"]
+      },
+      progress: {
+        name: "Vitamin P: Progress",
+        description: "A/B testing and engagement strategies for continuous improvement",
+        timeEstimate: { min: 4, max: 8 },
+        features: ["A/B testing setup", "Engagement metrics", "Optimization plan", "ROI tracking"]
+      },
+      innovation: {
+        name: "Vitamin I: Innovation",
+        description: "Emerging tech and vision-driven features for market leadership",
+        timeEstimate: { min: 8, max: 16 },
+        features: ["Technology assessment", "Innovation workshops", "Prototype development", "Market validation"]
+      }
     }
 
     // Calculate recommendation based on all answers
@@ -180,7 +278,16 @@ export function InteractiveQuiz() {
                         key={index}
                         onClick={() => handleAnswer(QUIZ_QUESTIONS[currentQuestion].id, index)}
                         disabled={isAnimating}
-                        className={`p-6 rounded-2xl border text-left transition-all duration-200 backdrop-blur-sm ${
+                        role="button"
+                        tabIndex={0}
+                        aria-pressed={isSelected}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault()
+                            handleAnswer(QUIZ_QUESTIONS[currentQuestion].id, index)
+                          }
+                        }}
+                        className={`p-6 rounded-2xl border text-left transition-all duration-200 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/20 ${
                           isSelected
                             ? 'border-primary bg-primary/[0.03] dark:bg-primary/[0.02] text-primary shadow-sm'
                             : 'border-border hover:border-primary/20 bg-card/50 dark:bg-card/40 hover:bg-card/80 hover:shadow-sm'
@@ -206,20 +313,38 @@ export function InteractiveQuiz() {
               >
                 <div className="bg-card/50 dark:bg-card/40 p-8 rounded-2xl border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5">
                   <h3 className="text-xl font-bold tracking-tight text-primary mb-4">
-                    Recommended Solution
+                    {getRecommendation().name}
                   </h3>
                   <p className="text-lg text-foreground leading-relaxed mb-6">
-                    {getRecommendation()}
+                    {getRecommendation().description}
                   </p>
-                  <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                     <div className="bg-card/50 dark:bg-card/40 p-4 rounded-xl backdrop-blur-sm border border-border">
                       <span className="block font-medium text-foreground mb-1">Implementation Time</span>
-                      <span className="text-muted-foreground">2-4 weeks</span>
+                      <span className="text-muted-foreground">
+                        {getRecommendation().timeEstimate.min}-{getRecommendation().timeEstimate.max} weeks
+                      </span>
                     </div>
                     <div className="bg-card/50 dark:bg-card/40 p-4 rounded-xl backdrop-blur-sm border border-border">
-                      <span className="block font-medium text-foreground mb-1">Expected Impact</span>
-                      <span className="text-muted-foreground">30-50% improvement</span>
+                      <span className="block font-medium text-foreground mb-1">Key Features</span>
+                      <span className="text-muted-foreground">{getRecommendation().features.length} core improvements</span>
                     </div>
+                  </div>
+                  <div className="space-y-2">
+                    {getRecommendation().features.map((feature, index) => (
+                      <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <svg
+                          className="w-4 h-4 text-primary"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        >
+                          <path d="M20 6L9 17l-5-5" />
+                        </svg>
+                        {feature}
+                      </div>
+                    ))}
                   </div>
                 </div>
 
