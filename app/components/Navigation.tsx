@@ -1,3 +1,5 @@
+"use client"
+
 import Link from 'next/link'
 import { Logo } from '@/components/ui/logo'
 import { useState, useEffect } from 'react'
@@ -13,7 +15,7 @@ const menuItems = [
   { label: 'Services', href: '/services' },
   { label: 'Products', href: '/products' },
   { label: 'Resources', href: '/resources' },
-  { label: 'Contact', href: '/contact' },
+  { label: 'Contact', href: '/contact' }
 ]
 
 export function Navigation() {

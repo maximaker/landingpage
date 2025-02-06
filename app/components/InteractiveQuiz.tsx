@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { useState } from "react"
@@ -88,19 +90,30 @@ export function InteractiveQuiz() {
   }
 
   const getRecommendation = () => {
-    // This is a simple example - you would typically have more sophisticated logic
     const recommendations = {
-      engagement: "Vitamin E: Our engagement booster package",
-      conversion: "Vitamin C: Conversion optimization suite",
-      experience: "Vitamin A: Complete UX audit and enhancement",
-      scaling: "Vitamin S: Scalability and performance package"
+      awareness: "Vitamin A: Awareness - UX audits and competitive analysis",
+      clarity: "Vitamin C: Clarity - Feature prioritization and journey mapping",
+      direction: "Vitamin D: Direction - Wireframing and scalability planning",
+      execution: "Vitamin E: Execution - UI/UX design and prototyping",
+      continuity: "Vitamin K: Continuity - Maintenance and performance tracking",
+      progress: "Vitamin P: Progress - A/B testing and engagement strategies",
+      innovation: "Vitamin I: Innovation - Emerging tech and vision-driven features"
     }
 
-    const firstAnswer = answers[1]
-    if (firstAnswer === 0) return recommendations.engagement
-    if (firstAnswer === 1) return recommendations.conversion
-    if (firstAnswer === 2) return recommendations.experience
-    return recommendations.scaling
+    // Calculate recommendation based on all answers
+    const primaryGoal = answers[1] // First question about primary goal
+    const biggestChallenge = answers[2] // Second question about challenges
+    const productMaturity = answers[3] // Third question about product maturity
+    const teamSize = answers[4] // Fourth question about team size
+
+    // Logic for determining the most appropriate vitamin
+    if (primaryGoal === 0 || biggestChallenge === 1) return recommendations.execution // Engagement/retention issues
+    if (primaryGoal === 1) return recommendations.clarity // Conversion focus
+    if (primaryGoal === 2 || biggestChallenge === 3) return recommendations.awareness // UX focus
+    if (primaryGoal === 3 || biggestChallenge === 2) return recommendations.direction // Scaling/performance
+    if (productMaturity <= 1) return recommendations.innovation // Early stage products
+    if (teamSize >= 2) return recommendations.continuity // Larger teams need maintenance
+    return recommendations.progress // Default to progress tracking
   }
 
   return (
@@ -118,9 +131,14 @@ export function InteractiveQuiz() {
         >
           Interactive Assessment
         </Badge>
-        <h2 className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
+        <motion.div 
+          className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           {showResults ? "Your Digital Vitamin" : "Discover Your"} <span className="text-primary">{showResults ? "Prescription" : "Product's Needs"}</span>
-        </h2>
+        </motion.div>
         <p className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
           {showResults 
             ? "Based on your answers, we've prepared a personalized recommendation"
@@ -158,7 +176,7 @@ export function InteractiveQuiz() {
                   {QUIZ_QUESTIONS[currentQuestion].options.map((option, index) => {
                     const isSelected = answers[QUIZ_QUESTIONS[currentQuestion].id] === index
                     return (
-                      <button
+                      <motion.button
                         key={index}
                         onClick={() => handleAnswer(QUIZ_QUESTIONS[currentQuestion].id, index)}
                         disabled={isAnimating}
@@ -167,10 +185,12 @@ export function InteractiveQuiz() {
                             ? 'border-primary bg-primary/[0.03] dark:bg-primary/[0.02] text-primary shadow-sm'
                             : 'border-border hover:border-primary/20 bg-card/50 dark:bg-card/40 hover:bg-card/80 hover:shadow-sm'
                         }`}
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
                       >
                         <span className="text-sm font-medium block mb-1 text-muted-foreground">Option {index + 1}</span>
                         <span className="text-foreground leading-relaxed">{option}</span>
-                      </button>
+                      </motion.button>
                     )
                   })}
                 </div>
@@ -233,4 +253,4 @@ export function InteractiveQuiz() {
       </div>
     </section>
   )
-} 
+}

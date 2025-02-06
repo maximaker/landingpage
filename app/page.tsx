@@ -23,7 +23,6 @@ import { FinalCTA } from './components/FinalCTA'
 import { OurExpertise } from './components/OurExpertise'
 import { SuccessStoriesSection } from './components/SuccessStoriesSection'
 import { TimelineDemo } from './components/TimelineDemo'
-import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 import { BentoDemo } from './components/BentoDemo'
 
@@ -52,7 +51,7 @@ export default function Page() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground overflow-x-hidden">
-      <main className="flex-1 relative [&>section:nth-child(odd)]:bg-background [&>section:nth-child(even)]:bg-muted md:mb-[34rem] z-20">
+      <main className="flex-1 relative [&>section:nth-child(odd)]:bg-background [&>section:nth-child(even)]:bg-muted z-50">
         <Navigation />
         <Hero />
         <SocialProof />
@@ -75,7 +74,6 @@ export default function Page() {
         <OurExpertise />
         <SuccessStoriesSection />
         <TimelineDemo />
-        <Contact />
         <BentoDemo />
       </main>
       <Footer />

@@ -1,24 +1,24 @@
-import { GithubIcon, TwitterIcon, LinkedinIcon, FacebookIcon } from 'lucide-react'
+import { Twitter, Github, MessageCircle, Linkedin } from 'lucide-react'
 
 export const SOCIAL_LINKS = [
   {
     name: 'Twitter',
-    href: 'https://twitter.com/digitalvitamins',
-    icon: <TwitterIcon className="h-5 w-5" fill="currentColor" />
+    href: 'https://twitter.com',
+    icon: <Twitter className="w-5 h-5" />
   },
   {
     name: 'GitHub',
-    href: 'https://github.com/digitalvitamins',
-    icon: <GithubIcon className="h-5 w-5" fill="currentColor" />
+    href: 'https://github.com',
+    icon: <Github className="w-5 h-5" />
+  },
+  {
+    name: 'Discord',
+    href: 'https://discord.com',
+    icon: <MessageCircle className="w-5 h-5" />
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/company/digitalvitamins',
-    icon: <LinkedinIcon className="h-5 w-5" fill="currentColor" />
-  },
-  {
-    name: 'Facebook',
-    href: 'https://facebook.com/digitalvitamins',
-    icon: <FacebookIcon className="h-5 w-5" fill="currentColor" />
+    href: 'https://linkedin.com',
+    icon: <Linkedin className="w-5 h-5" />
   }
 ]

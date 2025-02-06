@@ -21,15 +21,15 @@ interface Tab {
 
 const ExpertCareIllustration: React.FC = () => (
   <svg className="w-full h-auto transform transition-transform duration-500 group-hover:scale-105" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="400" height="300" className="fill-background transition-colors duration-300"/>
-    <circle cx="200" cy="150" r="80" className="fill-primary/10 transition-colors duration-300"/>
+    <rect width="400" height="300" className="fill-background"/>
+    <circle cx="200" cy="150" r="80" className="fill-primary/10"/>
     <path d="M160 150C160 127.909 177.909 110 200 110C222.091 110 240 127.909 240 150C240 172.091 222.091 190 200 190" 
-      className="stroke-primary transition-colors duration-300" strokeWidth="4" strokeLinecap="round"/>
+      className="stroke-primary" strokeWidth="4" strokeLinecap="round"/>
     <path d="M200 190C177.909 190 160 172.091 160 150" 
-      className="stroke-primary transition-colors duration-300" strokeWidth="4" strokeLinecap="round" strokeDasharray="4 4"/>
-    <circle cx="200" cy="150" r="20" className="fill-primary transition-colors duration-300"/>
+      className="stroke-primary" strokeWidth="4" strokeLinecap="round" strokeDasharray="4 4"/>
+    <circle cx="200" cy="150" r="20" className="fill-primary"/>
     <path d="M190 150L197 157L210 144" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-    <g className="animate-float">
+    <g>
       <circle cx="140" cy="100" r="8" className="fill-primary/20"/>
       <circle cx="260" cy="200" r="12" className="fill-primary/20"/>
       <circle cx="280" cy="120" r="10" className="fill-primary/20"/>
@@ -39,13 +39,13 @@ const ExpertCareIllustration: React.FC = () => (
 
 const TrackRecordIllustration: React.FC = () => (
   <svg className="w-full h-auto transform transition-transform duration-500 group-hover:scale-105" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="400" height="300" className="fill-background transition-colors duration-300"/>
-    <path d="M100 250L180 180L240 220L300 100" className="stroke-primary transition-colors duration-300" strokeWidth="4" strokeLinecap="round"/>
-    <circle cx="180" cy="180" r="8" className="fill-primary transition-colors duration-300"/>
-    <circle cx="240" cy="220" r="8" className="fill-primary transition-colors duration-300"/>
-    <circle cx="300" cy="100" r="8" className="fill-primary transition-colors duration-300"/>
+    <rect width="400" height="300" className="fill-background"/>
+    <path d="M100 250L180 180L240 220L300 100" className="stroke-primary" strokeWidth="4" strokeLinecap="round"/>
+    <circle cx="180" cy="180" r="8" className="fill-primary"/>
+    <circle cx="240" cy="220" r="8" className="fill-primary"/>
+    <circle cx="300" cy="100" r="8" className="fill-primary"/>
     <path d="M90 100L90 250L340 250" stroke="currentColor" strokeWidth="2"/>
-    <g className="animate-float">
+    <g>
       <rect x="140" y="180" width="30" height="60" className="fill-primary/20"/>
       <rect x="180" y="160" width="30" height="80" className="fill-primary/20"/>
       <rect x="220" y="140" width="30" height="100" className="fill-primary/20"/>
@@ -55,15 +55,15 @@ const TrackRecordIllustration: React.FC = () => (
 
 const LongTermSupportIllustration: React.FC = () => (
   <svg className="w-full h-auto transform transition-transform duration-500 group-hover:scale-105" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect width="400" height="300" className="fill-background transition-colors duration-300"/>
-    <circle cx="200" cy="150" r="80" className="fill-primary/10 transition-colors duration-300"/>
-    <path d="M200 90V150L240 190" className="stroke-primary transition-colors duration-300" strokeWidth="4" strokeLinecap="round"/>
+    <rect width="400" height="300" className="fill-background"/>
+    <circle cx="200" cy="150" r="80" className="fill-primary/10"/>
+    <path d="M200 90V150L240 190" className="stroke-primary" strokeWidth="4" strokeLinecap="round"/>
     <circle cx="200" cy="150" r="70" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4"/>
-    <g transform="translate(160,110)" className="animate-pulse">
-      <circle cx="40" cy="40" r="30" fill="none" className="stroke-primary transition-colors duration-300" strokeWidth="4"/>
-      <path d="M25 40L35 50L55 30" className="stroke-primary transition-colors duration-300" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+    <g transform="translate(160,110)">
+      <circle cx="40" cy="40" r="30" fill="none" className="stroke-primary" strokeWidth="4"/>
+      <path d="M25 40L35 50L55 30" className="stroke-primary" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
     </g>
-    <g className="animate-float">
+    <g>
       <circle cx="140" cy="100" r="8" className="fill-primary/20"/>
       <circle cx="260" cy="200" r="12" className="fill-primary/20"/>
       <circle cx="280" cy="120" r="10" className="fill-primary/20"/>
@@ -124,10 +124,7 @@ export function TopReasons() {
   return (
     <section className="py-24 sm:py-32 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/[0.03] via-transparent to-transparent dark:from-primary/[0.02]" />
-        <div className="hero-glow absolute -inset-[10px] opacity-50 bg-gradient-to-r from-transparent via-primary/20 to-transparent dark:from-transparent dark:via-primary/10 dark:to-transparent blur-3xl transition-opacity duration-300" />
-      </div>
+      <div className="absolute inset-0 pointer-events-none"></div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
         <motion.div 
@@ -174,45 +171,40 @@ export function TopReasons() {
               ))}
             </TabsList>
 
-            <div className="rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 p-8 lg:p-16 shadow-sm hover:shadow-lg dark:hover:shadow-primary/5 backdrop-blur-sm transition-all duration-300">
+            <div className="relative rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 p-8 lg:p-16 shadow-sm hover:shadow-lg dark:hover:shadow-primary/5 backdrop-blur-sm transition-all duration-500 group/card overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.02] via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
               {tabs.map((tab) => (
-                <TabsContent key={tab.value} value={tab.value} className="grid place-items-center gap-12 lg:grid-cols-2 lg:gap-16 group">
-                  <div className="flex flex-col gap-6">
-                    <Badge 
-                      variant="secondary" 
-                      className="w-fit px-4 py-2 bg-primary/[0.03] dark:bg-primary/[0.02] text-primary border-primary/20 backdrop-blur-sm"
-                    >
-                      {tab.content.badge}
-                    </Badge>
-                    <h3 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
-                      {tab.content.title}
-                    </h3>
-                    <p className="text-lg text-muted-foreground leading-relaxed">
-                      {tab.content.description}
-                    </p>
-                    <Button 
-                      className="mt-4 w-full sm:w-auto px-6 py-3
-                        bg-primary hover:bg-primary/90 text-primary-foreground
-                        flex items-center justify-center gap-2
-                        transition-all duration-200" 
-                      size="lg"
-                    >
-                      <span>{tab.content.buttonText}</span>
-                      <svg 
-                        className="w-4 h-4" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="2"
+                <TabsContent key={tab.value} value={tab.value} className="grid place-items-center gap-12 lg:grid-cols-2 lg:gap-16 group relative z-10">
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <div className="flex flex-col gap-6 transform transition-transform duration-500 group-hover:translate-x-2">
+                      <Badge 
+                        variant="secondary" 
+                        className="w-fit px-4 py-2 bg-primary/[0.03] dark:bg-primary/[0.02] text-primary border-primary/20 backdrop-blur-sm transform transition-transform duration-300 hover:scale-105"
                       >
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                      </svg>
-                    </Button>
-                  </div>
-                  <div className="w-full max-w-lg">
-                    {tab.value === "expert-care" && <ExpertCareIllustration />}
-                    {tab.value === "track-record" && <TrackRecordIllustration />}
-                    {tab.value === "long-term" && <LongTermSupportIllustration />}
+                        {tab.content.badge}
+                      </Badge>
+                      <h3 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
+                        {tab.content.title}
+                      </h3>
+                      <p className="text-lg text-muted-foreground leading-relaxed">
+                        {tab.content.description}
+                      </p>
+                      <Button 
+                        className="mt-4 w-full sm:w-auto px-6 py-3
+                          bg-primary hover:bg-primary/90 text-primary-foreground"
+                      >
+                        {tab.content.buttonText}
+                      </Button>
+                    </div>
+                  </motion.div>
+                  <div className="relative w-full max-w-lg mx-auto transform transition-transform duration-500 group-hover:translate-x-2">
+                    {tab.value === 'expert-care' && <ExpertCareIllustration />}
+                    {tab.value === 'track-record' && <TrackRecordIllustration />}
+                    {tab.value === 'long-term' && <LongTermSupportIllustration />}
                   </div>
                 </TabsContent>
               ))}
@@ -221,5 +213,5 @@ export function TopReasons() {
         </div>
       </div>
     </section>
-  );
+  )
 }

@@ -1,3 +1,5 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
@@ -114,9 +116,14 @@ export function SuccessStories() {
           <Badge variant="secondary" className="mb-4">
             Success Stories
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
+          <motion.h2 
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-foreground"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             Real Results, Real <span className="text-primary">Growth</span>
-          </h2>
+          </motion.h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover how our digital vitamins have helped companies achieve remarkable transformations.
           </p>
@@ -161,9 +168,12 @@ export function SuccessStories() {
 
                 <div className="grid grid-cols-3 gap-4">
                   {SUCCESS_STORIES[currentStory].results.map((result, index) => (
-                    <div
+                    <motion.div
                       key={index}
                       className="bg-card p-4 rounded-xl border border-border/10"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 }}
                     >
                       <div className="text-primary mb-2">
                         {result.icon}
@@ -174,11 +184,16 @@ export function SuccessStories() {
                       <div className="text-sm text-muted-foreground">
                         {result.metric}
                       </div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
 
-                <blockquote className="relative">
+                <motion.blockquote 
+                  className="relative"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
                   <div className="relative z-10 text-lg italic text-muted-foreground">
                     "{SUCCESS_STORIES[currentStory].testimonial.quote}"
                   </div>
@@ -200,16 +215,21 @@ export function SuccessStories() {
                       </div>
                     </div>
                   </footer>
-                </blockquote>
+                </motion.blockquote>
               </div>
 
               {/* Case Study Image */}
-              <div className="relative aspect-[4/3] bg-muted rounded-2xl overflow-hidden">
+              <motion.div 
+                className="relative aspect-[4/3] bg-muted rounded-2xl overflow-hidden"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >
                 {/* Image placeholder */}
                 <div className="absolute inset-0 bg-primary/5 flex items-center justify-center">
                   <span className="text-primary/20">Image: {SUCCESS_STORIES[currentStory].image}</span>
                 </div>
-              </div>
+              </motion.div>
             </motion.div>
           </AnimatePresence>
 
@@ -238,7 +258,7 @@ export function SuccessStories() {
           {/* Story Progress */}
           <div className="flex justify-center gap-2 mt-6">
             {SUCCESS_STORIES.map((_, index) => (
-              <button
+              <motion.button
                 key={index}
                 onClick={() => {
                   setDirection(index > currentStory ? 1 : -1)
@@ -249,6 +269,8 @@ export function SuccessStories() {
                     ? 'bg-primary w-6'
                     : 'bg-primary/20 hover:bg-primary/40'
                 }`}
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.9 }}
                 aria-label={`Go to case study ${index + 1}`}
               />
             ))}
@@ -267,4 +289,4 @@ export function SuccessStories() {
       </div>
     </section>
   )
-} 
+}

@@ -15,7 +15,7 @@ const features = [
     Icon: EyeIcon,
     name: "Vitamin A: Awareness",
     description: "Diagnose usability issues, uncover opportunities, and set a baseline for growth.",
-    href: "/contact",
+    href: "/products",
     cta: "45% Avg. Improvement",
     background: <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent" />,
     className: "lg:row-start-1 lg:row-end-4 lg:col-start-2 lg:col-end-3",
@@ -24,7 +24,7 @@ const features = [
     Icon: BrainCircuitIcon,
     name: "Vitamin C: Clarity",
     description: "Refine priorities, map user journeys, and align your vision with reality.",
-    href: "/contact",
+    href: "/products",
     cta: "85% Client Satisfaction",
     background: <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-transparent to-transparent" />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
@@ -33,7 +33,7 @@ const features = [
     Icon: RocketIcon,
     name: "Vitamin D: Direction",
     description: "Build scalable roadmaps, create design systems, and structure your product for success.",
-    href: "/contact",
+    href: "/products",
     cta: "3x Faster Development",
     background: <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-transparent" />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
@@ -42,7 +42,7 @@ const features = [
     Icon: ActivityIcon,
     name: "Vitamin E: Execution",
     description: "Deliver high-quality designs, prototypes, and handoffs that bring your ideas to life.",
-    href: "/contact",
+    href: "/products",
     cta: "60% Time Saved",
     background: <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-transparent" />,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
@@ -51,7 +51,7 @@ const features = [
     Icon: LineChartIcon,
     name: "Vitamin K: Continuity",
     description: "Maintain stability with ongoing support, bug fixes, and performance tracking.",
-    href: "/contact",
+    href: "/products",
     cta: "99.9% Uptime",
     background: <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 via-transparent to-transparent" />,
     className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
@@ -60,7 +60,7 @@ const features = [
     Icon: SparklesIcon,
     name: "Vitamin I: Innovation",
     description: "Explore bold ideas, integrate emerging tech, and future-proof your product with cutting-edge solutions.",
-    href: "/contact",
+    href: "/products",
     cta: "90% Success Rate",
     background: <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 via-transparent to-transparent" />,
     className: "lg:col-start-1 lg:col-end-2 lg:row-start-4 lg:row-end-5",
@@ -69,7 +69,7 @@ const features = [
     Icon: HeartPulseIcon,
     name: "Vitamin P: Progress",
     description: "Optimize features, test solutions, and implement engagement strategies for sustained growth.",
-    href: "/contact",
+    href: "/products",
     cta: "2.5x Growth Rate",
     background: <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent" />,
     className: "lg:col-start-2 lg:col-end-4 lg:row-start-4 lg:row-end-5",
@@ -96,4 +96,4 @@ export function BentoDemo() {
       </div>
     </section>
   );
-} 
+}

@@ -1,3 +1,5 @@
+"use client"
+
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -89,10 +91,7 @@ export function BlogResources() {
   return (
     <section className="py-24 sm:py-32 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/[0.03] via-transparent to-transparent dark:from-primary/[0.02]" />
-        <div className="hero-glow absolute -inset-[10px] opacity-50 bg-gradient-to-r from-transparent via-primary/20 to-transparent dark:from-transparent dark:via-primary/10 dark:to-transparent blur-3xl transition-opacity duration-300" />
-      </div>
+      <div className="absolute inset-0 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
         <div className="text-center mb-16">
@@ -204,8 +203,38 @@ export function BlogResources() {
                   className="group relative bg-card/50 dark:bg-card/40 hover:bg-card/80 rounded-2xl overflow-hidden border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/5"
                 >
                   <div className="aspect-[16/9] bg-primary/[0.03] dark:bg-primary/[0.02] group-hover:bg-primary/[0.05] dark:group-hover:bg-primary/[0.03] transition-colors duration-200">
-                    <div className="w-full h-full flex items-center justify-center backdrop-blur-sm">
-                      <span className="text-primary/20">Image: {post.image}</span>
+                    <div className="w-full h-full flex items-center justify-center p-8">
+                      {post.category === 'Analytics' && (
+                        <svg className="w-full h-full text-primary/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M8 16V8M12 16V4M16 16v-4" strokeLinecap="round" strokeLinejoin="round"/>
+                          <rect x="3" y="3" width="18" height="18" rx="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      )}
+                      {post.category === 'Development' && (
+                        <svg className="w-full h-full text-primary/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      )}
+                      {post.category === 'Design' && (
+                        <svg className="w-full h-full text-primary/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M12 19l7-7 3 3-7 7-3-3z" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M2 2l7.586 7.586" strokeLinecap="round" strokeLinejoin="round"/>
+                          <circle cx="11" cy="11" r="2" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      )}
+                      {post.category === 'Security' && (
+                        <svg className="w-full h-full text-primary/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M12 2L2 7v6c0 5.523 4.477 10 10 10s10-4.477 10-10V7L12 2z" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M12 22c-2.667-2-4-4.667-4-8 0-3.333 1.333-6 4-8 2.667 2 4 4.667 4 8 0 3.333-1.333 6-4 8z" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      )}
+                      {post.category === 'All' && (
+                        <svg className="w-full h-full text-primary/20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <circle cx="12" cy="12" r="10" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M12 16v-4M12 8h.01" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      )}
                     </div>
                   </div>
                   <div className="p-6 lg:p-8">

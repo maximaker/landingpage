@@ -1,14 +1,13 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { DigitalMagicIllustrations } from './assets/svgs/digital-magic-illustrations'
+import { AwardIllustrations } from './assets/svgs/award-illustrations'
 
 export function DigitalMagic() {
   return (
     <section className="py-24 sm:py-32 relative overflow-hidden">
       {/* Background decorations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/[0.03] via-transparent to-transparent dark:from-primary/[0.02]" />
-        <div className="hero-glow absolute -inset-[10px] opacity-50 bg-gradient-to-r from-transparent via-primary/20 to-transparent dark:from-transparent dark:via-primary/10 dark:to-transparent blur-3xl transition-opacity duration-300" />
-      </div>
+      <div className="absolute inset-0 pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16">
@@ -42,16 +41,20 @@ export function DigitalMagic() {
             </Button>
 
             <div className="flex flex-wrap items-center gap-6 lg:gap-8 mt-12 lg:mt-16">
-              {['Award 1', 'Award 2', 'Award 3'].map((award, index) => (
+              {[
+                { name: 'Innovation Award', Icon: AwardIllustrations.Innovation },
+                { name: 'Excellence Award', Icon: AwardIllustrations.Excellence },
+                { name: 'Impact Award', Icon: AwardIllustrations.Impact }
+              ].map(({ name, Icon }, index) => (
                 <div 
                   key={index} 
                   className="flex items-center gap-4 group transition-colors duration-200"
                 >
-                  <div className="w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-card/50 dark:bg-card/40 border border-border backdrop-blur-sm flex items-center justify-center transition-colors duration-200 group-hover:border-primary/20">
-                    <div className="w-5 lg:w-6 h-5 lg:h-6 bg-primary rounded-full"></div>
+                  <div className="w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-card/50 dark:bg-card/40 border border-border backdrop-blur-sm flex items-center justify-center transition-colors duration-200 group-hover:border-primary/20 text-primary/50 group-hover:text-primary/70">
+                    <Icon />
                   </div>
                   <div className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-200">
-                    {award}
+                    {name}
                   </div>
                 </div>
               ))}
@@ -60,12 +63,20 @@ export function DigitalMagic() {
 
           <div className="relative grid grid-cols-2 gap-3 sm:gap-4 mt-8 lg:mt-0">
             <div className="space-y-3 sm:space-y-4">
-              <div className="bg-card/50 dark:bg-card/40 h-32 sm:h-40 lg:h-48 rounded-2xl border border-border backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-primary/20"></div>
-              <div className="bg-card/50 dark:bg-card/40 h-24 sm:h-28 lg:h-32 rounded-2xl border border-border backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-primary/20"></div>
+              <div className="bg-card/50 dark:bg-card/40 p-6 rounded-2xl border border-border backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-primary/20 text-primary/50 hover:text-primary/70">
+                <DigitalMagicIllustrations.CreativeProcess />
+              </div>
+              <div className="bg-card/50 dark:bg-card/40 p-6 rounded-2xl border border-border backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-primary/20 text-primary/50 hover:text-primary/70">
+                <DigitalMagicIllustrations.DataVisualization />
+              </div>
             </div>
             <div className="space-y-3 sm:space-y-4 pt-6 sm:pt-8">
-              <div className="bg-card/50 dark:bg-card/40 h-24 sm:h-28 lg:h-32 rounded-2xl border border-border backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-primary/20"></div>
-              <div className="bg-card/50 dark:bg-card/40 h-32 sm:h-40 lg:h-48 rounded-2xl border border-border backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-primary/20"></div>
+              <div className="bg-card/50 dark:bg-card/40 p-6 rounded-2xl border border-border backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-primary/20 text-primary/50 hover:text-primary/70">
+                <DigitalMagicIllustrations.InnovationConcept />
+              </div>
+              <div className="bg-card/50 dark:bg-card/40 p-6 rounded-2xl border border-border backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:border-primary/20 text-primary/50 hover:text-primary/70">
+                <DigitalMagicIllustrations.TechnologyFlow />
+              </div>
             </div>
           </div>
         </div>

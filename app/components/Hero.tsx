@@ -12,11 +12,7 @@ export function Hero() {
   return (
     <section className="relative min-h-[100vh] flex items-center justify-center py-20 sm:py-24 lg:py-32 px-4 sm:px-6 overflow-hidden bg-background">
       {/* Background decorations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/[0.02] via-transparent to-transparent dark:from-primary/[0.01]" />
-        <div className="absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/[0.02] dark:bg-primary/[0.01] rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-primary/[0.02] dark:bg-primary/[0.01] rounded-full blur-3xl" />
-      </div>
+      <div className="absolute inset-0 pointer-events-none"></div>
 
       <div className="max-w-[1200px] mx-auto relative">
         <div className="text-center space-y-8 sm:space-y-10">
