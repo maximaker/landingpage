@@ -62,13 +62,13 @@ export function Footer() {
   }
 
   return (
-    <footer className="relative bg-card dark:bg-card/95 text-foreground dark:text-foreground dark:bg-card/95 text-foreground dark:text-foreground z-10">
+    <footer className="relative bg-card dark:bg-card/95 text-foreground dark:text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Section with Logo and Description */}
         <div className="pt-16 pb-12 border-b border-border dark:border-border/10">
           <div className="flex flex-col md:flex-row justify-between items-start gap-8">
             <div className="max-w-sm">
-              <Link href="/" className="inline-block touch-manipulation">
+              <Link href="/" className="inline-block">
                 <Logo />
               </Link>
               <p className="mt-6 text-sm leading-6 text-muted-foreground dark:text-muted-foreground">
@@ -79,7 +79,7 @@ export function Footer() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="text-muted-foreground hover:text-primary transition-colors p-3 hover:bg-muted/80 dark:hover:bg-muted/20 rounded-full touch-manipulation"
+                    className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-muted/80 dark:hover:bg-muted/20 rounded-full"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -165,7 +165,7 @@ export function Footer() {
           <div className="my-8" />
 
           {/* Middle Section with Newsletter */}
-          <div className="mb-4 pb-4 relative z-20">
+          <div className="mb-4 pb-4">
             <div className="bg-muted/50 dark:bg-muted/20 rounded-2xl p-4 sm:p-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 items-start sm:items-center">
                 <div>
@@ -174,7 +174,7 @@ export function Footer() {
                     Get the latest updates and insights delivered to your inbox.
                   </p>
                 </div>
-                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 relative z-30" aria-labelledby="newsletter-heading">
+                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3" aria-labelledby="newsletter-heading">
                   <div className="relative flex-1">
                     <label htmlFor="email-address" className="sr-only">
                       Email address
@@ -194,7 +194,7 @@ export function Footer() {
                   </div>
                   <button
                     type="submit"
-                    className="h-11 px-6 rounded-lg bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors touch-manipulation"
+                    className="h-11 px-6 rounded-lg bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-colors"
                     aria-label="Subscribe to newsletter"
                   >
                     Subscribe
@@ -208,26 +208,26 @@ export function Footer() {
           <div className="py-1">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {/* Company Links */}
-              <div className="space-y-4">
+              <div>
                 <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Company</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       About Us
                     </Link>
                   </li>
                   <li>
-                    <Link href="/careers" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/careers" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Careers
                     </Link>
                   </li>
                   <li>
-                    <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Blog
                     </Link>
                   </li>
                   <li>
-                    <Link href="/press" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/press" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Press
                     </Link>
                   </li>
@@ -239,22 +239,22 @@ export function Footer() {
                 <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Services</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/services/consulting" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/services/consulting" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Consulting
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/development" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/services/development" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Development
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/design" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/services/design" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Design
                     </Link>
                   </li>
                   <li>
-                    <Link href="/services/analytics" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/services/analytics" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Analytics
                     </Link>
                   </li>
@@ -266,22 +266,22 @@ export function Footer() {
                 <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Products</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/products/vitamin-a" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/products/vitamin-a" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Vitamin A
                     </Link>
                   </li>
                   <li>
-                    <Link href="/products/vitamin-b" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/products/vitamin-b" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Vitamin B
                     </Link>
                   </li>
                   <li>
-                    <Link href="/products/vitamin-c" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/products/vitamin-c" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Vitamin C
                     </Link>
                   </li>
                   <li>
-                    <Link href="/products/vitamin-d" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/products/vitamin-d" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Vitamin D
                     </Link>
                   </li>
@@ -293,22 +293,22 @@ export function Footer() {
                 <h3 className="text-sm font-semibold text-primary uppercase tracking-wider mb-4">Resources</h3>
                 <ul className="space-y-3">
                   <li>
-                    <Link href="/resources/documentation" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/resources/documentation" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Documentation
                     </Link>
                   </li>
                   <li>
-                    <Link href="/resources/guides" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/resources/guides" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Guides
                     </Link>
                   </li>
                   <li>
-                    <Link href="/resources/case-studies" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/resources/case-studies" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Case Studies
                     </Link>
                   </li>
                   <li>
-                    <Link href="/resources/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors block py-2 touch-manipulation">
+                    <Link href="/resources/support" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       Support
                     </Link>
                   </li>
@@ -325,14 +325,14 @@ export function Footer() {
               <p className="text-sm text-muted-foreground">© {currentYear} Digital Vitamins. All rights reserved.</p>
               <div className="flex items-center">
                 <div className="hidden md:block w-1 h-1 mx-4 bg-border dark:bg-border/50 rounded-full"></div>
-                <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
-                  <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors touch-manipulation py-2">
+                <div className="flex space-x-6">
+                  <Link href="/privacy" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     Privacy Policy
                   </Link>
-                  <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors touch-manipulation py-2">
+                  <Link href="/terms" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     Terms of Service
                   </Link>
-                  <Link href="/cookies" className="text-sm text-muted-foreground hover:text-foreground transition-colors touch-manipulation py-2">
+                  <Link href="/cookies" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                     Cookie Settings
                   </Link>
                 </div>
