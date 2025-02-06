@@ -4,6 +4,8 @@ import Link from 'next/link'
 import { Logo } from '@/components/ui/logo'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
+import { TimezoneSelector } from '@/components/ui/timezone-selector'
+import { CurrencySelector } from '@/components/ui/currency-selector'
 import { useState } from 'react'
 import { SOCIAL_LINKS } from '@/config/social-links'
 import { FOOTER_LINKS } from '@/config/footer-links'
@@ -13,25 +15,28 @@ export function Footer() {
   const [email, setEmail] = useState('')
 
   const formatTimeToLocal = (hour: number, includeTimeZone: boolean = false) => {
+    const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
     const date = new Date()
-    date.setUTCHours(hour, 0, 0, 0)
-    return new Intl.DateTimeFormat(undefined, {
+    const utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), hour))
+    const options: Intl.DateTimeFormatOptions = {
       hour: '2-digit',
       minute: '2-digit',
       hour12: false,
-      timeZoneName: includeTimeZone ? 'short' : undefined
-    }).format(date)
+      timeZone: userTimezone,
+      timeZoneName: includeTimeZone ? 'shortOffset' : undefined
+    }
+    return new Intl.DateTimeFormat(undefined, options).format(utcDate)
   }
 
-  const getCountryFlag = () => {
-    try {
-      const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
-      const locale = navigator.language
-      const regionCode = new Intl.Locale(locale).maximize().region
-      return regionCode ? String.fromCodePoint(...[...regionCode].map(c => c.charCodeAt(0) + 127397)) : '🌐'
-    } catch (e) {
-      return '🌐'
+  const getTimezone = () => {
+    const date = new Date()
+    const options: Intl.DateTimeFormatOptions = {
+      timeZoneName: 'shortOffset',
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
     }
+    return new Intl.DateTimeFormat(undefined, options)
+      .formatToParts(date)
+      .find(part => part.type === 'timeZoneName')?.value || ''
   }
 
   const businessHours = {
@@ -40,15 +45,20 @@ export function Footer() {
   }
 
   const isBusinessHours = () => {
+    const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
     const now = new Date()
+    const utcNow = new Date(now.toLocaleString('en-US', { timeZone: 'UTC' }))
+    const localNow = new Date(now.toLocaleString('en-US', { timeZone: userTimezone }))
+    
+    const utcOffset = (localNow.getTime() - utcNow.getTime()) / (1000 * 60 * 60)
     const currentHour = now.getHours()
     const currentMinutes = now.getMinutes()
     const currentTime = currentHour * 60 + currentMinutes
 
     const [startHour, startMinutes] = businessHours.start.split(':').map(Number)
     const [endHour, endMinutes] = businessHours.end.split(':').map(Number)
-    const startTime = startHour * 60 + startMinutes
-    const endTime = endHour * 60 + endMinutes
+    const startTime = (startHour + utcOffset) * 60 + startMinutes
+    const endTime = (endHour + utcOffset) * 60 + endMinutes
 
     const day = now.getDay()
     return day >= 1 && day <= 5 && currentTime >= startTime && currentTime < endTime
@@ -67,7 +77,7 @@ export function Footer() {
         {/* Top Section with Logo and Description */}
         <div className="pt-16 pb-12 border-b border-border dark:border-border/10">
           <div className="flex flex-col md:flex-row justify-between items-start gap-8">
-            <div className="max-w-sm">
+            <div className="w-full md:w-1/2 max-w-none md:max-w-none">
               <Link href="/" className="inline-block">
                 <Logo />
               </Link>
@@ -90,7 +100,7 @@ export function Footer() {
               </div>
             </div>
             {/* Contact Details & Business Hours */}
-            <div>
+            <div className="w-full md:w-1/2">
               <h3 className="text-sm font-semibold text-primary uppercase tracking-wider">Contact & Hours</h3>
               <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Contact Information */}
@@ -134,15 +144,12 @@ export function Footer() {
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm items-center">
                       <span className="text-muted-foreground">Monday - Friday</span>
-                      <div className="flex items-center gap-2">
-                        <div className="flex items-center gap-1.5">
-                          <div className={`w-2 h-2 rounded-full ${isBusinessHours() ? 'bg-green-500' : 'bg-red-500'}`} />
-                          <span className="text-xs text-muted-foreground">
-                            {isBusinessHours() ? 'Available' : 'Closed'}
-                          </span>
-                        </div>
+                      <div className="flex items-center gap-1">
                         <span className="text-foreground font-medium">
-                          {formatTimeToLocal(9, false)} - {formatTimeToLocal(19, true)} {getCountryFlag()}
+                          {formatTimeToLocal(9, false)} - {formatTimeToLocal(19, false)}
+                        </span>
+                        <span className="text-muted-foreground text-xs">
+                          {getTimezone()}
                         </span>
                       </div>
                     </div>
@@ -151,8 +158,11 @@ export function Footer() {
                       <span className="text-foreground font-medium">Closed</span>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground mt-3">
-                    Our support team is available during business hours to assist you.
+                  <p className="text-sm text-muted-foreground mt-3 flex items-center gap-2">
+                    We're currently:
+                    <span className={`px-2 py-0.5 text-xs font-medium rounded-full ${isBusinessHours() ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400' : 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400'}`}>
+                      {isBusinessHours() ? 'OPEN' : 'CLOSED'}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -338,10 +348,24 @@ export function Footer() {
                 </div>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <LanguageSwitcher />
-              <div className="w-px h-4 bg-border dark:bg-border/50"></div>
-              <ThemeToggle />
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-4">
+              <div className="grid grid-cols-2 sm:flex sm:flex-row gap-4 w-full sm:w-auto items-center justify-center">
+                <div className="flex justify-center">
+                  <TimezoneSelector />
+                </div>
+                <div className="flex justify-center">
+                  <CurrencySelector />
+                </div>
+                <div className="hidden sm:block w-px h-4 bg-border dark:bg-border/50"></div>
+              </div>
+              <div className="grid grid-cols-2 sm:flex items-center gap-4 w-full sm:w-auto justify-center">
+                <div className="flex justify-center">
+                  <LanguageSwitcher />
+                </div>
+                <div className="flex justify-center">
+                  <ThemeToggle />
+                </div>
+              </div>
             </div>
           </div>
         </div>
