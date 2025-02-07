@@ -3,7 +3,11 @@ import { Footer } from "@/components/Footer"
 import { InteractiveQuiz } from "@/components/InteractiveQuiz"
 import { ProblemSolution } from "@/components/ProblemSolution"
 import { SuccessStories } from "@/components/SuccessStories"
-import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { BentoDemo } from "@/components/BentoDemo"
+import { ServicesOverview } from "@/components/ServicesOverview"
+import { ScrollToQuizButton } from "@/components/ScrollToQuizButton"
+import { ServiceButtons, ServiceCTAButtons } from "@/components/ui/service-buttons"
 
 export default function ServicesPage() {
   return (
@@ -17,78 +21,86 @@ export default function ServicesPage() {
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative">
+          <Badge 
+            variant="secondary" 
+            className="mb-8 px-4 py-2 text-base bg-primary/[0.03] dark:bg-primary/[0.02] text-primary border-primary/20 backdrop-blur-sm"
+          >
+            The Vitamin Cabinet
+          </Badge>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
-            Transform Your Digital <span className="text-primary">Presence</span>
+            Find the perfect prescription for your product's <span className="text-primary">success</span>
           </h1>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
-            Elevate your product's performance with our comprehensive suite of digital solutions tailored to your unique needs.
+            Every product needs the right treatment to thrive. Whether you're diagnosing issues, refining strategy, 
+            or scaling for the future, our vitamins (services) are designed to deliver results.
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            Explore Our Services
-          </Button>
+          <ServiceButtons />
         </div>
       </section>
 
-      {/* Service Categories */}
-      <section className="py-20 bg-muted/50">
+      {/* Service Categories - The Vitamin Grid */}
+      <ServicesOverview />
+
+      {/* How to Choose Section */}
+      <section className="py-24 bg-muted/50" id="quiz-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Core Services</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Choose the perfect solution for your digital needs</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Not sure what your product needs?</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Let's find the right vitamins for your product's health.</p>
+          </div>
+          <InteractiveQuiz />
+        </div>
+      </section>
+
+      {/* Success Stories Section */}
+      <SuccessStories />
+
+      {/* Process Section */}
+      <section className="py-24 bg-muted/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">How we turn challenges into scalable solutions</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Our process is designed to be simple, strategic, and results-driven.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Digital Strategy",
-                description: "Strategic planning and roadmap development for your digital transformation journey",
-                icon: "🎯"
+                step: "1",
+                title: "Diagnosis & Strategy",
+                description: "We analyze your product's needs, identify gaps, and create a customized roadmap."
               },
               {
-                title: "UX/UI Design",
-                description: "User-centered design solutions that create engaging and intuitive experiences",
-                icon: "🎨"
+                step: "2",
+                title: "Treatment & Execution",
+                description: "From design improvements to full-scale implementations, we put the strategy into action."
               },
               {
-                title: "Development",
-                description: "Full-stack development services using cutting-edge technologies",
-                icon: "💻"
-              },
-              {
-                title: "Digital Marketing",
-                description: "Data-driven marketing strategies to grow your digital presence",
-                icon: "📈"
-              },
-              {
-                title: "Content Creation",
-                description: "Compelling content that tells your story and engages your audience",
-                icon: "✍️"
-              },
-              {
-                title: "Analytics & Insights",
-                description: "Deep insights and analytics to measure and optimize performance",
-                icon: "📊"
+                step: "3",
+                title: "Optimization & Growth",
+                description: "We track performance, measure impact, and refine strategies for sustained success."
               }
-            ].map((service, index) => (
-              <div key={index} className="group relative bg-background hover:bg-muted p-8 rounded-2xl transition-all duration-300 hover:shadow-lg">
-                <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
-                <p className="text-muted-foreground">{service.description}</p>
-                <div className="absolute bottom-8 left-8 right-8 h-1 bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 rounded-full" />
+            ].map((step, index) => (
+              <div key={index} className="relative p-8 bg-background rounded-2xl border border-border hover:border-primary/20 transition-all duration-300">
+                <div className="text-4xl font-bold text-primary mb-4">Step {step.step}</div>
+                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                <p className="text-muted-foreground">{step.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Problem Solution Section */}
-      <ProblemSolution />
-
-      {/* Interactive Quiz Section */}
-      <InteractiveQuiz />
-
-      {/* Success Stories Section */}
-      <SuccessStories />
+      {/* Final CTA Section */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Let's build a healthier, more scalable product together</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+            Your product deserves expert care. Let's discuss how we can help you refine, optimize, and scale for long-term success.
+          </p>
+          <ServiceCTAButtons />
+        </div>
+      </section>
 
       <Footer />
     </main>

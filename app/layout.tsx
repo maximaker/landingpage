@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from './providers/theme-provider'
 import { LanguageProvider } from './providers/language-provider'
+import { MobileMenu } from './components/MobileMenu'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -51,6 +52,13 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <LanguageProvider>
             {children}
+            <MobileMenu items={[
+              { label: 'About', href: '/about' },
+              { label: 'Services', href: '/services' },
+              { label: 'Products', href: '/products' },
+              { label: 'Resources', href: '/resources' },
+              { label: 'Contact', href: '/contact' }
+            ]} />
           </LanguageProvider>
         </ThemeProvider>
       </body>
