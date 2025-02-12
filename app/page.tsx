@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from "react"
-import { Navigation } from './components/Navigation'
+import { Navigation } from './components/Header'
 import { Hero } from './components/Hero'
 import { SocialProof } from './components/SocialProof'
 import { ProblemSolution } from './components/ProblemSolution'

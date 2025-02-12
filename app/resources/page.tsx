@@ -1,6 +1,6 @@
 'use client'
 
-import { Navigation } from "@/components/Navigation"
+import { Navigation } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { BlogResources } from "@/components/BlogResources"
 import { EducationalContent } from "@/components/EducationalContent"

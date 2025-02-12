@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/Navigation"
+import { Navigation } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { Timeline } from "@/components/ui/timeline"
 import { OurExpertise } from "@/components/OurExpertise"
