@@ -1,6 +1,6 @@
 import { Badge } from '@/components/ui/badge'
 import { Marquee } from '@/components/ui/marquee'
-import { CompanyLogos, AwardLogos, PressLogos, PartnerLogos } from './assets/svgs'
+import { CompanyLogos, AwardLogos, PressLogos, PartnerLogos } from '@/components/assets/svgs'
 
 const COMPANY_LOGOS = [
   { name: 'TechCorp', Logo: CompanyLogos.TechCorp },
