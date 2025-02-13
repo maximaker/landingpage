@@ -1,7 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-import { CompanyLogos, AwardLogos, PressLogos, PartnerLogos, IntegrationLogos } from './assets/svgs'
+import { CompanyLogos, AwardLogos, PressLogos, PartnerLogos, IntegrationLogos } from '@/components/assets/svgs'
 
 const CASE_STUDIES = [
   {
