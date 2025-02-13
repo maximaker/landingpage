@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { usePathname } from 'next/navigation'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
-import { MobileNavigation } from './MobileNavigation'
+import { MobileMenu } from './MobileMenu'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
 
 const menuItems = [
