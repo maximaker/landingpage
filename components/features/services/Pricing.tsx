@@ -6,7 +6,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "../components/ui/accordion"
+} from "@/components/ui/accordion"
 import { useState } from 'react'
 
 const PRICING_PLANS = [

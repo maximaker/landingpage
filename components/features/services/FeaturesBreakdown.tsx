@@ -343,7 +343,7 @@ export function FeaturesBreakdown() {
                 {ANALYTICS_INTEGRATIONS.map(({ name, Logo }) => (
                   <div key={name} className="flex items-center space-x-4 group">
                     <div className="text-muted-foreground/50 transition-colors duration-200 group-hover:text-primary/70">
-                      <Logo />
+                      {Logo}
                     </div>
                     <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">{name}</span>
                   </div>
@@ -358,7 +358,7 @@ export function FeaturesBreakdown() {
                 {PAYMENT_INTEGRATIONS.map(({ name, Logo }) => (
                   <div key={name} className="flex items-center space-x-4 group">
                     <div className="text-muted-foreground/50 transition-colors duration-200 group-hover:text-primary/70">
-                      <Logo />
+                      {Logo}
                     </div>
                     <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">{name}</span>
                   </div>
@@ -373,7 +373,7 @@ export function FeaturesBreakdown() {
                 {COMMUNICATION_INTEGRATIONS.map(({ name, Logo }) => (
                   <div key={name} className="flex items-center space-x-4 group">
                     <div className="text-muted-foreground/50 transition-colors duration-200 group-hover:text-primary/70">
-                      <Logo />
+                      {Logo}
                     </div>
                     <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">{name}</span>
                   </div>
