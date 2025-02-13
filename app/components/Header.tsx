@@ -46,19 +46,19 @@ export function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transform transition-all duration-300`}
+      className={`fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 ${isScrollingDown ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
     >
-      <div className={`transition-all duration-300 ${isScrolled ? 'bg-background/60 backdrop-blur-lg text-foreground h-16 sm:h-20' : 'bg-transparent text-foreground h-16 sm:h-20'}`}>
+      <div className={`transition-all duration-300 ${isScrolled ? 'bg-gradient-to-b from-background to-transparent md:bg-background/60 md:backdrop-blur-lg text-foreground h-16 sm:h-20' : 'bg-gradient-to-b from-background to-transparent md:bg-transparent text-foreground h-16 sm:h-20'}`}>
         <div className="max-w-7xl mx-auto">
           {/* Header Bar */}
-          <div className={`flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 ${isScrolled ? 'border-b border-border/10' : ''}`}>
+          <div className={`flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 ${isScrolled ? 'md:border-b md:border-border/10' : ''}`}>
             {/* Logo */}
             <Link 
               href="/" 
-              className="flex-shrink-0 transition-transform hover:scale-105 focus:scale-105 focus:outline-none md:flex-grow-0 flex-grow text-center"
+              className="flex sm:flex flex-shrink-0 transition-transform hover:scale-105 focus:scale-105 focus:outline-none md:flex-grow-0 flex-grow text-center justify-center sm:justify-start"
               aria-label="Digital Vitamins Home"
             >
-              <Logo className="transition-colors duration-200 mx-auto" />
+              <Logo className="transition-colors duration-200" />
             </Link>
 
             {/* Desktop Navigation */}
