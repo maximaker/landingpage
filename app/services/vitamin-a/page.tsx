@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { TimelineDemo } from "@/components/TimelineDemo"
 import Link from "next/link"
 import { LineChart, Search, Target, Zap } from "lucide-react"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 
 const FEATURES = [
   {
@@ -63,6 +63,30 @@ export default function VitaminAPage() {
   const [strategyHoveredIndex, setStrategyHoveredIndex] = useState<number>(0)
   const [implementationHoveredIndex, setImplementationHoveredIndex] = useState<number | null>(null)
   const [optimizationHoveredIndex, setOptimizationHoveredIndex] = useState<number>(0)
+  const [scrollProgress, setScrollProgress] = useState(0)
+  
+  const scrollSectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!scrollSectionRef.current) return
+
+      const rect = scrollSectionRef.current.getBoundingClientRect()
+      const scrollableHeight = scrollSectionRef.current.offsetHeight - window.innerHeight
+      const scrollPosition = window.scrollY - (rect.top + window.scrollY)
+      const progress = Math.max(0, Math.min(1, scrollPosition / scrollableHeight))
+      
+      // Ease the scroll progress for smoother animation
+      const easedProgress = progress < 0.5 
+        ? 2 * progress * progress // Ease in
+        : -1 + (4 - 2 * progress) * progress // Ease out
+      
+      setScrollProgress(easedProgress)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <main className="flex-1 pt-16 sm:pt-20">
@@ -499,6 +523,105 @@ export default function VitaminAPage() {
                   </div>
                 )
               })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Scroll-Driven Cards Section */}
+      <section ref={scrollSectionRef} className="relative h-[200vh]">
+        {/* Sticky Container */}
+        <div className="sticky top-0 h-screen flex items-center overflow-hidden">
+          {/* Content Container */}
+          <div className="relative w-full">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6">
+              <div className="text-center mb-16">
+                <h2 className="text-3xl font-bold mb-4">Success Stories</h2>
+                <p className="text-lg text-muted-foreground">Real results from real products</p>
+              </div>
+
+              {/* Cards Container */}
+              <div className="relative overflow-hidden">
+                <div 
+                  className="flex transition-transform duration-1000 ease-out will-change-transform"
+                  style={{
+                    transform: `translateX(${Math.min(0, Math.max(-75, -(scrollProgress * 100)))}%)`,
+                    width: 'fit-content',
+                    gap: '2rem',
+                    paddingRight: '8rem'
+                  }}
+                >
+                  {[
+                    {
+                      title: "HealthTech Pioneer",
+                      metric: "+150%",
+                      description: "User engagement increase after implementing our recommendations",
+                      color: "text-blue-500"
+                    },
+                    {
+                      title: "E-commerce Leader",
+                      metric: "3x",
+                      description: "Revenue growth through optimized conversion funnels",
+                      color: "text-green-500"
+                    },
+                    {
+                      title: "SaaS Platform",
+                      metric: "-40%",
+                      description: "Reduction in customer churn rate within 6 months",
+                      color: "text-purple-500"
+                    },
+                    {
+                      title: "FinTech App",
+                      metric: "2.5x",
+                      description: "Increase in user acquisition after UX improvements",
+                      color: "text-amber-500"
+                    },
+                    {
+                      title: "EdTech Solution",
+                      metric: "95%",
+                      description: "Student satisfaction rate after platform optimization",
+                      color: "text-pink-500"
+                    },
+                    {
+                      title: "B2B Platform",
+                      metric: "+200%",
+                      description: "Growth in enterprise client base post-implementation",
+                      color: "text-indigo-500"
+                    },
+                    {
+                      title: "Mobile App",
+                      metric: "4.8",
+                      description: "App store rating after comprehensive UX overhaul",
+                      color: "text-cyan-500"
+                    }
+                  ].map((card, index) => (
+                    <div
+                      key={index}
+                      className="flex-shrink-0 w-[calc((100vw-8rem)/3.5)] max-w-[400px] bg-background border border-border rounded-2xl overflow-hidden hover:border-primary/20 hover:shadow-lg transition-all duration-300"
+                    >
+                      <div className="p-12">
+                        <div className={`text-6xl font-bold mb-8 ${card.color} text-transparent [-webkit-text-stroke:0.5px_white]`}>
+                          {card.metric}
+                        </div>
+                        <h3 className="text-2xl font-semibold mb-6">
+                          {card.title}
+                        </h3>
+                        <p className="text-lg text-muted-foreground leading-relaxed">
+                          {card.description}
+                        </p>
+                        <div className="mt-12 pt-12 border-t border-border">
+                          <div className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+                            <span className="text-sm font-medium">Read case study</span>
+                            <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>

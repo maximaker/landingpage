@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
 import { MobileMenu } from './MobileMenu'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, Clock } from 'lucide-react'
 
 const serviceItems = [
   { 
@@ -57,7 +57,34 @@ const serviceItems = [
 ]
 
 const menuItems = [
-  { label: 'About', href: '/about' },
+  { 
+    label: 'About', 
+    href: '/about',
+    children: [
+      {
+        label: 'Overview',
+        href: '/about',
+        description: 'Learn about our mission, values, and team',
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        )
+      },
+      {
+        label: 'Availability',
+        href: '/about/availability',
+        description: 'Check our current project capacity and availability',
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z" />
+            <path d="M12 6v6l4 2" />
+          </svg>
+        )
+      }
+    ]
+  },
   { 
     label: 'Services', 
     href: '/services',
@@ -71,12 +98,35 @@ const menuItems = [
 export function Navigation() {
   const [mounted, setMounted] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isBusinessHours, setIsBusinessHours] = useState(false)
   const pathname = usePathname()
   const isScrollingDown = useScrollDirection()
 
   // Handle mounting state
   useEffect(() => {
     setMounted(true)
+  }, [])
+
+  // Handle business hours check
+  useEffect(() => {
+    const checkBusinessHours = () => {
+      const now = new Date()
+      const day = now.getDay()
+      const hour = now.getHours()
+      const minutes = now.getMinutes()
+      const currentTime = hour * 60 + minutes
+
+      // Business hours: Monday-Friday, 9:00-19:00
+      const isWorkday = day >= 1 && day <= 5
+      const isWorktime = currentTime >= 9 * 60 && currentTime < 19 * 60
+
+      setIsBusinessHours(isWorkday && isWorktime)
+    }
+
+    checkBusinessHours() // Initial check
+    const interval = setInterval(checkBusinessHours, 60000) // Check every minute
+    
+    return () => clearInterval(interval)
   }, [])
 
   // Handle scroll state
@@ -99,6 +149,37 @@ export function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 ${isScrollingDown ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
     >
+      {/* Availability Bar */}
+      <div className="h-8 bg-background/95 backdrop-blur-sm border-b border-border/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full">
+          <div className="flex items-center justify-between h-full">
+            <div className="flex items-center text-sm text-muted-foreground/50">
+              <Link 
+                href="/about/availability"
+                className="flex items-center gap-2 group hover:text-muted-foreground transition-all duration-200"
+              >
+                <div className="relative flex items-center w-5 h-5 transition-transform duration-300 group-hover:scale-125">
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-green-500" />
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-40 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-25 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite_1.3s]" />
+                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-15 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite_2.6s]" />
+                </div>
+                <span>Available for projects</span>
+              </Link>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="transform origin-center scale-[0.8] hover:scale-[0.85] transition-transform">
+                <ThemeToggle />
+              </div>
+              <div className="w-px h-4 bg-border/50" />
+              <div className="transform origin-center scale-[0.8] hover:scale-[0.85] transition-transform">
+                <LanguageSwitcher />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className={`transition-all duration-300 ${isScrolled ? 'bg-gradient-to-b from-background to-transparent md:bg-background/60 md:backdrop-blur-lg text-foreground h-16 sm:h-20' : 'bg-gradient-to-b from-background to-transparent md:bg-transparent text-foreground h-16 sm:h-20'}`}>
         <div className="max-w-7xl mx-auto">
           {/* Header Bar */}
@@ -169,8 +250,6 @@ export function Navigation() {
                   </Link>
                 )
               })}
-              <ThemeToggle />
-              <LanguageSwitcher />
             </nav>
           </div>
         </div>
@@ -181,3 +260,18 @@ export function Navigation() {
     </header>
   )
 }
+
+<style jsx global>{`
+  @keyframes wave {
+    0% {
+      width: 2px;
+      height: 2px;
+      opacity: 0.4;
+    }
+    100% {
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+    }
+  }
+`}</style>

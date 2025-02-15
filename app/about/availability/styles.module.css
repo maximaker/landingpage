@@ -1,0 +1,24 @@
+@keyframes wave {
+  0% {
+    width: 2px;
+    height: 2px;
+    opacity: 0.4;
+  }
+  100% {
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+  }
+}
+
+.waveAnimation {
+  animation: wave 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.waveAnimationDelay1 {
+  animation: wave 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 1.3s;
+}
+
+.waveAnimationDelay2 {
+  animation: wave 4s cubic-bezier(0.4, 0, 0.6, 1) infinite 2.6s;
+} 
