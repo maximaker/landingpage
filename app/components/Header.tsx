@@ -8,10 +8,61 @@ import { usePathname } from 'next/navigation'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
 import { MobileMenu } from './MobileMenu'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
+import { ChevronDown } from 'lucide-react'
+
+const serviceItems = [
+  { 
+    label: 'Vitamin A - Awareness', 
+    href: '/services/vitamin-a',
+    description: 'Product health analysis and strategic planning',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+      </svg>
+    )
+  },
+  { 
+    label: 'Vitamin B - Build', 
+    href: '/services/vitamin-b',
+    description: 'Development and feature enhancement',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+      </svg>
+    )
+  },
+  { 
+    label: 'Vitamin C - Convert', 
+    href: '/services/vitamin-c',
+    description: 'Conversion optimization and revenue growth',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    )
+  },
+  { 
+    label: 'Vitamin D - Deploy', 
+    href: '/services/vitamin-d',
+    description: 'Scaling and infrastructure optimization',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M19 9l-7 7-7-7" />
+        <path d="M12 16V4" />
+        <path d="M5 20h14" />
+      </svg>
+    )
+  }
+]
 
 const menuItems = [
   { label: 'About', href: '/about' },
-  { label: 'Services', href: '/services' },
+  { 
+    label: 'Services', 
+    href: '/services',
+    children: serviceItems
+  },
   { label: 'Products', href: '/products' },
   { label: 'Resources', href: '/resources' },
   { label: 'Contact', href: '/contact' }
@@ -64,7 +115,48 @@ export function Navigation() {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8" role="navigation">
               {menuItems.map((item) => {
-                const isActive = pathname === item.href
+                const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+                
+                if (item.children) {
+                  return (
+                    <div key={item.href} className="relative group">
+                      <Link
+                        href={item.href}
+                        className={`flex items-center gap-1 relative text-foreground font-medium transition-colors group ${isActive ? 'text-primary' : 'hover:text-primary'}`}
+                      >
+                        {item.label}
+                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 group-hover:rotate-180`} />
+                        <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+                      </Link>
+                      
+                      <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
+                        <div className="w-[600px] bg-popover/95 backdrop-blur-sm rounded-xl shadow-lg border border-border p-6">
+                          <div className="grid grid-cols-2 gap-4">
+                            {item.children.map((child) => {
+                              const isChildActive = pathname === child.href
+                              return (
+                                <Link
+                                  key={child.href}
+                                  href={child.href}
+                                  className={`group/card flex items-start gap-4 p-4 rounded-lg transition-all duration-200 ${isChildActive ? 'bg-primary/10 text-primary' : 'hover:bg-muted hover:scale-[1.02]'}`}
+                                >
+                                  <div className="mt-1 w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary transition-colors duration-200 group-hover/card:bg-primary/20">
+                                    {child.icon}
+                                  </div>
+                                  <div>
+                                    <div className="font-medium text-base">{child.label}</div>
+                                    <div className="text-sm text-muted-foreground mt-1 leading-relaxed">{child.description}</div>
+                                  </div>
+                                </Link>
+                              )
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                }
+
                 return (
                   <Link
                     key={item.href}
@@ -81,9 +173,11 @@ export function Navigation() {
               <LanguageSwitcher />
             </nav>
           </div>
-
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      <MobileMenu items={menuItems} />
     </header>
   )
 }
