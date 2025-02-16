@@ -5,7 +5,11 @@ import { Button } from "@/components/ui/button"
 import { Globe } from "lucide-react"
 import { useLanguage, languages } from "@/providers/language-provider"
 
-export function LanguageSwitcher() {
+interface LanguageSwitcherProps {
+  position?: "top" | "bottom"
+}
+
+export function LanguageSwitcher({ position = "bottom" }: LanguageSwitcherProps) {
   const [mounted, setMounted] = React.useState(false)
   const [isOpen, setIsOpen] = React.useState(false)
   const { language: currentLang, setLanguage } = useLanguage()
@@ -47,7 +51,7 @@ export function LanguageSwitcher() {
       </Button>
 
       <div
-        className={`absolute bottom-full right-0 mb-2 w-40 rounded-lg bg-popover/95 backdrop-blur-sm shadow-lg ring-1 ring-border/10 transition-all duration-200 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}
+        className={`absolute ${position === "bottom" ? "bottom-full mb-2" : "top-full mt-2"} right-0 w-40 rounded-lg bg-popover/95 backdrop-blur-sm shadow-lg ring-1 ring-border/10 transition-all duration-200 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}
         role="listbox"
         aria-label="Select language"
         tabIndex={-1}

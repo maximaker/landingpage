@@ -173,7 +173,7 @@ export function Navigation() {
               </div>
               <div className="w-px h-4 bg-border/50" />
               <div className="transform origin-center scale-[0.8] hover:scale-[0.85] transition-transform">
-                <LanguageSwitcher />
+                <LanguageSwitcher position="top" />
               </div>
             </div>
           </div>
