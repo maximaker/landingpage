@@ -43,12 +43,11 @@ export function LanguageSwitcher() {
         className="h-8 w-8 px-0 relative"
         aria-label={`Selected language: ${currentLang.name}. Click to change language`}
       >
-        <Globe className="h-5 w-5" />
-        <span className="absolute top-0 right-0 h-2 w-2 rounded-full bg-primary" />
+        <span className="text-base">{currentLang.flag}</span>
       </Button>
 
       <div
-        className={`absolute bottom-full right-0 mb-2 w-40 rounded-lg bg-popover shadow-lg ring-1 ring-black/5 transition-all duration-200 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}
+        className={`absolute bottom-full right-0 mb-2 w-40 rounded-lg bg-popover/95 backdrop-blur-sm shadow-lg ring-1 ring-border/10 transition-all duration-200 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}
         role="listbox"
         aria-label="Select language"
         tabIndex={-1}
