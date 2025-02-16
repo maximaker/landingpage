@@ -2,8 +2,8 @@
 
 import * as React from "react"
 import { Button } from "@/components/ui/button"
-import { Globe } from "lucide-react"
 import { useLanguage, languages } from "@/providers/language-provider"
+import { Flags } from "./flags"
 
 interface LanguageSwitcherProps {
   position?: "top" | "bottom"
@@ -34,6 +34,19 @@ export function LanguageSwitcher({ position = "bottom" }: LanguageSwitcherProps)
     setIsOpen(false)
   }
 
+  const getFlagComponent = (code: string) => {
+    switch (code) {
+      case 'en':
+        return <Flags.GB />
+      case 'fr':
+        return <Flags.FR />
+      case 'ro':
+        return <Flags.RO />
+      default:
+        return null
+    }
+  }
+
   if (!mounted) {
     return null
   }
@@ -44,14 +57,14 @@ export function LanguageSwitcher({ position = "bottom" }: LanguageSwitcherProps)
         variant="ghost"
         size="icon"
         onClick={() => setIsOpen(!isOpen)}
-        className="h-8 w-8 px-0 relative"
+        className="h-8 w-8 px-0 relative text-muted-foreground hover:text-foreground"
         aria-label={`Selected language: ${currentLang.name}. Click to change language`}
       >
-        <span className="text-base">{currentLang.flag}</span>
+        {getFlagComponent(currentLang.code)}
       </Button>
 
       <div
-        className={`absolute ${position === "bottom" ? "bottom-full mb-2" : "top-full mt-2"} right-0 w-40 rounded-lg bg-popover/95 backdrop-blur-sm shadow-lg ring-1 ring-border/10 transition-all duration-200 ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}
+        className={`absolute ${position === "bottom" ? "bottom-full mb-2" : "top-full mt-2"} right-0 w-40 rounded-lg bg-popover/95 backdrop-blur-sm shadow-lg ring-1 ring-border/10 transition-all duration-200 z-[150] ${isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}
         role="listbox"
         aria-label="Select language"
         tabIndex={-1}
@@ -67,7 +80,7 @@ export function LanguageSwitcher({ position = "bottom" }: LanguageSwitcherProps)
               tabIndex={isOpen ? 0 : -1}
               aria-label={language.label}
             >
-              <span className="text-base">{language.flag}</span>
+              {getFlagComponent(language.code)}
               <span className="flex-1 text-left">{language.name}</span>
               {currentLang.code === language.code && (
                 <svg

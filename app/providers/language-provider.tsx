@@ -1,12 +1,11 @@
 "use client"
 
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useEffect } from 'react'
 import { useLocalStorage } from '@/hooks/use-local-storage'
 
 type Language = {
   code: string
   name: string
-  flag: string
   label: string
 }
 
@@ -16,9 +15,9 @@ type LanguageContextType = {
 }
 
 const languages = [
-  { code: 'en', name: 'English', flag: '🇬🇧', label: 'Switch to English' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷', label: 'Passer au français' },
-  { code: 'ro', name: 'Română', flag: '🇷🇴', label: 'Schimbă în română' },
+  { code: 'en', name: 'English', label: 'Switch to English' },
+  { code: 'fr', name: 'Français', label: 'Passer au français' },
+  { code: 'ro', name: 'Română', label: 'Schimbă în română' },
 ]
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
