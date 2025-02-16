@@ -48,32 +48,6 @@ export function Calendar({
         day_hidden: "invisible",
         ...classNames,
       }}
-      components={{
-        IconLeft: ({ ...props }) => (
-          <svg
-            className="h-4 w-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            {...props}
-          >
-            <path d="M15 18l-6-6 6-6" />
-          </svg>
-        ),
-        IconRight: ({ ...props }) => (
-          <svg
-            className="h-4 w-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            {...props}
-          >
-            <path d="M9 18l6-6-6-6" />
-          </svg>
-        ),
-      }}
       {...props}
     />
   )
