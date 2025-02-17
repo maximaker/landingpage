@@ -1,0 +1,16 @@
+@keyframes wave {
+  0% {
+    width: 2px;
+    height: 2px;
+    opacity: 0.4;
+  }
+  100% {
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+  }
+}
+
+.scrollLocked {
+  overflow: hidden;
+} 
