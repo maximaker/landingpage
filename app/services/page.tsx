@@ -1,19 +1,16 @@
 "use client"
 
-import { Navigation } from "@/components/Header"
-import { Footer } from "@/components/Footer"
-import { InteractiveQuiz } from "@/components/InteractiveQuiz"
 import { ProblemSolution } from "@/components/ProblemSolution"
 import { SuccessStories } from "@/components/SuccessStories"
-import { Badge } from "@/components/ui/badge"
-import { BentoDemo } from "@/components/BentoDemo"
-import { ServicesOverview } from "@/components/ServicesOverview"
-import { ScrollToQuizButton } from "@/components/ScrollToQuizButton"
-import { ServiceButtons, ServiceCTAButtons } from "@/components/ui/service-buttons"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { motion, AnimatePresence } from "framer-motion"
+import { ArrowRight, Target, Palette, Code, TrendingUp, PenTool, BarChart, ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useEffect, useRef } from 'react'
+import styles from './styles.module.css'
 
-const SERVICES = [
+const VITAMIN_SERVICES = [
   {
     name: "Vitamin A",
     subtitle: "Awareness & Analysis",
@@ -50,7 +47,7 @@ const SERVICES = [
   },
   {
     name: "Vitamin D",
-    subtitle: "Develop & Deploy",
+    subtitle: "Deploy & Deliver",
     description: "Scale your product with robust architecture, seamless deployment, and reliable infrastructure.",
     href: "/services/vitamin-d",
     icon: (
@@ -63,7 +60,138 @@ const SERVICES = [
   }
 ]
 
+const CORE_CAPABILITIES = [
+  {
+    title: "Digital Strategy",
+    description: "Data-driven strategic planning and roadmap development to guide your digital transformation journey.",
+    icon: <Target className="w-6 h-6" />,
+    benefits: ["Market Analysis", "Competitive Positioning", "Growth Planning"],
+    color: "blue"
+  },
+  {
+    title: "UX/UI Design",
+    description: "User-centered design solutions that create engaging, intuitive, and delightful experiences.",
+    icon: <Palette className="w-6 h-6" />,
+    benefits: ["User Research", "Interface Design", "Usability Testing"],
+    color: "purple"
+  },
+  {
+    title: "Development",
+    description: "Full-stack development services using cutting-edge technologies and best practices.",
+    icon: <Code className="w-6 h-6" />,
+    benefits: ["Modern Tech Stack", "Scalable Architecture", "Clean Code"],
+    color: "green"
+  },
+  {
+    title: "Digital Marketing",
+    description: "Data-driven marketing strategies to grow your digital presence and acquire customers.",
+    icon: <TrendingUp className="w-6 h-6" />,
+    benefits: ["Growth Strategy", "Conversion Optimization", "Analytics"],
+    color: "orange"
+  },
+  {
+    title: "Content Creation",
+    description: "Compelling content strategy and creation that tells your story and engages your audience.",
+    icon: <PenTool className="w-6 h-6" />,
+    benefits: ["Brand Storytelling", "Content Strategy", "Visual Design"],
+    color: "pink"
+  },
+  {
+    title: "Analytics & Insights",
+    description: "Deep insights and analytics to measure performance and drive data-informed decisions.",
+    icon: <BarChart className="w-6 h-6" />,
+    benefits: ["Performance Tracking", "User Behavior", "ROI Analysis"],
+    color: "cyan"
+  }
+]
+
 export default function ServicesPage() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [direction, setDirection] = useState(0)
+  const [isInView, setIsInView] = useState(false)
+  const sectionRef = useRef<HTMLElement>(null)
+  const lastScrollTime = useRef<number>(0)
+  const scrollTimeout = useRef<NodeJS.Timeout>()
+  const isScrollLocked = useRef(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting)
+        if (entry.isIntersecting) {
+          isScrollLocked.current = true
+        }
+      },
+      {
+        threshold: 0.5,
+      }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const handleWheel = (e: Event) => {
+      if (!isInView || !isScrollLocked.current) return
+
+      const wheelEvent = e as WheelEvent
+      const now = Date.now()
+      if (now - lastScrollTime.current < 100) return
+      lastScrollTime.current = now
+      const isMobile = window.innerWidth < 640 // sm breakpoint
+
+      e.preventDefault()
+
+      if (wheelEvent.deltaY > 0) {
+        if (isMobile || activeIndex < CORE_CAPABILITIES.length - 1) {
+          setDirection(1)
+          setActiveIndex((prev) => 
+            isMobile && prev === CORE_CAPABILITIES.length - 1 ? 0 : prev + 1
+          )
+        } else {
+          isScrollLocked.current = false
+          document.body.classList.remove(styles.scrollLocked)
+        }
+      } else if (wheelEvent.deltaY < 0) {
+        if (isMobile || activeIndex > 0) {
+          setDirection(-1)
+          setActiveIndex((prev) => 
+            isMobile && prev === 0 ? CORE_CAPABILITIES.length - 1 : prev - 1
+          )
+        } else {
+          isScrollLocked.current = false
+          document.body.classList.remove(styles.scrollLocked)
+        }
+      }
+
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current)
+      }
+
+      scrollTimeout.current = setTimeout(() => {
+        if (isInView) {
+          isScrollLocked.current = true
+          document.body.classList.add(styles.scrollLocked)
+        }
+      }, 1000)
+    }
+
+    const options: AddEventListenerOptions = { passive: false }
+    window.addEventListener('wheel', handleWheel, options)
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel, options)
+      if (scrollTimeout.current) {
+        clearTimeout(scrollTimeout.current)
+      }
+      document.body.classList.remove(styles.scrollLocked)
+    }
+  }, [isInView, activeIndex])
+
   return (
     <main className="flex-1 pt-16 sm:pt-20">
       {/* Hero Section */}
@@ -90,11 +218,17 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Vitamin Services Grid */}
       <section className="py-24 bg-muted/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Vitamin Framework</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              A comprehensive approach to digital product enhancement
+            </p>
+          </div>
           <div className="grid md:grid-cols-2 gap-8">
-            {SERVICES.map((service) => (
+            {VITAMIN_SERVICES.map((service) => (
               <Link 
                 key={service.name}
                 href={service.href}
@@ -122,9 +256,187 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Core Capabilities - Stacked Cards */}
+      <section ref={sectionRef} className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/50 to-background" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
+          <div className="text-center mb-16">
+            <Badge variant="secondary" className="mb-4">Our Expertise</Badge>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6">
+              Core Capabilities
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive expertise across the digital product lifecycle, delivering excellence at every stage.
+            </p>
+          </div>
+
+          <div className="relative h-[400px] sm:h-[450px] max-w-2xl mx-auto">
+            {/* Card Indicators - Responsive badges */}
+            <div className="flex flex-wrap items-center justify-center gap-1.5 mb-6 sm:mb-8 px-2 sm:px-0">
+              {CORE_CAPABILITIES.map((capability, index) => (
+                <button
+                  key={index}
+                  onClick={() => {
+                    setDirection(index > activeIndex ? 1 : -1)
+                    setActiveIndex(index)
+                  }}
+                  className={`px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap transition-all duration-300 ${
+                    index === activeIndex 
+                      ? 'bg-primary/10 text-primary border border-primary/20' 
+                      : 'bg-muted/50 text-muted-foreground hover:bg-muted/80 hover:text-foreground border border-transparent'
+                  }`}
+                  aria-label={`Go to ${capability.title}`}
+                >
+                  {capability.title}
+                </button>
+              ))}
+            </div>
+
+            {/* Card Stack */}
+            <div className="relative w-full h-[280px] sm:h-[320px]">
+              <AnimatePresence mode="popLayout" initial={false} custom={direction}>
+                {CORE_CAPABILITIES.map((capability, index) => {
+                  if (
+                    index !== activeIndex && 
+                    index !== (activeIndex + 1) % CORE_CAPABILITIES.length && 
+                    index !== (activeIndex + 2) % CORE_CAPABILITIES.length
+                  ) {
+                    return null
+                  }
+
+                  const offset = ((index - activeIndex + CORE_CAPABILITIES.length) % CORE_CAPABILITIES.length)
+                  
+                  return (
+                    <motion.div
+                      key={capability.title}
+                      custom={direction}
+                      initial={{
+                        scale: 1 - offset * 0.05,
+                        y: offset * 30,
+                        opacity: 1 - offset * 0.2,
+                        zIndex: CORE_CAPABILITIES.length - offset
+                      }}
+                      animate={{
+                        scale: 1 - offset * 0.05,
+                        y: offset * 30,
+                        opacity: 1 - offset * 0.2,
+                        zIndex: CORE_CAPABILITIES.length - offset
+                      }}
+                      exit={{
+                        scale: 1 - offset * 0.05,
+                        y: offset * 30,
+                        opacity: 0,
+                        zIndex: 0
+                      }}
+                      drag={index === activeIndex ? "x" : false}
+                      dragConstraints={{ left: 0, right: 0 }}
+                      dragElastic={0.7}
+                      dragMomentum={false}
+                      onDragEnd={(_, info) => {
+                        const swipe = info.offset.x
+                        const isMobile = window.innerWidth < 640 // sm breakpoint
+                        
+                        if (swipe < -100) {
+                          setDirection(1)
+                          if (isMobile) {
+                            setActiveIndex(prev => 
+                              prev === CORE_CAPABILITIES.length - 1 ? 0 : prev + 1
+                            )
+                          } else if (activeIndex < CORE_CAPABILITIES.length - 1) {
+                            setActiveIndex(prev => prev + 1)
+                          }
+                        } else if (swipe > 100) {
+                          setDirection(-1)
+                          if (isMobile) {
+                            setActiveIndex(prev => 
+                              prev === 0 ? CORE_CAPABILITIES.length - 1 : prev - 1
+                            )
+                          } else if (activeIndex > 0) {
+                            setActiveIndex(prev => prev - 1)
+                          }
+                        }
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30
+                      }}
+                      style={{
+                        position: 'absolute',
+                        width: '100%',
+                        height: '100%',
+                      }}
+                      className="bg-card hover:bg-muted p-4 sm:p-6 rounded-2xl border border-border/50 hover:border-primary/20 transition-colors duration-300 cursor-grab active:cursor-grabbing select-none"
+                      whileTap={{ cursor: "grabbing" }}
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <div className="relative h-full">
+                        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl" />
+                        
+                        <div className="relative h-full flex flex-col">
+                          <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                            <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary`}>
+                              {capability.icon}
+                            </div>
+                            <h3 className="text-lg sm:text-xl font-semibold">
+                              {capability.title}
+                            </h3>
+                          </div>
+                          
+                          <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">
+                            {capability.description}
+                          </p>
+
+                          <div className="space-y-1 sm:space-y-1.5 flex-grow">
+                            {capability.benefits.map((benefit, i) => (
+                              <div key={i} className="flex items-center text-xs sm:text-sm text-muted-foreground/80">
+                                <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 rounded-full bg-primary/40 mr-1.5 sm:mr-2" />
+                                {benefit}
+                              </div>
+                            ))}
+                          </div>
+
+                          <div className="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-border/50">
+                            <Button 
+                              variant="ghost" 
+                              className="group p-0 h-auto hover:bg-transparent"
+                            >
+                              <span className="text-primary text-xs sm:text-sm font-medium group-hover:mr-2 transition-all">
+                                Learn more
+                              </span>
+                              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 text-primary transition-transform group-hover:translate-x-1" />
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )
+                })}
+              </AnimatePresence>
+            </div>
+
+            {/* Mobile swipe indicator */}
+            <div className="mt-4 sm:hidden flex items-center justify-center text-xs text-muted-foreground">
+              <span className="flex items-center gap-2">
+                <ChevronLeft className="w-3 h-3" />
+                Swipe to navigate
+                <ChevronRight className="w-3 h-3" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Solution Section */}
+      <ProblemSolution />
+
+      {/* Success Stories Section */}
+      <SuccessStories />
+
       {/* CTA Section */}
       <section className="py-24">
-        <div className="max-3xl mx-auto px-4 sm:px-6 text-center">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl font-bold mb-4">Not sure which vitamin you need?</h2>
           <p className="text-lg text-muted-foreground mb-8">
             Take our quick assessment to get a personalized recommendation for your product.
