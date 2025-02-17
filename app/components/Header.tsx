@@ -6,9 +6,8 @@ import { useState, useEffect } from 'react'
 import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { usePathname } from 'next/navigation'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
-import { MobileMenu } from './MobileMenu'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
-import { ChevronDown, Clock } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 const serviceItems = [
   { 
@@ -193,7 +192,7 @@ export function Navigation() {
               <Logo className="transition-colors duration-200" />
             </Link>
 
-            {/* Desktop Navigation */}
+            {/* Desktop Navigation - Always visible on desktop, hidden on mobile */}
             <nav className="hidden md:flex items-center gap-8" role="navigation">
               {menuItems.map((item) => {
                 const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
@@ -254,9 +253,6 @@ export function Navigation() {
           </div>
         </div>
       </div>
-
-      {/* Mobile Menu */}
-      <MobileMenu items={menuItems} />
     </header>
   )
 }
