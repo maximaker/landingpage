@@ -1,6 +1,7 @@
 "use client"
 
 import { ProblemSolution } from "@/components/ProblemSolution"
+import { ProblemSolutionV2 } from "@/components/ProblemSolutionV2"
 import { SuccessStories } from "@/components/SuccessStories"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -428,8 +429,16 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Problem Solution Section */}
+      {/* Original Problem Solution Section */}
       <ProblemSolution />
+
+      {/* Enhanced Problem Solution Section */}
+      <div className="relative py-12 sm:py-16">
+        <div className="absolute inset-0 bg-muted/50" />
+        <div className="relative">
+          <ProblemSolutionV2 />
+        </div>
+      </div>
 
       {/* Success Stories Section */}
       <SuccessStories />

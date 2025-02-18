@@ -1,0 +1,14 @@
+[Cursor] feat(ux-audit): improve tab content layout and visual hierarchy
+
+Enhance the UX Audit service page tab content layout for better scannability and modern design:
+
+- Implement consistent grid system with 2-column layouts
+- Add visual hierarchy with icons and card-based layouts
+- Improve content organization and grouping
+- Enhance interactive elements with hover states
+- Add smooth transitions and animations
+- Implement better typography hierarchy
+- Improve call-to-action visibility
+- Add responsive design patterns
+
+These changes make the content more engaging and easier to scan while maintaining a modern, professional appearance. 

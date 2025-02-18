@@ -1,0 +1,8 @@
+[Cursor] feat(services): Enable infinite card looping on mobile
+
+- Add mobile-specific infinite card looping in Core Capabilities section
+- Maintain desktop behavior with start/end limits
+- Implement smooth transitions for loop navigation
+- Update both swipe and wheel event handlers for consistent behavior
+
+This change improves the mobile UX by allowing users to continuously cycle through capability cards while maintaining the original desktop experience.

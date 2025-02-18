@@ -5,6 +5,18 @@ const nextConfig = {
   experimental: {
     optimizeCss: true
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ui-avatars.com',
+      }
+    ],
+  },
   transpilePackages: [
     "@radix-ui",
     "class-variance-authority",
@@ -22,3 +34,5 @@ const nextConfig = {
     return config
   }
 }
+
+module.exports = nextConfig

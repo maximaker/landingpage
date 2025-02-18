@@ -19,7 +19,20 @@ const serviceItems = [
         <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
       </svg>
-    )
+    ),
+    children: [
+      {
+        label: "UX Audit",
+        href: "/services/vitamin-a/ux-audit",
+        description: "Comprehensive evaluation of your product's user experience",
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+          </svg>
+        )
+      }
+    ]
   },
   { 
     label: 'Vitamin B - Build', 
@@ -68,6 +81,77 @@ const menuItems = [
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
             <circle cx="12" cy="7" r="4" />
+          </svg>
+        )
+      },
+      {
+        label: 'People We Work With',
+        href: '/about/people-we-work-with',
+        description: 'Meet the ambitious individuals and teams we partner with',
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
+            <circle cx="10" cy="11" r="4" />
+            <path d="M21 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M18 8a4 4 0 0 0 0 2" />
+          </svg>
+        )
+      },
+      {
+        label: 'Why Work With Us?',
+        href: '/about/why-work-with-us',
+        description: 'Discover what makes our approach unique and effective',
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+          </svg>
+        )
+      },
+      {
+        label: 'Design Process',
+        href: '/about/design-process',
+        description: 'Discover our systematic approach to product transformation',
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+            <path d="M12 12v.01M8 12v.01M16 12v.01" />
+          </svg>
+        )
+      },
+      {
+        label: 'How We Work Together',
+        href: '/about/how-we-work-together',
+        description: 'Learn about our collaboration process and engagement models',
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M15 14l5-5-5-5" />
+            <path d="M4 20v-7a4 4 0 014-4h12" />
+          </svg>
+        )
+      },
+      {
+        label: 'Impact',
+        href: '/about/impact',
+        description: "See the results and transformations we've delivered",
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M2 20h.01" />
+            <path d="M7 20v-4" />
+            <path d="M12 20v-8" />
+            <path d="M17 20V8" />
+            <path d="M22 4v16" />
+          </svg>
+        )
+      },
+      {
+        label: 'Case Studies',
+        href: '/about/case-studies',
+        description: 'Explore detailed success stories and transformations',
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+            <path d="M16 17L21 12L16 7" />
+            <path d="M21 12H9" />
           </svg>
         )
       },
@@ -146,10 +230,10 @@ export function Navigation() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 ${isScrollingDown ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
+      className={`fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 group/header hover:bg-background/100 ${isScrollingDown ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
     >
       {/* Availability Bar */}
-      <div className="h-8 bg-background/95 backdrop-blur-sm border-b border-border/10">
+      <div className="h-8 bg-background/50 backdrop-blur-sm border-b border-border/10 transition-colors duration-200 group-hover/header:bg-background/100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full">
           <div className="flex items-center justify-between h-full">
             <div className="flex items-center text-sm text-muted-foreground/50">
@@ -157,7 +241,7 @@ export function Navigation() {
                 href="/about/availability"
                 className="flex items-center gap-2 group hover:text-muted-foreground transition-all duration-200"
               >
-                <div className="relative flex items-center w-5 h-5 transition-transform duration-300 group-hover:scale-125">
+                <div className="relative flex items-center w-4 h-4 transition-transform duration-300 group-hover:scale-110">
                   <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-green-500" />
                   <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-40 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
                   <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-25 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite_1.3s]" />
@@ -179,7 +263,7 @@ export function Navigation() {
         </div>
       </div>
 
-      <div className={`transition-all duration-300 ${isScrolled ? 'bg-gradient-to-b from-background to-transparent md:bg-background/60 md:backdrop-blur-lg text-foreground h-16 sm:h-20' : 'bg-gradient-to-b from-background to-transparent md:bg-transparent text-foreground h-16 sm:h-20'}`}>
+      <div className={`transition-all duration-300 ${isScrolled ? 'bg-gradient-to-b from-background/50 to-transparent md:bg-background/50 md:backdrop-blur-lg text-foreground h-16 sm:h-20 group-hover/header:from-background group-hover/header:md:bg-background' : 'bg-gradient-to-b from-background/50 to-transparent md:bg-transparent text-foreground h-16 sm:h-20 group-hover/header:from-background'}`}>
         <div className="max-w-7xl mx-auto">
           {/* Header Bar */}
           <div className={`flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 ${isScrolled ? 'md:border-b md:border-border/10' : ''}`}>
@@ -260,13 +344,13 @@ export function Navigation() {
 <style jsx global>{`
   @keyframes wave {
     0% {
-      width: 2px;
-      height: 2px;
+      width: 1px;
+      height: 1px;
       opacity: 0.4;
     }
     100% {
-      width: 20px;
-      height: 20px;
+      width: 12px;
+      height: 12px;
       opacity: 0;
     }
   }

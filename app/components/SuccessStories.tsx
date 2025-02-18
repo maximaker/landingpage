@@ -3,8 +3,9 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
-import { useState } from "react"
-import { ArrowRight, ChevronLeft, ChevronRight, TrendingUp, Users, Zap } from "lucide-react"
+import { useState, useEffect, useRef } from "react"
+import { ArrowRight, ChevronLeft, ChevronRight, TrendingUp, Users, Zap, Clock, Target, LineChart, Sparkles, Rocket, Shield } from "lucide-react"
+import { useInView } from "react-intersection-observer"
 
 type SuccessStory = {
   id: string
@@ -12,6 +13,7 @@ type SuccessStory = {
   industry: string
   challenge: string
   solution: string
+  vitaminUsed: string
   results: {
     metric: string
     value: string
@@ -32,7 +34,8 @@ const SUCCESS_STORIES: SuccessStory[] = [
     company: "TechFlow",
     industry: "SaaS",
     challenge: "Struggling with user engagement and high churn rates in their project management platform.",
-    solution: "Implemented Vitamin E package to enhance user experience and engagement metrics.",
+    solution: "Implemented Vitamin A to analyze user behavior patterns and identify key drop-off points. Followed up with targeted UX improvements and feature enhancements.",
+    vitaminUsed: "Vitamin A - Awareness & Analysis",
     results: [
       {
         metric: "User Retention",
@@ -42,7 +45,7 @@ const SUCCESS_STORIES: SuccessStory[] = [
       {
         metric: "Feature Adoption",
         value: "+60%",
-        icon: <Zap className="w-5 h-5" />
+        icon: <Sparkles className="w-5 h-5" />
       },
       {
         metric: "Revenue Growth",
@@ -62,13 +65,14 @@ const SUCCESS_STORIES: SuccessStory[] = [
     id: "2",
     company: "HealthHub",
     industry: "Healthcare",
-    challenge: "Needed to scale their telemedicine platform to handle 10x more concurrent users.",
-    solution: "Applied Vitamin S package to optimize performance and scalability.",
+    challenge: "Needed to scale their telemedicine platform to handle 10x more concurrent users during peak hours.",
+    solution: "Applied Vitamin D to optimize infrastructure, implement efficient caching, and establish a robust CI/CD pipeline for seamless deployments.",
+    vitaminUsed: "Vitamin D - Deploy & Deliver",
     results: [
       {
         metric: "Response Time",
         value: "-70%",
-        icon: <Zap className="w-5 h-5" />
+        icon: <Clock className="w-5 h-5" />
       },
       {
         metric: "User Capacity",
@@ -78,35 +82,183 @@ const SUCCESS_STORIES: SuccessStory[] = [
       {
         metric: "Uptime",
         value: "99.99%",
-        icon: <TrendingUp className="w-5 h-5" />
+        icon: <Shield className="w-5 h-5" />
       }
     ],
     testimonial: {
-      quote: "Digital Vitamins transformed our platform's performance. We can now handle peak loads with confidence.",
+      quote: "Digital Vitamins transformed our platform's performance. We can now handle peak loads with confidence, and our deployment process is seamless.",
       author: "Dr. James Wilson",
       role: "CTO",
       image: "/testimonials/james.jpg"
     },
     image: "/case-studies/healthhub.jpg"
+  },
+  {
+    id: "3",
+    company: "EcoShop",
+    industry: "E-commerce",
+    challenge: "Low conversion rates and abandoned carts were affecting their sustainable products marketplace.",
+    solution: "Implemented Vitamin C to optimize the conversion funnel, enhance payment flow, and implement smart cart recovery strategies.",
+    vitaminUsed: "Vitamin C - Convert & Capitalize",
+    results: [
+      {
+        metric: "Conversion Rate",
+        value: "+85%",
+        icon: <Target className="w-5 h-5" />
+      },
+      {
+        metric: "Cart Recovery",
+        value: "+40%",
+        icon: <Sparkles className="w-5 h-5" />
+      },
+      {
+        metric: "AOV Growth",
+        value: "+25%",
+        icon: <LineChart className="w-5 h-5" />
+      }
+    ],
+    testimonial: {
+      quote: "The impact on our bottom line was immediate. Digital Vitamins helped us turn browsers into buyers with smart, data-driven optimizations.",
+      author: "Emma Rodriguez",
+      role: "E-commerce Director",
+      image: "/testimonials/emma.jpg"
+    },
+    image: "/case-studies/ecoshop.jpg"
+  },
+  {
+    id: "4",
+    company: "LearnLab",
+    industry: "EdTech",
+    challenge: "Needed to rebuild their legacy learning platform with modern technologies and improved features.",
+    solution: "Applied Vitamin B to modernize the tech stack, implement new features, and enhance the overall learning experience.",
+    vitaminUsed: "Vitamin B - Build & Boost",
+    results: [
+      {
+        metric: "Load Speed",
+        value: "+300%",
+        icon: <Rocket className="w-5 h-5" />
+      },
+      {
+        metric: "User Satisfaction",
+        value: "+65%",
+        icon: <Sparkles className="w-5 h-5" />
+      },
+      {
+        metric: "Course Completion",
+        value: "+45%",
+        icon: <Target className="w-5 h-5" />
+      }
+    ],
+    testimonial: {
+      quote: "The rebuild transformed our platform completely. We now have a modern, scalable solution that our users love to use.",
+      author: "Michael Chang",
+      role: "Head of Product",
+      image: "/testimonials/michael.jpg"
+    },
+    image: "/case-studies/learnlab.jpg"
   }
 ]
 
 export function SuccessStories() {
   const [currentStory, setCurrentStory] = useState(0)
   const [direction, setDirection] = useState(0)
+  const [isScrollLocked, setIsScrollLocked] = useState(false)
+  const lastScrollTime = useRef(Date.now())
+  const scrollThreshold = 50 // ms between scroll events
+  
+  // Use intersection observer with a higher threshold to ensure cards are in the middle
+  const { ref: sectionRef, inView } = useInView({
+    threshold: 0.7, // Trigger when 70% of the section is visible
+    rootMargin: "-20% 0px", // Only trigger when section is in the middle 20% of viewport
+  })
+
+  const handleScroll = (event: WheelEvent) => {
+    if (!inView || !isScrollLocked) return
+
+    const now = Date.now()
+    if (now - lastScrollTime.current < scrollThreshold) return
+    lastScrollTime.current = now
+
+    if (event.deltaY > 0) { // Scrolling down
+      if (currentStory < SUCCESS_STORIES.length - 1) {
+        event.preventDefault()
+        setDirection(1)
+        setCurrentStory(prev => prev + 1)
+      } else {
+        setIsScrollLocked(false)
+      }
+    } else if (event.deltaY < 0) { // Scrolling up
+      if (currentStory > 0) {
+        event.preventDefault()
+        setDirection(-1)
+        setCurrentStory(prev => prev - 1)
+      } else {
+        setIsScrollLocked(false)
+      }
+    }
+  }
+
+  // Handle scroll locking when section comes into view
+  useEffect(() => {
+    if (inView) {
+      setIsScrollLocked(true)
+      // Add a class to body to indicate scroll lock
+      document.body.classList.add('story-scroll-active')
+    } else {
+      setIsScrollLocked(false)
+      document.body.classList.remove('story-scroll-active')
+    }
+
+    return () => {
+      document.body.classList.remove('story-scroll-active')
+    }
+  }, [inView])
+
+  // Add and remove scroll event listener
+  useEffect(() => {
+    const handleScrollWithPrevent = (e: WheelEvent) => {
+      if (isScrollLocked) {
+        e.preventDefault()
+        handleScroll(e)
+      }
+    }
+
+    window.addEventListener('wheel', handleScrollWithPrevent, { passive: false })
+    
+    return () => {
+      window.removeEventListener('wheel', handleScrollWithPrevent)
+    }
+  }, [isScrollLocked, currentStory])
 
   const nextStory = () => {
-    setDirection(1)
-    setCurrentStory((prev) => (prev + 1) % SUCCESS_STORIES.length)
+    if (currentStory < SUCCESS_STORIES.length - 1) {
+      setDirection(1)
+      setCurrentStory(prev => prev + 1)
+    }
   }
 
   const previousStory = () => {
-    setDirection(-1)
-    setCurrentStory((prev) => (prev - 1 + SUCCESS_STORIES.length) % SUCCESS_STORIES.length)
+    if (currentStory > 0) {
+      setDirection(-1)
+      setCurrentStory(prev => prev - 1)
+    }
   }
 
   return (
-    <section className="py-24 sm:py-32 bg-background relative overflow-hidden">
+    <section 
+      ref={sectionRef}
+      className={`py-24 sm:py-32 bg-background relative overflow-hidden transition-colors duration-300 ${
+        isScrollLocked ? 'story-section-active' : ''
+      }`}
+    >
+      {/* Add a visual indicator when scrolling is active */}
+      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent transition-opacity duration-300 ${
+        isScrollLocked ? 'opacity-100' : 'opacity-0'
+      }`} />
+      <div className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent transition-opacity duration-300 ${
+        isScrollLocked ? 'opacity-100' : 'opacity-0'
+      }`} />
+
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/[0.03] via-transparent to-transparent" />
       </div>
@@ -130,6 +282,47 @@ export function SuccessStories() {
         </div>
 
         <div className="relative">
+          {/* Navigation Controls - Now at top right */}
+          <div className="absolute right-0 top-0 z-10 flex items-center gap-3 bg-background/80 backdrop-blur-sm px-4 sm:px-6 py-2 -mr-4 sm:-mr-6">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={previousStory}
+              className="rounded-full h-8 w-8"
+              aria-label="Previous case study"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </Button>
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={nextStory}
+              className="rounded-full h-8 w-8"
+              aria-label="Next case study"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </Button>
+          </div>
+
+          {/* Vertical Story Indicators */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex flex-col gap-2">
+            {SUCCESS_STORIES.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  setDirection(index > currentStory ? 1 : -1)
+                  setCurrentStory(index)
+                }}
+                className={`h-1.5 transition-all duration-300 rounded-full ${
+                  index === currentStory 
+                    ? 'bg-primary h-6 w-1.5' 
+                    : 'bg-primary/20 hover:bg-primary/40 w-1.5'
+                }`}
+                aria-label={`Go to case study ${index + 1}`}
+              />
+            ))}
+          </div>
+
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
               key={currentStory}
@@ -138,7 +331,7 @@ export function SuccessStories() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -100 * direction }}
               transition={{ duration: 0.3 }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+              className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center pl-8"
             >
               {/* Case Study Content */}
               <div className="space-y-8">
@@ -163,6 +356,11 @@ export function SuccessStories() {
                     <p className="text-muted-foreground">
                       {SUCCESS_STORIES[currentStory].solution}
                     </p>
+                  </div>
+                  <div className="inline-block">
+                    <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                      {SUCCESS_STORIES[currentStory].vitaminUsed}
+                    </Badge>
                   </div>
                 </div>
 
@@ -232,61 +430,38 @@ export function SuccessStories() {
               </motion.div>
             </motion.div>
           </AnimatePresence>
-
-          {/* Navigation Controls */}
-          <div className="flex justify-center gap-4 mt-12">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={previousStory}
-              className="rounded-full"
-              aria-label="Previous case study"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </Button>
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={nextStory}
-              className="rounded-full"
-              aria-label="Next case study"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </Button>
-          </div>
-
-          {/* Story Progress */}
-          <div className="flex justify-center gap-2 mt-6">
-            {SUCCESS_STORIES.map((_, index) => (
-              <motion.button
-                key={index}
-                onClick={() => {
-                  setDirection(index > currentStory ? 1 : -1)
-                  setCurrentStory(index)
-                }}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  index === currentStory
-                    ? 'bg-primary w-6'
-                    : 'bg-primary/20 hover:bg-primary/40'
-                }`}
-                whileHover={{ scale: 1.2 }}
-                whileTap={{ scale: 0.9 }}
-                aria-label={`Go to case study ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-20 text-center">
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground px-8 py-6 text-lg"
-          >
-            View All Case Studies
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
         </div>
       </div>
     </section>
   )
 }
+
+<style jsx global>{`
+  @keyframes wave {
+    0% {
+      width: 2px;
+      height: 2px;
+      opacity: 0.4;
+    }
+    100% {
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+    }
+  }
+
+  .story-scroll-active {
+    scrollbar-gutter: stable;
+  }
+
+  .story-section-active {
+    background-color: hsl(var(--background) / 0.98);
+    backdrop-filter: blur(8px);
+  }
+
+  @media (hover: hover) {
+    .story-section-active {
+      cursor: ns-resize;
+    }
+  }
+`}</style>

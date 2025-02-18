@@ -1,3 +1,5 @@
+"use client"
+
 import { Navigation } from "@/components/Header"
 import { Footer } from "@/components/Footer"
 import { Timeline } from "@/components/ui/timeline"
@@ -7,6 +9,136 @@ import { TrustElements } from "@/components/TrustElements"
 import { Button } from "@/components/ui/button"
 import { ScrollToTeamButton } from "@/components/ScrollToTeamButton"
 import Link from "next/link"
+import { Badge } from '@/components/ui/badge'
+import { motion } from 'framer-motion'
+import { ArrowRight, Heart, Lightbulb, Users, Target, Zap, Shield, LineChart, Code } from 'lucide-react'
+
+const CORE_VALUES = [
+  {
+    title: "Innovation",
+    description: "We push boundaries and embrace new technologies to solve complex challenges.",
+    principles: [
+      "Continuous learning and growth",
+      "Embracing emerging technologies",
+      "Creative problem-solving",
+      "Forward-thinking solutions"
+    ],
+    icon: <Lightbulb className="w-6 h-6" />
+  },
+  {
+    title: "Excellence",
+    description: "We maintain the highest standards in everything we do, from code to communication.",
+    principles: [
+      "Attention to detail",
+      "Best practices adherence",
+      "Quality-driven development",
+      "Continuous improvement"
+    ],
+    icon: <Target className="w-6 h-6" />
+  },
+  {
+    title: "Collaboration",
+    description: "We believe in the power of partnership and working together towards shared goals.",
+    principles: [
+      "Open communication",
+      "Knowledge sharing",
+      "Team synergy",
+      "Client partnership"
+    ],
+    icon: <Users className="w-6 h-6" />
+  },
+  {
+    title: "Impact",
+    description: "We measure our success by the tangible value we create for our clients.",
+    principles: [
+      "Results-driven approach",
+      "Measurable outcomes",
+      "Sustainable growth",
+      "Long-term value"
+    ],
+    icon: <LineChart className="w-6 h-6" />
+  }
+]
+
+const EXPERTISE = [
+  {
+    area: "Digital Product Development",
+    description: "Building innovative solutions that solve real problems and deliver value.",
+    capabilities: [
+      "Full-stack development",
+      "Mobile applications",
+      "Web platforms",
+      "API integration"
+    ],
+    icon: <Code className="w-6 h-6" />
+  },
+  {
+    area: "Performance Optimization",
+    description: "Enhancing speed, scalability, and efficiency of digital products.",
+    capabilities: [
+      "Load time optimization",
+      "Infrastructure scaling",
+      "Code optimization",
+      "Performance monitoring"
+    ],
+    icon: <Zap className="w-6 h-6" />
+  },
+  {
+    area: "User Experience Design",
+    description: "Creating intuitive, engaging, and user-centered digital experiences.",
+    capabilities: [
+      "UX research",
+      "Interface design",
+      "Usability testing",
+      "Design systems"
+    ],
+    icon: <Heart className="w-6 h-6" />
+  },
+  {
+    area: "Security & Reliability",
+    description: "Ensuring robust, secure, and dependable digital solutions.",
+    capabilities: [
+      "Security best practices",
+      "Performance monitoring",
+      "Disaster recovery",
+      "Compliance standards"
+    ],
+    icon: <Shield className="w-6 h-6" />
+  }
+]
+
+const MILESTONES = [
+  {
+    year: "2018",
+    title: "Our Beginning",
+    description: "Founded with a vision to transform digital products through innovative solutions."
+  },
+  {
+    year: "2019",
+    title: "First Major Success",
+    description: "Completed our first enterprise-level digital transformation project."
+  },
+  {
+    year: "2020",
+    title: "Team Expansion",
+    description: "Grew our team of experts and expanded our service offerings."
+  },
+  {
+    year: "2021",
+    title: "Global Reach",
+    description: "Started working with clients across multiple continents."
+  },
+  {
+    year: "2022",
+    title: "Innovation Focus",
+    description: "Launched our research and development division for emerging technologies."
+  },
+  {
+    year: "2023",
+    title: "Industry Recognition",
+    description: "Received multiple awards for excellence in digital product development."
+  }
+]
 
 export default function AboutPage() {
   const timelineData = [
@@ -59,11 +191,18 @@ export default function AboutPage() {
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative">
+          <Badge 
+            variant="secondary" 
+            className="mb-8 px-4 py-2 text-base bg-muted text-foreground border-border backdrop-blur-sm"
+          >
+            About Us
+          </Badge>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
-            Your digital wellness team, <span className="text-primary">here to make your product thrive</span>
+            Transforming Digital Products with{' '}
+            <span className="text-primary">Purpose</span>
           </h1>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            At Digital Vitamins, we don't just fix products—we optimize, scale, and future-proof them. Think of us as your product's wellness team, ensuring it stays strong, adaptable, and built for long-term success.
+            We're a team of passionate experts dedicated to creating exceptional digital experiences that drive growth
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <ScrollToTeamButton />
@@ -87,6 +226,174 @@ export default function AboutPage() {
                 </svg>
               </Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Story & Mission */}
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl font-bold">Our Story</h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Founded in 2018, we set out with a clear mission: to help businesses transform their digital products into powerful tools for growth. We believe that every digital product has the potential to make a significant impact.
+              </p>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Our journey has been driven by a passion for innovation and a commitment to excellence. We've grown from a small team of dedicated experts to a diverse group of specialists, each bringing unique perspectives and skills to our mission.
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              <div className="relative">
+                <div className="absolute left-0 top-0 bottom-0 w-px bg-border" />
+                
+                <div className="space-y-12">
+                  {MILESTONES.map((milestone, index) => (
+                    <motion.div
+                      key={milestone.year}
+                      initial={{ opacity: 0, x: 20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      viewport={{ once: true }}
+                      className="relative pl-8"
+                    >
+                      <div className="absolute left-0 top-2 w-2 h-2 rounded-full bg-primary transform -translate-x-1/2" />
+                      <div className="text-sm text-primary font-medium mb-1">
+                        {milestone.year}
+                      </div>
+                      <div className="font-medium mb-1">
+                        {milestone.title}
+                      </div>
+                      <div className="text-sm text-muted-foreground">
+                        {milestone.description}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="py-24 bg-muted/50 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Our Core Values</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              The principles that guide our work and shape our culture
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {CORE_VALUES.map((value, index) => (
+              <motion.div
+                key={value.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group bg-background rounded-2xl border border-border hover:border-primary/20 p-6 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-colors duration-200 group-hover:bg-primary/20">
+                    {value.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold">{value.title}</h3>
+                </div>
+
+                <p className="text-muted-foreground mb-6">
+                  {value.description}
+                </p>
+
+                <ul className="space-y-3">
+                  {value.principles.map((principle, i) => (
+                    <li 
+                      key={i}
+                      className="flex items-start gap-3 text-muted-foreground group-hover:text-foreground transition-colors"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary/40 mt-2" />
+                      <span>{principle}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise */}
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Our Expertise</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Comprehensive capabilities that drive digital transformation
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {EXPERTISE.map((area, index) => (
+              <motion.div
+                key={area.area}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group bg-card/50 rounded-2xl border border-border hover:border-primary/20 p-6 transition-all duration-300"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary transition-colors duration-200 group-hover:bg-primary/20">
+                    {area.icon}
+                  </div>
+                  <h3 className="text-xl font-semibold">{area.area}</h3>
+                </div>
+
+                <p className="text-muted-foreground mb-6">
+                  {area.description}
+                </p>
+
+                <ul className="space-y-3">
+                  {area.capabilities.map((capability, i) => (
+                    <li 
+                      key={i}
+                      className="flex items-start gap-3 text-muted-foreground group-hover:text-foreground transition-colors"
+                    >
+                      <div className="w-1.5 h-1.5 rounded-full bg-primary/40 mt-2" />
+                      <span>{capability}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-muted/50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-3xl font-bold mb-4">Ready to work together?</h2>
+          <p className="text-lg text-muted-foreground mb-8">
+            Let's discuss how we can help transform your digital product.
+          </p>
+          <div className="inline-flex flex-col items-center">
+            <Button 
+              size="lg" 
+              className="rounded-full px-8 shadow-lg hover:shadow-xl transition-shadow"
+              asChild
+            >
+              <Link href="/contact">
+                Schedule a Free Consultation
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+            </Button>
+            <p className="mt-4 text-sm text-muted-foreground">
+              No commitment required. Let's explore the possibilities together.
+            </p>
           </div>
         </div>
       </section>
