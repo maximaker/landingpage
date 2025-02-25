@@ -1,111 +1,298 @@
-import { Button } from '@/components/ui/button'
+"use client"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { ArrowRight, Check, X, BarChart, Activity, AlertCircle, ChevronLeft, ChevronRight, Sparkles } from "lucide-react"
+import Link from "next/link"
+import { motion, AnimatePresence } from "framer-motion"
+import { cn } from "@/lib/utils"
+
+// Quiz questions for product health assessment
+const QUIZ_QUESTIONS = [
+  {
+    id: "user_engagement",
+    question: "Are your users engaging with your product as expected?",
+    options: [
+      { id: "yes", label: "Yes, engagement is strong", value: 3 },
+      { id: "somewhat", label: "Somewhat, but could be better", value: 2 },
+      { id: "no", label: "No, engagement is low", value: 1 },
+      { id: "unsure", label: "Not sure / Don't have metrics", value: 0 }
+    ],
+    vitamin: "Vitamin A",
+    icon: <Activity className="h-5 w-5" />
+  },
+  {
+    id: "tech_issues",
+    question: "Is your product experiencing technical issues?",
+    options: [
+      { id: "no", label: "No, it's stable", value: 3 },
+      { id: "minor", label: "Some minor issues", value: 2 },
+      { id: "yes", label: "Yes, frequent problems", value: 1 },
+      { id: "unsure", label: "Not sure / Don't know", value: 0 }
+    ],
+    vitamin: "Vitamin B",
+    icon: <BarChart className="h-5 w-5" />
+  },
+  {
+    id: "conversion",
+    question: "How is your conversion rate performing?",
+    options: [
+      { id: "great", label: "Great, meeting or exceeding goals", value: 3 },
+      { id: "ok", label: "Okay, but room for improvement", value: 2 },
+      { id: "poor", label: "Poor, significantly below targets", value: 1 },
+      { id: "unsure", label: "Not sure / Don't track this", value: 0 }
+    ],
+    vitamin: "Vitamin C",
+    icon: <AlertCircle className="h-5 w-5" />
+  }
+]
 
 export function FinalCTA() {
+  const [isQuizActive, setIsQuizActive] = useState(false)
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+  const [answers, setAnswers] = useState<Record<string, number>>({})
+  const [quizCompleted, setQuizCompleted] = useState(false)
+  
+  const totalQuestions = QUIZ_QUESTIONS.length
+  const currentProgress = (currentQuestion / totalQuestions) * 100
+  
+  const handleStartQuiz = () => {
+    setIsQuizActive(true)
+    setCurrentQuestion(0)
+    setAnswers({})
+    setQuizCompleted(false)
+  }
+  
+  const handleAnswer = (questionId: string, value: number) => {
+    setAnswers(prev => ({ ...prev, [questionId]: value }))
+    
+    if (currentQuestion < totalQuestions - 1) {
+      setTimeout(() => {
+        setCurrentQuestion(prev => prev + 1)
+      }, 300)
+    } else {
+      setQuizCompleted(true)
+    }
+  }
+  
+  const handleBack = () => {
+    if (currentQuestion > 0) {
+      setCurrentQuestion(prev => prev - 1)
+    } else {
+      setIsQuizActive(false)
+    }
+  }
+  
+  const handleReset = () => {
+    setIsQuizActive(false)
+    setQuizCompleted(false)
+    setCurrentQuestion(0)
+    setAnswers({})
+  }
+  
+  // Calculate health score based on answers
+  const calculateHealthScore = () => {
+    const totalPossibleScore = totalQuestions * 3
+    const actualScore = Object.values(answers).reduce((acc, val) => acc + val, 0)
+    return Math.round((actualScore / totalPossibleScore) * 100)
+  }
+  
+  // Determine which vitamins are needed based on scores
+  const getVitaminsNeeded = () => {
+    const recommendations: Array<{ vitamin: string; icon: React.ReactNode }> = [];
+    
+    QUIZ_QUESTIONS.forEach(q => {
+      const score = answers[q.id] || 0;
+      if (score < 2) {
+        recommendations.push({
+          vitamin: q.vitamin,
+          icon: q.icon
+        });
+      }
+    });
+    
+    return recommendations;
+  }
+
   return (
-    <section className="py-24 sm:py-32 relative overflow-hidden">
-      {/* Background decorations */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/[0.03] via-transparent to-transparent dark:from-primary/[0.02]" />
-        <div className="hero-glow absolute -inset-[10px] opacity-50 bg-gradient-to-r from-transparent via-primary/20 to-transparent dark:from-transparent dark:via-primary/10 dark:to-transparent blur-3xl transition-opacity duration-300" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
-        <div className="flex flex-col items-center text-center">
-          <Badge 
-            variant="secondary" 
-            className="mb-8 lg:mb-12 px-4 py-2 text-base bg-primary/[0.03] dark:bg-primary/[0.02] text-primary border-primary/20 backdrop-blur-sm"
-          >
-            Start Your Journey
-          </Badge>
-
-          {/* Main Content */}
-          <div className="max-w-3xl mx-auto mb-12">
-            <div className="w-24 h-24 mb-8 text-primary mx-auto transform hover:scale-105 transition-transform duration-200">
-              <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="50" cy="50" r="45" className="opacity-20" />
-                <path d="M50 25v50M25 50h50" className="opacity-40" />
-                <circle cx="50" cy="50" r="20" className="text-primary" />
-                <path d="M50 30a20 20 0 0 1 0 40" className="text-primary" />
-                <path d="M50 30a20 20 0 0 0 0 40" className="text-primary" />
-                <circle cx="50" cy="50" r="5" className="text-primary" />
-              </svg>
-            </div>
-            
-            <h2 className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
-              Ready to boost your <span className="text-primary">product's health</span>?
-            </h2>
-            <p className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
-              Join hundreds of successful companies that have transformed their digital products with our proven solutions.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button 
-                size="lg" 
-                className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm hover:shadow transition-all duration-200 rounded-full px-6"
+    <div className="py-20 md:py-32">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="bg-gradient-to-br from-primary/20 via-primary/10 to-background rounded-3xl border border-primary/20 shadow-xl overflow-hidden">
+          <div className="p-8 md:p-12 lg:p-16">
+            <div className="max-w-3xl mx-auto text-center">
+              <Badge
+                variant="outline"
+                className="mb-4 px-4 py-1.5 border-primary/40 text-primary"
               >
-                <span>Get started now</span>
-                <svg 
-                  className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </Button>
-              <Button 
-                size="lg" 
-                variant="secondary" 
-                className="group bg-card/50 dark:bg-card/40 hover:bg-card/80 text-foreground border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-200 rounded-full px-6"
-              >
-                <span>Schedule a demo</span>
-                <svg 
-                  className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2"
-                >
-                  <path d="M15 10l5 5-5 5"/>
-                  <path d="M4 4v7a4 4 0 0 0 4 4h12"/>
-                </svg>
-              </Button>
-            </div>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-col items-center space-y-4">
-              <div className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground">
-                <div className="p-1 rounded-full bg-primary/[0.03] dark:bg-primary/[0.02] backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-green-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M20 6L9 17l-5-5"/>
-                  </svg>
+                Product Health Check
+              </Badge>
+              
+              {!isQuizActive ? (
+                <div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                    Ready to diagnose your product's health?
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-10 max-w-2xl mx-auto">
+                    Take our quick 3-question assessment to identify which vitamins your 
+                    digital product needs for optimal performance and growth.
+                  </p>
+                  
+                  <Button size="lg" onClick={handleStartQuiz} className="rounded-full px-8">
+                    Start your free assessment
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
                 </div>
-                <span>30-day money-back guarantee</span>
-              </div>
-              <div className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground">
-                <div className="p-1 rounded-full bg-primary/[0.03] dark:bg-primary/[0.02] backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-blue-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                  </svg>
+              ) : quizCompleted ? (
+                // Quiz results
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key="results"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <div className="mb-8">
+                      <div className="inline-block rounded-full bg-background p-4 mb-6">
+                        <Sparkles className="h-8 w-8 text-primary" />
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                        Your Product Health Score: {calculateHealthScore()}%
+                      </h3>
+                      
+                      <div className="w-full h-4 bg-muted rounded-full mb-8">
+                        <div 
+                          className="h-full bg-primary rounded-full"
+                          style={{ width: `${calculateHealthScore()}%` }}
+                        />
+                      </div>
+                      
+                      <div className="text-left max-w-md mx-auto mb-8">
+                        <h4 className="font-medium mb-3">Recommended vitamins:</h4>
+                        {getVitaminsNeeded().length > 0 ? (
+                          <ul className="space-y-3">
+                            {getVitaminsNeeded().map((rec, i) => (
+                              <li key={i} className="flex items-center gap-2 p-2 bg-muted/50 rounded-lg">
+                                <div className="p-1.5 bg-primary/10 rounded text-primary">
+                                  {rec.icon}
+                                </div>
+                                <span>{rec.vitamin}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p className="text-muted-foreground">
+                            Your product appears to be in good health! However, regular checkups are still recommended.
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                    
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                      <Button size="lg" asChild className="rounded-full px-8">
+                        <Link href="/contact">
+                          Get a detailed diagnosis
+                          <ArrowRight className="ml-2 h-5 w-5" />
+                        </Link>
+                      </Button>
+                      <Button variant="outline" size="lg" onClick={handleReset} className="rounded-full px-8">
+                        Restart assessment
+                        <ChevronLeft className="ml-2 h-5 w-5" />
+                      </Button>
+                    </div>
+                  </motion.div>
+                </AnimatePresence>
+              ) : (
+                // Quiz questions
+                <div>
+                  {/* Progress bar */}
+                  <div className="w-full h-1.5 bg-muted rounded-full mb-8">
+                    <div 
+                      className="h-full bg-primary rounded-full transition-all duration-300"
+                      style={{ width: `${currentProgress}%` }}
+                    />
+                  </div>
+                  
+                  {/* Question */}
+                  <AnimatePresence mode="wait">
+                    <motion.div
+                      key={currentQuestion}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -20 }}
+                      transition={{ duration: 0.3 }}
+                      className="mb-8"
+                    >
+                      <div className="inline-flex mb-6 bg-primary/10 rounded-lg p-2">
+                        <Badge variant="outline" className="px-3 py-1">
+                          Question {currentQuestion + 1} of {totalQuestions}
+                        </Badge>
+                      </div>
+                      
+                      <h3 className="text-2xl font-bold mb-8">
+                        {QUIZ_QUESTIONS[currentQuestion].question}
+                      </h3>
+                      
+                      <div className="space-y-3 max-w-md mx-auto">
+                        {QUIZ_QUESTIONS[currentQuestion].options.map((option) => (
+                          <button
+                            key={option.id}
+                            onClick={() => handleAnswer(QUIZ_QUESTIONS[currentQuestion].id, option.value)}
+                            className={cn(
+                              "w-full p-4 rounded-xl border text-left transition-all flex items-center",
+                              answers[QUIZ_QUESTIONS[currentQuestion].id] === option.value
+                                ? "border-primary bg-primary/5"
+                                : "border-border hover:border-primary/30 hover:bg-muted/50"
+                            )}
+                          >
+                            <div className="flex-1">{option.label}</div>
+                            <div className={cn(
+                              "w-5 h-5 rounded-full border flex items-center justify-center transition-colors",
+                              answers[QUIZ_QUESTIONS[currentQuestion].id] === option.value
+                                ? "border-primary bg-primary text-primary-foreground"
+                                : "border-muted-foreground"
+                            )}>
+                              {answers[QUIZ_QUESTIONS[currentQuestion].id] === option.value && (
+                                <Check className="w-3 h-3" />
+                              )}
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                  
+                  {/* Navigation */}
+                  <div className="flex justify-between items-center mt-8">
+                    <Button variant="ghost" size="sm" onClick={handleBack} className="flex items-center">
+                      <ChevronLeft className="mr-1 h-4 w-4" />
+                      Back
+                    </Button>
+                    
+                    <div className="text-sm text-muted-foreground">
+                      {currentQuestion + 1} of {totalQuestions}
+                    </div>
+                    
+                    {currentQuestion < totalQuestions - 1 && (
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => setCurrentQuestion(prev => prev + 1)}
+                        disabled={!answers[QUIZ_QUESTIONS[currentQuestion].id]}
+                        className="flex items-center"
+                      >
+                        Skip
+                        <ChevronRight className="ml-1 h-4 w-4" />
+                      </Button>
+                    )}
+                  </div>
                 </div>
-                <span>Enterprise-grade security</span>
-              </div>
-              <div className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground">
-                <div className="p-1 rounded-full bg-primary/[0.03] dark:bg-primary/[0.02] backdrop-blur-sm">
-                  <svg className="w-4 h-4 text-purple-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="M12 16v-4M12 8h.01"/>
-                  </svg>
-                </div>
-                <span>24/7 priority support</span>
-              </div>
+              )}
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

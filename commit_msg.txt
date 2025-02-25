@@ -1,8 +1,9 @@
-[Cursor] feat(services): Enable infinite card looping on mobile
+[Cursor] feat: Update components and styling across the application
 
-- Add mobile-specific infinite card looping in Core Capabilities section
-- Maintain desktop behavior with start/end limits
-- Implement smooth transitions for loop navigation
-- Update both swipe and wheel event handlers for consistent behavior
-
-This change improves the mobile UX by allowing users to continuously cycle through capability cards while maintaining the original desktop experience.
+- Add StickyCTA component for improved conversion
+- Update UI components with improved animations and responsiveness
+- Enhance the design of global components (Hero, Footer, FeaturesBreakdown)
+- Optimize performance in TechFlow case study and other components
+- Refine styling in globals.css and update tailwind configuration
+- Improve UX/UI in service pages
+- Update utility functions for better code maintainability 

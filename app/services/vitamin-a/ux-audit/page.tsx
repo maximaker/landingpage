@@ -3,11 +3,10 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
-import { ArrowRight, Search, FileSearch, ListChecks, BarChart, ChevronRight, CheckCircle2, Target, Lightbulb } from 'lucide-react'
+import { ArrowRight, Search, FileSearch, ListChecks, BarChart, ChevronRight, CheckCircle2, Target, Lightbulb, Clock } from 'lucide-react'
 import Link from 'next/link'
-import * as Tabs from '@radix-ui/react-tabs'
 import * as Accordion from '@radix-ui/react-accordion'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const AUDIT_SECTIONS = [
   {
@@ -112,32 +111,56 @@ const WHEN_QUESTIONS = [
 const PRICING_OPTIONS = [
   {
     title: "Just",
+    price: "$2,499",
     description: "Perfect for startups and small businesses",
+    timeline: "2 weeks",
+    timelineWeeks: 2,
     features: [
       "Core user flows analysis",
       "Basic usability review",
       "Key recommendations",
-      "2-week timeline"
+      "Executive summary",
+      "Implementation roadmap",
+      "1 stakeholder interview",
+      "Basic analytics review"
     ]
   },
   {
     title: "Enjoy",
+    price: "$4,999",
     description: "Ideal for growing companies",
+    timeline: "3 weeks",
+    timelineWeeks: 3,
     features: [
       "Comprehensive UX analysis",
       "Detailed recommendations",
       "Implementation roadmap",
-      "3-week timeline"
-    ]
+      "Executive summary",
+      "Competitive analysis",
+      "3 stakeholder interviews",
+      "Full analytics deep-dive",
+      "User flow optimization",
+      "Content strategy review"
+    ],
+    isPopular: true
   },
   {
     title: "The Ride",
+    price: "Custom",
     description: "For enterprise and complex products",
+    timeline: "4+ weeks",
+    timelineWeeks: 4,
     features: [
       "Full product ecosystem analysis",
       "Competitive benchmarking",
       "Detailed action plan",
-      "4-week timeline"
+      "Executive summary",
+      "Unlimited stakeholder interviews",
+      "Advanced analytics review",
+      "User research synthesis",
+      "Conversion optimization",
+      "Content & IA deep-dive",
+      "Custom requirements"
     ]
   }
 ]
@@ -178,8 +201,35 @@ const SECTION_HEADERS = {
 }
 
 export default function UXAuditPage() {
-  const [activeTab, setActiveTab] = useState<typeof TAB_ORDER[number]>('what')
-  const [activePricingTab, setActivePricingTab] = useState('just')
+  const [activeSection, setActiveSection] = useState<typeof TAB_ORDER[number]>('what')
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(entry.target.id as typeof TAB_ORDER[number])
+        }
+      })
+    }, {
+      rootMargin: '-50% 0px -50% 0px'
+    })
+
+    TAB_ORDER.forEach((section) => {
+      const element = document.getElementById(section)
+      if (element) observer.observe(element)
+    })
+
+    return () => observer.disconnect()
+  }, [])
+
+  const scrollToSection = (section: typeof TAB_ORDER[number]) => {
+    const element = document.getElementById(section)
+    if (element) {
+      const navHeight = 56 // Height of the sticky nav
+      const top = element.offsetTop - navHeight
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
+  }
 
   const renderTabContent = (tab: typeof TAB_ORDER[number]) => {
     switch (tab) {
@@ -359,7 +409,7 @@ export default function UXAuditPage() {
                       </p>
                     </div>
                     
-                    <div className="grid sm:grid-cols-2 gap-4">
+                    <div className="grid gap-4">
                       {step.items.map((item, i) => (
                         <div 
                           key={i}
@@ -465,37 +515,131 @@ export default function UXAuditPage() {
       case 'pricing':
         return (
           <div className="space-y-12">
-            <div className="grid md:grid-cols-3 gap-8">
-              {PRICING_OPTIONS.map((option, index) => (
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <p className="text-lg text-muted-foreground">
+                Flexible engagement options to match your product's needs and timeline.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: "Just",
+                  price: "$2,499",
+                  description: "Perfect for startups and small businesses",
+                  timeline: "2 weeks",
+                  timelineWeeks: 2,
+                  features: [
+                    "Core user flows analysis",
+                    "Basic usability review",
+                    "Key recommendations",
+                    "Executive summary",
+                    "Implementation roadmap",
+                    "1 stakeholder interview",
+                    "Basic analytics review"
+                  ]
+                },
+                {
+                  title: "Enjoy",
+                  price: "$4,999",
+                  description: "Ideal for growing companies",
+                  timeline: "3 weeks",
+                  timelineWeeks: 3,
+                  features: [
+                    "Comprehensive UX analysis",
+                    "Detailed recommendations",
+                    "Implementation roadmap",
+                    "Executive summary",
+                    "Competitive analysis",
+                    "3 stakeholder interviews",
+                    "Full analytics deep-dive",
+                    "User flow optimization",
+                    "Content strategy review"
+                  ],
+                  isPopular: true
+                },
+                {
+                  title: "The Ride",
+                  price: "Custom",
+                  description: "For enterprise and complex products",
+                  timeline: "4+ weeks",
+                  timelineWeeks: 4,
+                  features: [
+                    "Full product ecosystem analysis",
+                    "Competitive benchmarking",
+                    "Detailed action plan",
+                    "Executive summary",
+                    "Unlimited stakeholder interviews",
+                    "Advanced analytics review",
+                    "User research synthesis",
+                    "Conversion optimization",
+                    "Content & IA deep-dive",
+                    "Custom requirements"
+                  ]
+                }
+              ].map((option, index) => (
                 <motion.div
                   key={option.title}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  className="group relative bg-card rounded-2xl p-8 border border-border hover:border-primary/20 transition-all duration-300"
+                  className={`relative bg-card rounded-2xl p-8 border transition-all duration-300 ${
+                    option.isPopular 
+                      ? 'border-primary shadow-lg scale-[1.02]' 
+                      : 'border-border hover:border-primary/20'
+                  }`}
                 >
+                  {option.isPopular && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                      <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20">
+                        Most Popular
+                      </Badge>
+                    </div>
+                  )}
+
                   <div className="mb-6">
                     <h3 className="text-2xl font-bold mb-2">{option.title}</h3>
-                    <p className="text-muted-foreground">{option.description}</p>
+                    <div className="flex items-baseline gap-1 mb-2">
+                      <span className="text-3xl font-bold">{option.price}</span>
+                      {option.price !== "Custom" && <span className="text-muted-foreground">/audit</span>}
+                    </div>
+                    <p className="text-muted-foreground text-sm">{option.description}</p>
                   </div>
-                  
+
                   <div className="space-y-6">
+                    <div className="space-y-2">
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                        <Clock className="w-4 h-4" />
+                        <span>Timeline: {option.timeline}</span>
+                      </div>
+                      <div className="grid grid-cols-4 gap-1">
+                        {Array.from({ length: option.timelineWeeks }).map((_, i) => (
+                          <div 
+                            key={i}
+                            className="h-1 rounded-full bg-primary/20"
+                          />
+                        ))}
+                        {option.timeline.includes('+') && (
+                          <div className="h-1 rounded-full bg-primary/20 animate-pulse" />
+                        )}
+                      </div>
+                    </div>
+                    
                     <div className="space-y-3">
                       {option.features.map((feature, i) => (
                         <div 
                           key={i}
-                          className="flex items-start gap-3 p-3 rounded-lg bg-muted/50 group-hover:bg-muted transition-colors"
+                          className="flex items-start gap-3"
                         >
                           <CheckCircle2 className="w-5 h-5 text-primary mt-0.5" />
-                          <span className="text-muted-foreground">{feature}</span>
+                          <span className="text-muted-foreground text-sm">{feature}</span>
                         </div>
                       ))}
                     </div>
                     
                     <Button 
-                      className="w-full rounded-full"
-                      variant="outline"
+                      className={`w-full rounded-full ${option.isPopular ? '' : 'variant-outline'}`}
                       asChild
                     >
                       <Link href="/contact">
@@ -509,20 +653,30 @@ export default function UXAuditPage() {
             </div>
 
             <div className="bg-muted/50 rounded-2xl p-8 border border-border">
-              <h3 className="text-xl font-semibold mb-6">Custom Requirements?</h3>
-              <p className="text-muted-foreground mb-4">
-                Need a more tailored solution? Let's discuss your specific needs and create a custom package that works for you.
-              </p>
-              <Button 
-                variant="outline"
-                className="rounded-full"
-                asChild
-              >
-                <Link href="/contact">
-                  Contact us
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
+              <div className="grid sm:grid-cols-2 gap-8">
+                <div>
+                  <h3 className="text-xl font-semibold mb-4">Need a custom solution?</h3>
+                  <p className="text-muted-foreground mb-6">
+                    Have specific requirements or a larger project? Let's create a tailored plan that perfectly fits your needs.
+                  </p>
+                  <Button 
+                    variant="outline"
+                    className="rounded-full"
+                    asChild
+                  >
+                    <Link href="/contact">
+                      Contact us for custom pricing
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-4">Money back guarantee</h3>
+                  <p className="text-muted-foreground">
+                    Not satisfied with our audit? Get a full refund within 30 days if you're not completely happy with our recommendations.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         )
@@ -636,7 +790,28 @@ export default function UXAuditPage() {
         </div>
       </section>
 
-      {/* Overview Grid - Now with a proper introduction */}
+      {/* Sticky Navigation */}
+      <div className="sticky top-[100px] z-50 bg-muted/40 backdrop-blur-sm border-b border-border/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-center h-[26px] gap-4">
+            {TAB_ORDER.map((section) => (
+              <button
+                key={section}
+                onClick={() => scrollToSection(section)}
+                className={`px-3 py-1 text-sm font-medium rounded-full transition-colors
+                  ${activeSection === section 
+                    ? 'bg-primary/10 text-primary' 
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted/50'
+                  }`}
+              >
+                {section.charAt(0).toUpperCase() + section.slice(1)}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Overview Grid */}
       <section className="py-24 relative bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
@@ -672,53 +847,30 @@ export default function UXAuditPage() {
         </div>
       </section>
 
-      {/* Tabbed Content - Now with improved navigation and headers */}
-      <section className="py-24" id="process">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <Tabs.Root 
-            value={activeTab} 
-            onValueChange={setActiveTab as (value: string) => void}
+      {/* Content Sections */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+        {TAB_ORDER.map((section) => (
+          <section
+            key={section}
+            id={section}
+            className="py-24 scroll-mt-32"
           >
-            <div className="flex justify-center mb-12">
-              <Tabs.List className="flex gap-2 p-1 rounded-full bg-card border border-border">
-                {TAB_ORDER.map((tab) => (
-                  <Tabs.Trigger
-                    key={tab}
-                    value={tab}
-                    className={`px-6 py-2 rounded-full text-sm font-medium transition-colors
-                      ${activeTab === tab 
-                        ? 'bg-primary text-primary-foreground' 
-                        : 'text-muted-foreground hover:text-foreground hover:bg-muted'
-                      }`}
-                  >
-                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
-                  </Tabs.Trigger>
-                ))}
-              </Tabs.List>
+            <div className="space-y-12">
+              <div className="text-center">
+                <h2 className="text-3xl font-bold mb-4">
+                  {SECTION_HEADERS[section].title}
+                </h2>
+                <p className="text-lg text-muted-foreground">
+                  {SECTION_HEADERS[section].subtitle}
+                </p>
+              </div>
+              {renderTabContent(section)}
             </div>
+          </section>
+        ))}
+      </div>
 
-            <div className="max-w-4xl mx-auto">
-              {TAB_ORDER.map((tab) => (
-                <Tabs.Content key={tab} value={tab} className="focus:outline-none">
-                  <div className="space-y-12">
-                    <div className="text-center">
-                      <h2 className="text-3xl font-bold mb-4">
-                        {SECTION_HEADERS[tab].title}
-                      </h2>
-                      <p className="text-lg text-muted-foreground">
-                        {SECTION_HEADERS[tab].subtitle}
-                      </p>
-                    </div>
-                    {renderTabContent(tab)}
-                  </div>
-                </Tabs.Content>
-              ))}
-            </div>
-          </Tabs.Root>
-        </div>
-      </section>
-
-      {/* CTA Section - Now with more context */}
+      {/* CTA Section */}
       <section className="py-24 bg-muted/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <Badge 

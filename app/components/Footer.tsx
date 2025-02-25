@@ -79,7 +79,20 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-start gap-8">
             <div className="w-full md:w-1/2 max-w-none md:max-w-none">
               <Link href="/" className="inline-block">
-                <Logo />
+                <div className="inline-flex items-center" style={{ gap: '6px' }}>
+                  <Logo className="transition-colors duration-200 w-auto h-8" />
+                  <span 
+                    className="text-lg font-bold text-foreground tracking-tight whitespace-nowrap" 
+                    style={{ 
+                      lineHeight: '1',
+                      paddingTop: '2px',
+                      display: 'inline-block',
+                      height: '18px'
+                    }}
+                  >
+                    Digital Vitamins
+                  </span>
+                </div>
               </Link>
               <p className="mt-6 text-sm leading-6 text-muted-foreground dark:text-muted-foreground">
                 Empowering digital products with strategic health solutions and transformative growth strategies.

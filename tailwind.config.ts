@@ -100,6 +100,46 @@ const config = {
             transform: "translateY(-50%)",
           },
         },
+        fadeIn: {
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "0% 0%" },
+          "100%": { backgroundPosition: "-200% 0%" },
+        },
+        spin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        pulse: {
+          "0%, 100%": { opacity: "0.6", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.05)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
+        },
+        "first-blob": {
+          "0%, 100%": { opacity: "0.7", transform: "translate(0, 0) scale(1)" },
+          "33%": { opacity: "0.6", transform: "translate(5%, 5%) scale(1.05)" },
+          "66%": { opacity: "0.8", transform: "translate(-5%, -5%) scale(0.95)" },
+        },
+        "second-blob": {
+          "0%, 100%": { opacity: "0.7", transform: "translate(0, 0) scale(1)" },
+          "33%": { opacity: "0.8", transform: "translate(-5%, 5%) scale(0.95)" },
+          "66%": { opacity: "0.6", transform: "translate(5%, -5%) scale(1.05)" },
+        },
+        heartbeat: {
+          "0%, 100%": { transform: "scale(1)" },
+          "25%": { transform: "scale(1.1)" },
+          "50%": { transform: "scale(0.9)" },
+          "75%": { transform: "scale(1.1)" },
+        },
+        breathing: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.05)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -109,6 +149,15 @@ const config = {
         third: "moveInCircle 40s linear infinite",
         fourth: "moveHorizontal 40s ease infinite",
         fifth: "moveInCircle 20s ease infinite",
+        "fade-in": "fadeIn 1s ease-out forwards",
+        "spin-slow": "spin 30s linear infinite",
+        "pulse-slow": "pulse 3s ease-in-out infinite",
+        float: "float 6s ease-in-out infinite",
+        "first-blob": "first-blob 15s ease-in-out infinite",
+        "second-blob": "second-blob 18s ease-in-out infinite",
+        "gradient-x": "shimmer 3s infinite",
+        "heartbeat": "heartbeat 2s ease-in-out infinite",
+        "breathing": "breathing 4s ease-in-out infinite",
       },
     },
   },

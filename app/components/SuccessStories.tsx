@@ -3,9 +3,8 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
-import { useState, useEffect, useRef } from "react"
+import { useState } from "react"
 import { ArrowRight, ChevronLeft, ChevronRight, TrendingUp, Users, Zap, Clock, Target, LineChart, Sparkles, Rocket, Shield } from "lucide-react"
-import { useInView } from "react-intersection-observer"
 
 type SuccessStory = {
   id: string
@@ -162,103 +161,19 @@ const SUCCESS_STORIES: SuccessStory[] = [
 export function SuccessStories() {
   const [currentStory, setCurrentStory] = useState(0)
   const [direction, setDirection] = useState(0)
-  const [isScrollLocked, setIsScrollLocked] = useState(false)
-  const lastScrollTime = useRef(Date.now())
-  const scrollThreshold = 50 // ms between scroll events
-  
-  // Use intersection observer with a higher threshold to ensure cards are in the middle
-  const { ref: sectionRef, inView } = useInView({
-    threshold: 0.7, // Trigger when 70% of the section is visible
-    rootMargin: "-20% 0px", // Only trigger when section is in the middle 20% of viewport
-  })
-
-  const handleScroll = (event: WheelEvent) => {
-    if (!inView || !isScrollLocked) return
-
-    const now = Date.now()
-    if (now - lastScrollTime.current < scrollThreshold) return
-    lastScrollTime.current = now
-
-    if (event.deltaY > 0) { // Scrolling down
-      if (currentStory < SUCCESS_STORIES.length - 1) {
-        event.preventDefault()
-        setDirection(1)
-        setCurrentStory(prev => prev + 1)
-      } else {
-        setIsScrollLocked(false)
-      }
-    } else if (event.deltaY < 0) { // Scrolling up
-      if (currentStory > 0) {
-        event.preventDefault()
-        setDirection(-1)
-        setCurrentStory(prev => prev - 1)
-      } else {
-        setIsScrollLocked(false)
-      }
-    }
-  }
-
-  // Handle scroll locking when section comes into view
-  useEffect(() => {
-    if (inView) {
-      setIsScrollLocked(true)
-      // Add a class to body to indicate scroll lock
-      document.body.classList.add('story-scroll-active')
-    } else {
-      setIsScrollLocked(false)
-      document.body.classList.remove('story-scroll-active')
-    }
-
-    return () => {
-      document.body.classList.remove('story-scroll-active')
-    }
-  }, [inView])
-
-  // Add and remove scroll event listener
-  useEffect(() => {
-    const handleScrollWithPrevent = (e: WheelEvent) => {
-      if (isScrollLocked) {
-        e.preventDefault()
-        handleScroll(e)
-      }
-    }
-
-    window.addEventListener('wheel', handleScrollWithPrevent, { passive: false })
-    
-    return () => {
-      window.removeEventListener('wheel', handleScrollWithPrevent)
-    }
-  }, [isScrollLocked, currentStory])
 
   const nextStory = () => {
-    if (currentStory < SUCCESS_STORIES.length - 1) {
-      setDirection(1)
-      setCurrentStory(prev => prev + 1)
-    }
+    setDirection(1)
+    setCurrentStory((prev) => (prev + 1) % SUCCESS_STORIES.length)
   }
 
   const previousStory = () => {
-    if (currentStory > 0) {
-      setDirection(-1)
-      setCurrentStory(prev => prev - 1)
-    }
+    setDirection(-1)
+    setCurrentStory((prev) => (prev - 1 + SUCCESS_STORIES.length) % SUCCESS_STORIES.length)
   }
 
   return (
-    <section 
-      ref={sectionRef}
-      className={`py-24 sm:py-32 bg-background relative overflow-hidden transition-colors duration-300 ${
-        isScrollLocked ? 'story-section-active' : ''
-      }`}
-    >
-      {/* Add a visual indicator when scrolling is active */}
-      <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent transition-opacity duration-300 ${
-        isScrollLocked ? 'opacity-100' : 'opacity-0'
-      }`} />
-      <div className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent transition-opacity duration-300 ${
-        isScrollLocked ? 'opacity-100' : 'opacity-0'
-      }`} />
-
+    <section className="py-24 sm:py-32 bg-background relative overflow-hidden">
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/[0.03] via-transparent to-transparent" />
       </div>
@@ -435,33 +350,3 @@ export function SuccessStories() {
     </section>
   )
 }
-
-<style jsx global>{`
-  @keyframes wave {
-    0% {
-      width: 2px;
-      height: 2px;
-      opacity: 0.4;
-    }
-    100% {
-      width: 20px;
-      height: 20px;
-      opacity: 0;
-    }
-  }
-
-  .story-scroll-active {
-    scrollbar-gutter: stable;
-  }
-
-  .story-section-active {
-    background-color: hsl(var(--background) / 0.98);
-    backdrop-filter: blur(8px);
-  }
-
-  @media (hover: hover) {
-    .story-section-active {
-      cursor: ns-resize;
-    }
-  }
-`}</style>

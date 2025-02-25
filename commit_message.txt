@@ -1,4 +1,4 @@
-[Cursor] feat(ux-audit): improve tab content layout and visual hierarchy
+[Cursor] feat(ux-audit): improve tab content layout and add build fixes
 
 Enhance the UX Audit service page tab content layout for better scannability and modern design:
 
@@ -10,5 +10,9 @@ Enhance the UX Audit service page tab content layout for better scannability and
 - Implement better typography hierarchy
 - Improve call-to-action visibility
 - Add responsive design patterns
+
+Build improvements:
+- Add critters dependency for CSS optimization
+- Fix Next.js static page generation
 
 These changes make the content more engaging and easier to scan while maintaining a modern, professional appearance. 

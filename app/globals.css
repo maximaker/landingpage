@@ -136,23 +136,89 @@
   }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes shimmer {
-  0% { background-position: 0% 0; }
-  100% { background-position: 200% 0; }
+  from { background-position: 0% 0%; }
+  to { background-position: -200% 0%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes rotate-blob {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes first-blob {
+  0%, 100% { opacity: 0.7; transform: translate(0, 0) scale(1); }
+  33% { opacity: 0.6; transform: translate(5%, 5%) scale(1.05); }
+  66% { opacity: 0.8; transform: translate(-5%, -5%) scale(0.95); }
+}
+
+@keyframes second-blob {
+  0%, 100% { opacity: 0.7; transform: translate(0, 0) scale(1); }
+  33% { opacity: 0.8; transform: translate(-5%, 5%) scale(0.95); }
+  66% { opacity: 0.6; transform: translate(5%, -5%) scale(1.05); }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(0.9); }
+  75% { transform: scale(1.1); }
+}
+
+@keyframes breathing {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 
 .fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+  animation: fadeIn 1s ease-out forwards;
   opacity: 0;
 }
 
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
 .delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1s; }
+
+.animate-first {
+  animation: first-blob 15s ease-in-out infinite;
+}
+
+.animate-second {
+  animation: second-blob 18s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: rotate-blob 30s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-gradient-x {
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
 
 .glimmer-card {
   position: relative;
