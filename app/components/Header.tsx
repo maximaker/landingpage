@@ -7,62 +7,82 @@ import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { usePathname } from 'next/navigation'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, ArrowRight, Sparkles, Code, BarChart3, Rocket, Activity, ChevronUp } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import { motion } from 'framer-motion'
 
 const serviceItems = [
-  { 
-    label: 'Vitamin A - Awareness', 
+  {
+    label: 'Vitamin A - Awareness',
     href: '/services/vitamin-a',
-    description: 'Product health analysis and strategic planning',
+    description: 'Diagnose usability issues, uncover opportunities, and set a baseline for growth.',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 4v4m0 8v4M4 12h4m8 0h4" />
+        <circle cx="12" cy="12" r="1" />
+      </svg>
+    )
+  },
+  {
+    label: 'Vitamin C - Clarity',
+    href: '/services/vitamin-c',
+    description: 'Refine priorities, map user journeys, and align your vision with reality.',
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
       </svg>
-    ),
-    children: [
-      {
-        label: "UX Audit",
-        href: "/services/vitamin-a/ux-audit",
-        description: "Comprehensive evaluation of your product's user experience",
-        icon: (
-          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-          </svg>
-        )
-      }
-    ]
-  },
-  { 
-    label: 'Vitamin B - Build', 
-    href: '/services/vitamin-b',
-    description: 'Development and feature enhancement',
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-      </svg>
     )
   },
-  { 
-    label: 'Vitamin C - Convert', 
-    href: '/services/vitamin-c',
-    description: 'Conversion optimization and revenue growth',
-    icon: (
-      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    )
-  },
-  { 
-    label: 'Vitamin D - Deploy', 
+  {
+    label: 'Vitamin D - Direction',
     href: '/services/vitamin-d',
-    description: 'Scaling and infrastructure optimization',
+    description: 'Build scalable roadmaps, create design systems, and structure your product for success.',
     icon: (
       <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M19 9l-7 7-7-7" />
-        <path d="M12 16V4" />
-        <path d="M5 20h14" />
+        <path d="M9 18l6-6-6-6" />
+      </svg>
+    )
+  },
+  {
+    label: 'Vitamin E - Execution',
+    href: '/services/vitamin-e',
+    description: 'Deliver high-quality designs, prototypes, and handoffs that bring your ideas to life.',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+      </svg>
+    )
+  },
+  {
+    label: 'Vitamin K - Continuity',
+    href: '/services/vitamin-k',
+    description: 'Maintain stability with ongoing support, bug fixes, and performance tracking.',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+      </svg>
+    )
+  },
+  {
+    label: 'Vitamin P - Progress',
+    href: '/services/vitamin-p',
+    description: 'Track and optimize to ensure your growth trajectory continues upward.',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+      </svg>
+    )
+  },
+  {
+    label: 'Vitamin I - Innovation',
+    href: '/services/vitamin-i',
+    description: 'Explore new technologies and approaches to keep your product ahead of the curve.',
+    icon: (
+      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
       </svg>
     )
   }
@@ -74,26 +94,27 @@ const menuItems = [
     href: '/about',
     children: [
       {
-        label: 'Overview',
-        href: '/about',
-        description: 'Learn about our mission, values, and team',
+        label: 'Our Story',
+        href: '/about/our-story',
+        description: 'Learn about our journey and mission',
         icon: (
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
+            <path d="M12 8a2 2 0 100-4 2 2 0 000 4z" />
+            <path d="M12 20V8" />
+            <path d="M5 12h14" />
           </svg>
         )
       },
       {
-        label: 'People We Work With',
-        href: '/about/people-we-work-with',
-        description: 'Meet the ambitious individuals and teams we partner with',
+        label: 'Team',
+        href: '/about/team',
+        description: 'Meet our passionate team of experts',
         icon: (
           <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2" />
-            <circle cx="10" cy="11" r="4" />
-            <path d="M21 21v-2a4 4 0 0 0-3-3.87" />
-            <path d="M18 8a4 4 0 0 0 0 2" />
+            <path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M22 21v-2a4 4 0 00-3-3.87" />
+            <path d="M16 3.13a4 4 0 010 7.75" />
           </svg>
         )
       },
@@ -184,6 +205,9 @@ export function Navigation() {
   const [isBusinessHours, setIsBusinessHours] = useState(false)
   const pathname = usePathname()
   const isScrollingDown = useScrollDirection()
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [activeSection, setActiveSection] = useState("")
+  const [scrollProgress, setScrollProgress] = useState(0)
 
   // Handle mounting state
   useEffect(() => {
@@ -218,6 +242,26 @@ export function Navigation() {
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0)
+      
+      // Update scroll progress indicator
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight
+      const scrolled = (winScroll / height) * 100
+      setScrollProgress(scrolled)
+      
+      // Track which section is currently in view
+      const sections = document.querySelectorAll('section[id]')
+      
+      let currentSection = ""
+      sections.forEach(section => {
+        const sectionTop = (section as HTMLElement).offsetTop - 100
+        const sectionHeight = (section as HTMLElement).offsetHeight
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+          currentSection = section.getAttribute('id') || ""
+        }
+      })
+      
+      setActiveSection(currentSection)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -229,128 +273,301 @@ export function Navigation() {
   }
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 group/header hover:bg-background/100 ${isScrollingDown ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
-    >
-      {/* Availability Bar */}
-      <div className="h-8 bg-background/50 backdrop-blur-sm border-b border-border/10 transition-colors duration-200 group-hover/header:bg-background/100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full">
-          <div className="flex items-center justify-between h-full">
-            <div className="flex items-center text-sm text-muted-foreground/50">
-              <Link 
-                href="/about/availability"
-                className="flex items-center gap-2 group hover:text-muted-foreground transition-all duration-200"
-              >
-                <div className="relative flex items-center w-4 h-4 transition-transform duration-300 group-hover:scale-110">
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-green-500" />
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-40 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-25 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite_1.3s]" />
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-15 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite_2.6s]" />
-                </div>
-                <span>Available for projects</span>
-              </Link>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="transform origin-center scale-[0.8] hover:scale-[0.85] transition-transform">
-                <ThemeToggle />
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 ${isScrollingDown ? '-translate-y-full opacity-0' : 'translate-y-0 opacity-100'}`}
+      >
+        {/* Availability Bar */}
+        <div className="hidden sm:block h-6 sm:h-8 bg-background/95 backdrop-blur-sm border-b border-border/10">
+          <div className="max-w-7xl mx-auto px-2 sm:px-6 h-full">
+            <div className="flex items-center justify-between h-full">
+              <div className="flex items-center text-xs sm:text-sm text-muted-foreground/50">
+                <Link 
+                  href="/about/availability"
+                  className="flex items-center gap-1 sm:gap-2 group hover:text-muted-foreground transition-all duration-200"
+                >
+                  <div className="relative flex items-center w-4 sm:w-5 h-4 sm:h-5 transition-transform duration-300 group-hover:scale-125">
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1 h-1 rounded-full bg-green-500" />
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-40 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite]" />
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-25 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite_1.3s]" />
+                    <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-green-500 opacity-15 [animation:wave_4s_cubic-bezier(0.4,0,0.6,1)_infinite_2.6s]" />
+                  </div>
+                  <span className="hidden sm:inline">Available for projects</span>
+                  <span className="sm:hidden">Available</span>
+                </Link>
               </div>
-              <div className="w-px h-4 bg-border/50" />
-              <div className="transform origin-center scale-[0.8] hover:scale-[0.85] transition-transform">
-                <LanguageSwitcher position="top" />
+              <div className="flex items-center gap-1 sm:gap-2">
+                <div className="transform origin-center scale-[0.7] sm:scale-[0.8] hover:scale-[0.75] sm:hover:scale-[0.85] transition-transform">
+                  <ThemeToggle />
+                </div>
+                <div className="w-px h-3 sm:h-4 bg-border/50"></div>
+                <div className="transform origin-center scale-[0.7] sm:scale-[0.8] hover:scale-[0.75] sm:hover:scale-[0.85] transition-transform">
+                  <LanguageSwitcher position="top" />
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className={`transition-all duration-300 ${isScrolled ? 'bg-gradient-to-b from-background/50 to-transparent md:bg-background/50 md:backdrop-blur-lg text-foreground h-16 sm:h-20 group-hover/header:from-background group-hover/header:md:bg-background' : 'bg-gradient-to-b from-background/50 to-transparent md:bg-transparent text-foreground h-16 sm:h-20 group-hover/header:from-background'}`}>
-        <div className="max-w-7xl mx-auto">
-          {/* Header Bar */}
-          <div className={`flex items-center justify-between h-16 sm:h-20 px-4 sm:px-6 ${isScrolled ? 'md:border-b md:border-border/10' : ''}`}>
-            {/* Logo */}
-            <Link 
-              href="/" 
-              className="flex sm:flex flex-shrink-0 transition-transform hover:scale-105 focus:scale-105 focus:outline-none md:flex-grow-0 flex-grow text-center justify-center sm:justify-start"
-              aria-label="Digital Vitamins Home"
-            >
-              <Logo className="transition-colors duration-200" />
-            </Link>
-
-            {/* Desktop Navigation - Always visible on desktop, hidden on mobile */}
-            <nav className="hidden md:flex items-center gap-8" role="navigation">
-              {menuItems.map((item) => {
-                const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
-                
-                if (item.children) {
-                  return (
-                    <div key={item.href} className="relative group">
-                      <Link
-                        href={item.href}
-                        className={`flex items-center gap-1 relative text-foreground font-medium transition-colors group ${isActive ? 'text-primary' : 'hover:text-primary'}`}
-                      >
-                        {item.label}
-                        <ChevronDown className={`w-4 h-4 transition-transform duration-200 group-hover:rotate-180`} />
-                        <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
-                      </Link>
-                      
-                      <div className="absolute top-full left-0 pt-2 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
-                        <div className="w-[600px] bg-popover/95 backdrop-blur-sm rounded-xl shadow-lg border border-border p-6">
-                          <div className="grid grid-cols-2 gap-4">
-                            {item.children.map((child) => {
-                              const isChildActive = pathname === child.href
-                              return (
-                                <Link
-                                  key={child.href}
-                                  href={child.href}
-                                  className={`group/card flex items-start gap-4 p-4 rounded-lg transition-all duration-200 ${isChildActive ? 'bg-primary/10 text-primary' : 'hover:bg-muted hover:scale-[1.02]'}`}
-                                >
-                                  <div className="mt-1 w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary transition-colors duration-200 group-hover/card:bg-primary/20">
-                                    {child.icon}
-                                  </div>
-                                  <div>
-                                    <div className="font-medium text-base">{child.label}</div>
-                                    <div className="text-sm text-muted-foreground mt-1 leading-relaxed">{child.description}</div>
-                                  </div>
-                                </Link>
-                              )
-                            })}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  )
-                }
-
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`relative text-foreground font-medium transition-colors group ${isActive ? 'text-primary' : 'hover:text-primary'}`}
-                    aria-current={isActive ? 'page' : undefined}
+        <div className={`transition-all duration-300 ${isScrolled ? 'bg-background/90 backdrop-blur-lg text-foreground h-14 sm:h-16 md:h-20' : 'bg-gradient-to-b from-background to-transparent text-foreground h-14 sm:h-16 md:h-20'}`}>
+          <div className="max-w-7xl mx-auto">
+            {/* Header Bar */}
+            <div className={`flex items-center justify-between h-14 sm:h-16 md:h-20 px-3 sm:px-6 ${isScrolled ? 'border-b border-border/10' : ''}`}>
+              {/* Logo */}
+              <Link 
+                href="/" 
+                className="flex items-center flex-shrink-0 transition-transform hover:scale-105 focus:scale-105 focus:outline-none md:flex-grow-0 flex-grow-0 text-center justify-center sm:justify-start"
+                aria-label="Digital Vitamins Home"
+              >
+                <div className="inline-flex items-center" style={{ gap: '6px' }}>
+                  <Logo className="transition-colors duration-200 w-auto h-8" />
+                  <span 
+                    className="text-lg font-bold text-foreground tracking-tight whitespace-nowrap" 
+                    style={{ 
+                      lineHeight: '1',
+                      paddingTop: '2px',
+                      display: 'inline-block',
+                      height: '18px'
+                    }}
                   >
-                    {item.label}
-                    <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+                    Digital Vitamins
+                  </span>
+                </div>
+              </Link>
+
+              {/* Desktop Navigation - Always visible on desktop, hidden on mobile */}
+              <nav className="hidden md:flex items-center gap-8 h-full" role="navigation">
+                {menuItems.map((item) => {
+                  const isActive = pathname === item.href || pathname.startsWith(item.href + '/')
+                  
+                  if (item.children) {
+                    return (
+                      <div key={item.href} className="relative group h-full flex items-center">
+                        <Link
+                          href={item.href}
+                          className={`flex items-center gap-1 relative text-foreground font-medium transition-colors group ${isActive ? 'text-primary' : 'hover:text-primary'}`}
+                        >
+                          {item.label}
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-200 group-hover:rotate-180`} />
+                          <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+                        </Link>
+                        
+                        {item.label === 'Services' ? (
+                          <div className="absolute top-full left-0 pt-3 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
+                            <div className="w-[800px] bg-popover/95 backdrop-blur-sm rounded-xl shadow-lg border border-border p-6">
+                              <div className="mb-4">
+                                <div className="font-medium text-sm uppercase text-muted-foreground mb-1">Our Vitamins</div>
+                                <h3 className="text-xl font-medium">Choose the right vitamin for your digital product</h3>
+                              </div>
+                              
+                              {/* Display all vitamins as cards in a grid */}
+                              <div className="grid grid-cols-4 gap-3">
+                                {/* First row: 4 vitamins */}
+                                {serviceItems.slice(0, 4).map((vitamin, i) => (
+                                  <Link
+                                    key={i}
+                                    href={vitamin.href}
+                                    className="group p-3 rounded-lg hover:bg-muted/70 transition-colors flex flex-col h-full"
+                                  >
+                                    <div className="flex items-center gap-2 mb-2">
+                                      <div className="bg-primary/10 p-1.5 rounded text-primary">
+                                        {vitamin.icon}
+                                      </div>
+                                      <div className="font-medium text-sm">{vitamin.label.split(' - ')[0]}</div>
+                                    </div>
+                                    <div className="mb-1">
+                                      <span className="text-xs font-medium text-primary">{vitamin.label.split(' - ')[1]}</span>
+                                    </div>
+                                    <p className="text-xs text-muted-foreground">{vitamin.description}</p>
+                                  </Link>
+                                ))}
+                                
+                                {/* Second row: 3 vitamins + UX Audit promo */}
+                                {serviceItems.slice(4, 7).map((vitamin, i) => (
+                                  <Link
+                                    key={i + 4}
+                                    href={vitamin.href}
+                                    className="group p-3 rounded-lg hover:bg-muted/70 transition-colors flex flex-col h-full"
+                                  >
+                                    <div className="flex items-center gap-2 mb-2">
+                                      <div className="bg-primary/10 p-1.5 rounded text-primary">
+                                        {vitamin.icon}
+                                      </div>
+                                      <div className="font-medium text-sm">{vitamin.label.split(' - ')[0]}</div>
+                                    </div>
+                                    <div className="mb-1">
+                                      <span className="text-xs font-medium text-primary">{vitamin.label.split(' - ')[1]}</span>
+                                    </div>
+                                    <p className="text-xs text-muted-foreground">{vitamin.description}</p>
+                                  </Link>
+                                ))}
+                                
+                                {/* UX Audit Promo Card */}
+                                <Link
+                                  href="/services/vitamin-a/ux-audit"
+                                  className="group p-3 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors flex flex-col h-full border border-primary/20"
+                                >
+                                  <div className="flex items-center gap-2 mb-2">
+                                    <div className="bg-primary/20 p-1.5 rounded text-primary">
+                                      <Sparkles className="w-5 h-5" />
+                                    </div>
+                                    <div className="font-medium text-sm">UX Audit</div>
+                                  </div>
+                                  <div className="mb-1">
+                                    <span className="text-xs font-medium text-primary">Product Assessment</span>
+                                  </div>
+                                  <p className="text-xs text-muted-foreground mb-2">Comprehensive evaluation of your product experience</p>
+                                  <Button size="sm" variant="ghost" className="mt-auto text-xs font-medium text-primary">
+                                    Learn more
+                                    <ArrowRight className="ml-1 h-3 w-3" />
+                                  </Button>
+                                </Link>
+                              </div>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="absolute top-full left-0 pt-3 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
+                            <div className="w-[800px] bg-popover/95 backdrop-blur-sm rounded-xl shadow-lg border border-border p-6">
+                              <div className="mb-4">
+                                <div className="font-medium text-sm uppercase text-muted-foreground mb-1">About Us</div>
+                                <h3 className="text-xl font-medium">Learn more about our approach and values</h3>
+                              </div>
+
+                              <div className="grid grid-cols-4 gap-3">
+                                {item.children?.slice(0, 4).map((child, i) => (
+                                  <Link
+                                    key={i}
+                                    href={child.href}
+                                    className="group p-3 rounded-lg hover:bg-muted/70 transition-colors flex flex-col h-full"
+                                  >
+                                    <div className="flex items-center gap-2 mb-2">
+                                      <div className="bg-primary/10 p-1.5 rounded text-primary">
+                                        {child.icon}
+                                      </div>
+                                      <div className="font-medium text-sm">{child.label}</div>
+                                    </div>
+                                    <p className="text-xs text-muted-foreground">{child.description}</p>
+                                  </Link>
+                                ))}
+
+                                {item.children?.slice(4, 8).map((child, i) => (
+                                  <Link
+                                    key={i + 4}
+                                    href={child.href}
+                                    className="group p-3 rounded-lg hover:bg-muted/70 transition-colors flex flex-col h-full"
+                                  >
+                                    <div className="flex items-center gap-2 mb-2">
+                                      <div className="bg-primary/10 p-1.5 rounded text-primary">
+                                        {child.icon}
+                                      </div>
+                                      <div className="font-medium text-sm">{child.label}</div>
+                                    </div>
+                                    <p className="text-xs text-muted-foreground">{child.description}</p>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    )
+                  }
+
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`relative text-foreground font-medium transition-colors group h-full flex items-center ${isActive ? 'text-primary' : 'hover:text-primary'}`}
+                      aria-current={isActive ? 'page' : undefined}
+                    >
+                      {item.label}
+                      <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
+                    </Link>
+                  )
+                })}
+              </nav>
+
+              {/* CTA Button */}
+              <div className="hidden md:flex items-center h-full">
+                <Button size="sm" asChild className="rounded-full px-4">
+                  <Link href="/contact">
+                    Get Started
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Placeholder for mobile menu trigger - maintaining spacing */}
+              <div className="md:hidden flex items-center w-7 h-7"></div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Quick Jump Navigation (visible when scrolled) */}
+        {isScrolled && (
+          <div className="hidden lg:block fixed right-4 top-1/2 -translate-y-1/2 bg-background/50 backdrop-blur-md border border-border/30 rounded-full py-2 px-1 shadow-sm">
+            <div className="flex flex-col gap-3">
+              {menuItems.map((item, i) => (
+                item.label && (
+                  <Link 
+                    key={i}
+                    href={item.href}
+                    className="relative group"
+                    aria-label={item.label}
+                  >
+                    <div 
+                      className={cn(
+                        "w-2 h-2 rounded-full transition-all duration-200",
+                        activeSection === item.label.toLowerCase() 
+                          ? "bg-primary scale-125" 
+                          : "bg-muted-foreground/40 hover:bg-muted-foreground"
+                      )}
+                    />
+                    <span className="absolute left-full ml-2 py-1 px-2 text-xs bg-background border border-border/50 rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity whitespace-nowrap">
+                      {item.label}
+                    </span>
                   </Link>
                 )
-              })}
-            </nav>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
+      </header>
+
+      {/* Scroll progress indicator - fixed to viewport bottom */}
+      <div 
+        className={`fixed bottom-0 left-0 bg-muted-foreground/60 transition-all duration-300 z-[999] shadow-[0_-1px_3px_rgba(0,0,0,0.2)] ${scrollProgress >= 99 ? 'h-5 cursor-pointer rounded-tr-md rounded-br-md' : 'h-1'}`}
+        style={{ 
+          width: `${scrollProgress}%`,
+          opacity: isScrolled ? 1 : 0
+        }}
+        onClick={() => {
+          if (scrollProgress >= 99) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }
+        }}
+      >
+        {scrollProgress >= 99 && (
+          <div className="absolute top-1/2 right-2 transform -translate-y-1/2 flex items-center justify-center text-primary-foreground">
+            <span className="text-xs mr-1 font-medium">Back to top</span>
+            <ChevronUp className="w-4 h-4" />
+          </div>
+        )}
       </div>
-    </header>
+    </>
   )
 }
 
 <style jsx global>{`
   @keyframes wave {
     0% {
-      width: 1px;
-      height: 1px;
+      width: 2px;
+      height: 2px;
       opacity: 0.4;
     }
     100% {
-      width: 12px;
-      height: 12px;
+      width: 20px;
+      height: 20px;
       opacity: 0;
     }
   }
