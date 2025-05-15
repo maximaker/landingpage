@@ -223,8 +223,7 @@ const menuItems = [
         )
       }
     ]
-  },
-  { label: 'Contact', href: '/contact' }
+  }
 ]
 
 export function Navigation() {
