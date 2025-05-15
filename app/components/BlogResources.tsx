@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useState } from "react"
-import { Search, Filter, ArrowRight, Loader2 } from "lucide-react"
+import { Search, ArrowRight, Loader2 } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 
 type BlogPost = {

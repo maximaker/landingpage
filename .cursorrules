@@ -1,5 +1,52 @@
 # Scratchpad
 
+## Project Optimization Checklist (Next.js Best Practices)
+
+### 1. Code Quality & Consistency
+[ ] Remove unused files and dependencies
+[ ] Run ESLint and Prettier, fix all issues
+[ ] Run `tsc --noEmit` to catch type errors
+[ ] Enforce unified UI primitives throughout
+
+### 2. Performance
+[ ] Audit all images (replace <img> with <Image /> where possible)
+[ ] Optimize images in public/
+[ ] Enable/configure image optimization in next.config.js
+[ ] Lazy-load/code-split heavy or below-the-fold components
+[ ] Use React.memo or dynamic imports for expensive components
+[ ] Analyze bundle size (next build/next analyze)
+
+### 3. Accessibility (a11y)
+[ ] Use semantic HTML and ARIA attributes
+[ ] Ensure all interactive elements are keyboard accessible
+[ ] Add alt text to all images
+[ ] Run a11y audit (Lighthouse, axe)
+
+### 4. SEO
+[ ] Use <Head> for meta tags, titles, and descriptions
+[ ] Add Open Graph and Twitter meta tags
+[ ] Ensure proper use of canonical URLs
+
+### 5. Developer Experience
+[ ] Add/update scripts in package.json for linting, formatting, and testing
+[ ] Ensure fast, reliable local development
+[ ] Update README.md with setup, scripts, and contribution guidelines
+
+### 6. Testing
+[ ] Add or improve unit/integration tests (Jest, React Testing Library)
+[ ] Add E2E tests if needed (Cypress, Playwright)
+
+### 7. CI/CD
+[ ] Set up GitHub Actions or other CI for linting, testing, and building on PRs
+[ ] Optionally, set up preview deployments (Vercel, Netlify)
+
+---
+
+## Current Step: Audit & Cleanup
+- Remove unused files and dependencies
+- Run ESLint and Prettier, fix all issues
+- Run `tsc --noEmit` to catch type errors
+
 ## Project Consistency & Cleanup Checklist
 
 ### 1. Consistency Refactor
@@ -13,9 +60,6 @@
 [ ] Remove or archive orphaned files and dead code
 
 ### 3. Performance Improvements
-[ ] Audit and optimize all images in public/images/
-[ ] Use Next.js <Image /> for images where possible
-[ ] Lazy load/code split heavy or below-the-fold components (e.g., BlogResources, InteractiveQuiz)
 [ ] Extract repeated SVGs into shared components or use SVG sprites
 [ ] Memoize or virtualize large lists/grids if needed
 

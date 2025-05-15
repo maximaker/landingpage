@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Heading, Subheading, Body } from "@/components/ui/typography"
+import { Heading, Body } from "@/components/ui/typography"
 
 const TESTIMONIALS = [
   {

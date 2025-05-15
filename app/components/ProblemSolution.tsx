@@ -1,10 +1,9 @@
 "use client"
 
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { Subheading } from "./ui/typography"
+import React from 'react'
 
 const PAIN_POINTS = [
   {
@@ -113,7 +112,7 @@ type ROIInputs = {
   developmentTime: number
 }
 
-export function ProblemSolution() {
+export const ProblemSolution = React.memo(function ProblemSolution() {
   const [roiInputs, setRoiInputs] = useState<ROIInputs>({
     monthlyUsers: 10000,
     averageRevenue: 50,
@@ -287,4 +286,4 @@ export function ProblemSolution() {
       </div>
     </section>
   )
-}
+})

@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { useState, useEffect, useCallback } from "react"
+import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useLocalStorage } from "@/hooks/use-local-storage"
 

@@ -2,9 +2,8 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { TimelineDemo } from "@/components/TimelineDemo"
 import Link from "next/link"
-import { LineChart, Search, Target, Zap, ArrowRight, FileSearch, ListChecks } from "lucide-react"
+import { LineChart, Search, Target, Zap, ArrowRight, FileSearch } from "lucide-react"
 import { useState, useRef, useEffect } from "react"
 import { motion } from 'framer-motion'
 

@@ -1,0 +1,15 @@
+# Ignore build output and dependencies
+.next/
+node_modules/
+public/
+
+# Ignore config files
+next.config.js
+postcss.config.js
+tailwind.config.js
+tailwind.config.ts
+
+# Ignore lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

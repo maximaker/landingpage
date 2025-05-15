@@ -7,7 +7,8 @@ import { IntegrationLogos } from './assets/svgs'
 import { motion } from "framer-motion"
 import { Check, Clock, Code, Cpu, BarChart, Sparkles, ExternalLink, Lightbulb, Rocket, Zap, Users, RefreshCw, ArrowRight } from "lucide-react"
 import Link from "next/link"
-import { Heading, Subheading } from "./ui/typography"
+import { Heading } from "./ui/typography"
+import React from 'react'
 
 const FEATURE_TIERS = [
   {
@@ -150,7 +151,7 @@ const cardVariants = {
   })
 }
 
-export function FeaturesBreakdown() {
+export const FeaturesBreakdown = React.memo(function FeaturesBreakdown() {
   const [activeDemo, setActiveDemo] = useState('dashboard')
 
   const features = [
@@ -303,4 +304,4 @@ export function FeaturesBreakdown() {
       </div>
     </section>
   )
-}
+})

@@ -1,5 +1,4 @@
 import { Button } from '@/components/ui/button'
-import Link from 'next/link'
 import { Heading, Subheading, Body } from "@/components/ui/typography";
 
 export function QuickContact() {

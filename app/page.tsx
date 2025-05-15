@@ -7,10 +7,12 @@ import { SocialProof } from './components/SocialProof'
 import { ProblemSolution } from './components/ProblemSolution'
 import { ServicesOverview } from './components/ServicesOverview'
 import { FeaturesBreakdown } from './components/FeaturesBreakdown'
-import { Testimonials } from './components/Testimonials'
-import { BlogResources } from './components/BlogResources'
-import { FinalCTA } from './components/FinalCTA'
-import { Footer } from './components/Footer'
+import dynamic from 'next/dynamic'
+
+const Testimonials = dynamic(() => import('./components/Testimonials').then(m => m.Testimonials), { ssr: false })
+const BlogResources = dynamic(() => import('./components/BlogResources').then(m => m.BlogResources), { ssr: false })
+const FinalCTA = dynamic(() => import('./components/FinalCTA').then(m => m.FinalCTA), { ssr: false })
+const Footer = dynamic(() => import('./components/Footer').then(m => m.Footer), { ssr: false })
 
 export default function Page() {
   const observerRef = useRef<IntersectionObserver | null>(null);

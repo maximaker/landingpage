@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
-import { ArrowRight, ChevronLeft, ChevronRight, TrendingUp, Users, Zap, Clock, Target, LineChart, Sparkles, Rocket, Shield } from "lucide-react"
+import { ChevronLeft, ChevronRight, TrendingUp, Users, Clock, Target, LineChart, Sparkles, Rocket, Shield } from "lucide-react"
 
 type SuccessStory = {
   id: string

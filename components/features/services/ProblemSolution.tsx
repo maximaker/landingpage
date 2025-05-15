@@ -1,9 +1,7 @@
 "use client"
 
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { Heading, Subheading, Body } from "../../../app/components/ui/typography"
 
 const PAIN_POINTS = [

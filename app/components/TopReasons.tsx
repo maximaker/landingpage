@@ -1,5 +1,4 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Layers, Zap, Timer } from "lucide-react";
 import { motion } from "framer-motion";
 
 import { Badge } from "@/components/ui/badge";

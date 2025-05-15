@@ -1,7 +1,5 @@
 import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
 import { useState } from 'react'
-import { CompanyLogos, AwardLogos, PressLogos, PartnerLogos, IntegrationLogos } from './assets/svgs'
 import { Heading, Subheading } from "./ui/typography"
 
 const CASE_STUDIES = [

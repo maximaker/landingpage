@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { Calendar } from "@/components/ui/calendar"
 import { Badge } from "@/components/ui/badge"

@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ArrowRight, Check, X, BarChart, Activity, AlertCircle, ChevronLeft, ChevronRight, Sparkles } from "lucide-react"
+import { ArrowRight, Check, BarChart, Activity, AlertCircle, ChevronLeft, ChevronRight, Sparkles } from "lucide-react"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"

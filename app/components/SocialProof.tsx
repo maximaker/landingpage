@@ -2,12 +2,12 @@
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { ArrowRight, CheckCircle, ExternalLink, Star } from 'lucide-react'
+import React from 'react'
 
-export function SocialProof() {
+export const SocialProof = React.memo(function SocialProof() {
   // Testimonials with real people and companies
   const testimonials = [
     {
@@ -278,4 +278,4 @@ export function SocialProof() {
       </div>
     </section>
   )
-}
+})

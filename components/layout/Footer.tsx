@@ -8,13 +8,12 @@ import { TimezoneSelector } from '@/components/ui/timezone-selector'
 import { CurrencySelector } from '@/components/ui/currency-selector'
 import { useState } from 'react'
 import { SOCIAL_LINKS } from '@/config/social-links'
-import { FOOTER_LINKS } from '@/config/footer-links'
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
   const [email, setEmail] = useState('')
 
-  const formatTimeToLocal = (hour: number, includeTimeZone: boolean = false) => {
+  const formatTimeToLocal = (hour: number, includeTimeZone = false) => {
     const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone
     const date = new Date()
     const utcDate = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate(), hour))

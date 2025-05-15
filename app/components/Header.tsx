@@ -7,10 +7,9 @@ import { ThemeToggle } from '@/components/ui/theme-toggle'
 import { usePathname } from 'next/navigation'
 import { LanguageSwitcher } from '@/components/ui/language-switcher'
 import { useScrollDirection } from '@/hooks/useScrollDirection'
-import { ChevronDown, ArrowRight, Sparkles, Code, BarChart3, Rocket, Activity, ChevronUp } from 'lucide-react'
+import { ChevronDown, ArrowRight, ChevronUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { motion } from 'framer-motion'
 
 const serviceItems = [
   {

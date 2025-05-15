@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { ArrowRight, PhoneCall, Video, MessageSquare, Sparkles } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"

@@ -1,1 +1,1 @@
-[Cursor] Refactor: extract ProcessSection as a subcomponent from TechFlow case study page. Further modularize large sections for maintainability.
+[Cursor] Refactor: extract VisualTransformationSection as a subcomponent from TechFlow case study page. Continue modularizing large sections.

@@ -1,5 +1,4 @@
 import { Badge } from '@/components/ui/badge'
-import { Marquee } from '@/components/ui/marquee'
 import { CompanyLogos, AwardLogos, PressLogos, PartnerLogos } from '@/components/assets/svgs'
 import { Heading, Subheading, Body } from "@/components/ui/typography"
 

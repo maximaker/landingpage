@@ -3,7 +3,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { motion } from 'framer-motion'
-import { ArrowRight, TrendingUp, Users, Zap, Clock, Target, LineChart, Award, Star } from 'lucide-react'
+import { ArrowRight, TrendingUp, Users, Zap, Clock, Award, Star } from 'lucide-react'
 import Link from 'next/link'
 
 const IMPACT_METRICS = [
