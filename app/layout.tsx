@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from './providers/theme-provider'
 import { LanguageProvider } from './providers/language-provider'
 import { MobileMenu } from './components/MobileMenu'
+import { StickyMenu } from './components/StickyMenu'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -59,6 +60,7 @@ export default function RootLayout({
               { label: 'Resources', href: '/resources' },
               { label: 'Contact', href: '/contact' }
             ]} />
+            <StickyMenu />
           </LanguageProvider>
         </ThemeProvider>
       </body>
