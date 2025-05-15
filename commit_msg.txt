@@ -1,1 +1,1 @@
-[Cursor] Refactor: extract TargetAudienceSection and BeforeAfterSlider as subcomponents from TechFlow case study page. Modularize large sections for maintainability.
+[Cursor] Refactor: extract ProcessSection as a subcomponent from TechFlow case study page. Further modularize large sections for maintainability.
