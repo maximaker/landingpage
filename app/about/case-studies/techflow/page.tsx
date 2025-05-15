@@ -13,6 +13,7 @@ import * as Accordion from '@radix-ui/react-accordion'
 import { PROGRESS_SECTIONS, CASE_STUDY, getPhaseItems, ProcessPhase, ProgressSection } from './data'
 import BeforeAfterSlider from './components/BeforeAfterSlider'
 import TargetAudienceSection from './components/TargetAudienceSection'
+import ProcessSection from './components/ProcessSection'
 
 export default function TechFlowCaseStudy() {
   const [activeTab, setActiveTab] = useState('discovery')

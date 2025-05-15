@@ -1,9 +1,1 @@
-[Cursor] feat: Update components and styling across the application
-
-- Add StickyCTA component for improved conversion
-- Update UI components with improved animations and responsiveness
-- Enhance the design of global components (Hero, Footer, FeaturesBreakdown)
-- Optimize performance in TechFlow case study and other components
-- Refine styling in globals.css and update tailwind configuration
-- Improve UX/UI in service pages
-- Update utility functions for better code maintainability 
+[Cursor] Refactor: extract TargetAudienceSection and BeforeAfterSlider as subcomponents from TechFlow case study page. Modularize large sections for maintainability.
