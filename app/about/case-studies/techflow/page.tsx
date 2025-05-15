@@ -15,6 +15,7 @@ import BeforeAfterSlider from './components/BeforeAfterSlider'
 import TargetAudienceSection from './components/TargetAudienceSection'
 import ProcessSection from './components/ProcessSection'
 import VisualTransformationSection from './components/VisualTransformationSection'
+import LearningsSection from './components/LearningsSection'
 
 export default function TechFlowCaseStudy() {
   const [activeTab, setActiveTab] = useState('discovery')
@@ -731,49 +732,7 @@ export default function TechFlowCaseStudy() {
           </section>
 
           {/* Learnings Section */}
-          <section id="learnings" className="py-32 relative scroll-mt-36">
-            <div className="max-w-5xl mx-auto">
-              <h2 className="text-3xl font-bold mb-16 text-center">Key Learnings</h2>
-
-              <div className="grid md:grid-cols-3 gap-12">
-                <div className="space-y-8">
-                  <h3 className="text-xl font-semibold">What Worked Well</h3>
-                  <div className="space-y-4">
-                    {CASE_STUDY.learnings.successes.map((item, i) => (
-                      <div key={i} className="flex items-start gap-3 text-muted-foreground group hover:text-foreground transition-colors">
-                        <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 mt-2 group-hover:bg-foreground/40 transition-colors" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-8">
-                  <h3 className="text-xl font-semibold">Challenges Faced</h3>
-                  <div className="space-y-4">
-                    {CASE_STUDY.learnings.challenges.map((item, i) => (
-                      <div key={i} className="flex items-start gap-3 text-muted-foreground group hover:text-foreground transition-colors">
-                        <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 mt-2 group-hover:bg-foreground/40 transition-colors" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="space-y-8">
-                  <h3 className="text-xl font-semibold">Key Insights</h3>
-                  <div className="space-y-4">
-                    {CASE_STUDY.learnings.insights.map((item, i) => (
-                      <div key={i} className="flex items-start gap-3 text-muted-foreground group hover:text-foreground transition-colors">
-                        <div className="w-1.5 h-1.5 rounded-full bg-foreground/20 mt-2 group-hover:bg-foreground/40 transition-colors" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <LearningsSection learnings={CASE_STUDY.learnings} />
 
           {/* Testimonials Section */}
           <section className="py-24 bg-muted/50 relative">
