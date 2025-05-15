@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Subheading } from "./ui/typography"
 
 const PAIN_POINTS = [
   {
@@ -167,9 +168,9 @@ export function ProblemSolution() {
                   <div className="text-2xl text-primary mb-4">
                     {point.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-200">
+                  <Subheading className="mb-3 text-foreground group-hover:text-primary transition-colors duration-200">
                     {point.title}
-                  </h3>
+                  </Subheading>
                   <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-200">
                     {point.description}
                   </p>
@@ -187,9 +188,9 @@ export function ProblemSolution() {
 
                 {/* Solution Section */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-3 text-primary">
+                  <Subheading className="mb-3 text-primary">
                     {point.solution}
-                  </h3>
+                  </Subheading>
                   <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-200">
                     {point.solutionDesc}
                   </p>
@@ -209,9 +210,9 @@ export function ProblemSolution() {
               <div className="text-primary mb-4 group-hover:scale-110 transition-transform">
                 {benefit.icon}
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-foreground">
+              <Subheading as="h3" className="text-lg mb-2 text-foreground">
                 {benefit.title}
-              </h3>
+              </Subheading>
               <p className="text-sm text-muted-foreground">
                 {benefit.description}
               </p>

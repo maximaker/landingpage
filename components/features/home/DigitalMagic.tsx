@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { DigitalMagicIllustrations } from './assets/svgs/digital-magic-illustrations'
 import { AwardIllustrations } from './assets/svgs/award-illustrations'
+import { Heading, Body } from "@/components/ui/typography"
 
 export function DigitalMagic() {
   return (
@@ -18,13 +19,13 @@ export function DigitalMagic() {
             >
               Available for new projects
             </Badge>
-            <h2 className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6 lg:mb-8">
+            <Heading as="h2" size="4xl" className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6 lg:mb-8">
               <span className="text-foreground">We create</span><br />
               <span className="text-primary">digital magic</span>
-            </h2>
-            <p className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mb-8 lg:mb-12 leading-relaxed">
+            </Heading>
+            <Body size="lg" className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mb-8 lg:mb-12 leading-relaxed">
               Transform your brand with our award-winning design studio. We blend creativity and technology to craft unforgettable digital experiences.
-            </p>
+            </Body>
             <Button 
               className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm hover:shadow transition-all duration-200 rounded-full px-6"
             >
@@ -53,9 +54,7 @@ export function DigitalMagic() {
                   <div className="w-10 lg:w-12 h-10 lg:h-12 rounded-full bg-card/50 dark:bg-card/40 border border-border backdrop-blur-sm flex items-center justify-center transition-colors duration-200 group-hover:border-primary/20 text-primary/50 group-hover:text-primary/70">
                     <Icon />
                   </div>
-                  <div className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-200">
-                    {name}
-                  </div>
+                  <Body as="div" size="sm" className="text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-200">{name}</Body>
                 </div>
               ))}
             </div>

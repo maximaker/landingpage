@@ -3,6 +3,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
+import { Subheading } from "./ui/typography"
 
 const LEARNING_PATHS = [
   {
@@ -238,7 +239,7 @@ export function EducationalContent() {
               >
                 <div className="mb-6">
                   <div className="text-sm text-primary font-medium mb-2 tracking-wide">{path.level}</div>
-                  <h3 className="text-xl font-semibold mb-2 text-foreground tracking-tight">{path.title}</h3>
+                  <Subheading className="mb-2 text-foreground tracking-tight">{path.title}</Subheading>
                   <div className="text-muted-foreground mb-4 leading-relaxed">{path.description}</div>
                   <div className="text-sm text-muted-foreground/80">{path.duration}</div>
                 </div>
@@ -275,7 +276,7 @@ export function EducationalContent() {
               >
                 <div className="mb-6">
                   <div className="text-sm text-primary font-medium mb-2 tracking-wide">{guide.category}</div>
-                  <h3 className="text-xl font-semibold mb-4 text-foreground tracking-tight">{guide.title}</h3>
+                  <Subheading className="mb-4 text-foreground tracking-tight">{guide.title}</Subheading>
                   <div className="text-sm text-muted-foreground/80">Reading time: {guide.readingTime}</div>
                 </div>
 
@@ -309,7 +310,7 @@ export function EducationalContent() {
                 className="group p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:bg-card/80 dark:hover:bg-card/60"
               >
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-4 text-foreground tracking-tight">{insight.title}</h3>
+                  <Subheading className="mb-4 text-foreground tracking-tight">{insight.title}</Subheading>
                   <div className="flex items-center space-x-4 text-sm text-muted-foreground/80">
                     <span>{insight.publishDate}</span>
                     <span className="text-muted-foreground/60">•</span>
@@ -346,7 +347,7 @@ export function EducationalContent() {
                 key={index}
                 className="group p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:bg-card/80 dark:hover:bg-card/60"
               >
-                <h3 className="text-xl font-semibold mb-6 text-foreground tracking-tight">{section.category}</h3>
+                <Subheading className="mb-6 text-foreground tracking-tight">{section.category}</Subheading>
                 <div className="space-y-4">
                   {section.practices.map((practice, practiceIndex) => (
                     <div key={practiceIndex} className="group/item">

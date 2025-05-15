@@ -1,6 +1,7 @@
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { Zap, Code, LineChart } from "lucide-react";
+import { Heading, Subheading, Body } from "@/components/ui/typography";
 
 export function TimelineDemo() {
   const data = [
@@ -12,13 +13,13 @@ export function TimelineDemo() {
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-purple-500 bg-primary/5">
               <Zap className="w-5 h-5" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground">Diagnosis & Strategy</h3>
+            <Heading as="h3" size="xl" className="font-semibold text-foreground">Diagnosis & Strategy</Heading>
           </div>
-          <p className="text-muted-foreground text-base mb-6">
+          <Body className="text-muted-foreground text-base mb-6">
             We assess your product's health, identify gaps, and create a customized strategy for success.
-          </p>
+          </Body>
           <div className="bg-card p-6 rounded-lg border shadow-sm">
-            <h4 className="font-semibold text-lg mb-4">Key Activities</h4>
+            <Subheading as="h4" className="font-semibold mb-4">Key Activities</Subheading>
             <ul className="space-y-3 text-base text-muted-foreground">
               <li className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-purple-500 opacity-70" />
@@ -45,13 +46,13 @@ export function TimelineDemo() {
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-blue-500 bg-primary/5">
               <Code className="w-5 h-5" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground">Treatment & Execution</h3>
+            <Heading as="h3" size="xl" className="font-semibold text-foreground">Treatment & Execution</Heading>
           </div>
-          <p className="text-muted-foreground text-base mb-6">
+          <Body className="text-muted-foreground text-base mb-6">
             From design systems to full-feature rollouts, we build high-quality, scalable solutions.
-          </p>
+          </Body>
           <div className="bg-card p-6 rounded-lg border shadow-sm">
-            <h4 className="font-semibold text-lg mb-4">Implementation Steps</h4>
+            <Subheading as="h4" className="font-semibold mb-4">Implementation Steps</Subheading>
             <ul className="space-y-3 text-base text-muted-foreground">
               <li className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-blue-500 opacity-70" />
@@ -78,13 +79,13 @@ export function TimelineDemo() {
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-green-500 bg-primary/5">
               <LineChart className="w-5 h-5" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground">Optimization & Growth</h3>
+            <Heading as="h3" size="xl" className="font-semibold text-foreground">Optimization & Growth</Heading>
           </div>
-          <p className="text-muted-foreground text-base mb-6">
+          <Body className="text-muted-foreground text-base mb-6">
             We monitor performance, track results, and refine your product for continuous success.
-          </p>
+          </Body>
           <div className="bg-card p-6 rounded-lg border shadow-sm">
-            <h4 className="font-semibold text-lg mb-4">Continuous Improvement</h4>
+            <Subheading as="h4" className="font-semibold mb-4">Continuous Improvement</Subheading>
             <ul className="space-y-3 text-base text-muted-foreground">
               <li className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-green-500 opacity-70" />

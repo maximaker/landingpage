@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Heading, Body } from "@/components/ui/typography"
 
 const METRICS = [
   { value: '150+', label: 'Products Transformed' },
@@ -27,21 +28,21 @@ export function Hero() {
           </div>
 
           {/* Main heading */}
-          <h1 className="relative text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight fade-in delay-1 leading-[1.2] sm:leading-[2]">  
+          <Heading as="h1" size="5xl" className="relative text-4xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight fade-in delay-1 leading-[1.2] sm:leading-[2]">
             <span className="block text-foreground">
               Is your digital product
             </span>
             <span className="block mt-2 sm:mt-4 pb-1 text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80 dark:from-primary dark:via-primary/90 dark:to-primary/70">
               as healthy as it could be?
             </span>
-          </h1>
+          </Heading>
 
           {/* Description */}
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto fade-in delay-2">
+          <Body size="lg" className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto fade-in delay-2">
             Scaling a product takes more than luck—it takes clarity, strategy, and care. 
             At Digital Vitamins, we diagnose your product's challenges, prescribe solutions, 
             and help it thrive in a competitive market.
-          </p>
+          </Body>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 fade-in delay-3">
@@ -74,12 +75,12 @@ export function Hero() {
                   key={index}
                   className="group p-4 sm:p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300"
                 >
-                  <div className="text-2xl sm:text-3xl font-bold text-primary group-hover:scale-110 transition-transform">
+                  <Heading as="div" size="2xl" className="text-2xl sm:text-3xl font-bold text-primary group-hover:scale-110 transition-transform">
                     {metric.value}
-                  </div>
-                  <div className="text-sm sm:text-base text-muted-foreground">
+                  </Heading>
+                  <Body as="div" size="sm" className="text-sm sm:text-base text-muted-foreground">
                     {metric.label}
-                  </div>
+                  </Body>
                 </div>
               ))}
             </div>
@@ -91,7 +92,7 @@ export function Hero() {
               className="group flex flex-col items-center gap-3 text-muted-foreground/80 hover:text-primary transition-all duration-300 cursor-pointer transform hover:scale-105"
               onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
             >
-              <span className="text-sm font-medium tracking-wide group-hover:tracking-wider transition-all duration-300">Scroll to explore</span>
+              <Body as="span" size="sm" className="text-sm font-medium tracking-wide group-hover:tracking-wider transition-all duration-300">Scroll to explore</Body>
               <div className="relative p-2">
                 <div className="absolute inset-0 bg-card/90 dark:bg-card/70 blur-md rounded-full group-hover:bg-primary/10 transition-colors duration-300" />
                 <svg 

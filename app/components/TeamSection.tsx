@@ -2,6 +2,7 @@
 
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
+import { Subheading } from "./ui/typography"
 
 interface TeamMember {
   name: string
@@ -75,9 +76,9 @@ export function TeamSection() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-1 group-hover:text-primary transition-colors">
+                <Subheading className="mb-1 group-hover:text-primary transition-colors">
                   {member.name}
-                </h3>
+                </Subheading>
                 <p className="text-sm text-primary mb-3">{member.role}</p>
                 <p className="text-muted-foreground mb-4">{member.bio}</p>
                 <div className="flex gap-4">

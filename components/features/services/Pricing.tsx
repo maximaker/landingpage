@@ -8,6 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { useState } from 'react'
+import { Heading, Subheading, Body } from "../../../app/components/ui/typography"
 
 const PRICING_PLANS = [
   {
@@ -135,17 +136,20 @@ export function Pricing() {
           <Badge variant="secondary" className="mb-10 px-5 py-1.5 text-sm tracking-wide uppercase">
             Pricing Plans
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-12 text-foreground tracking-tight max-w-3xl mx-auto">
+          <Heading size="3xl" className="sm:text-4xl lg:text-5xl mb-12 text-foreground tracking-tight max-w-3xl mx-auto">
             Invest in your product's <span className="text-primary">health</span>
-          </h2>
-          <p className="text-lg text-muted-foreground/70 max-w-xl mx-auto leading-relaxed">
+          </Heading>
+          <Body size="lg" className="text-muted-foreground/70 max-w-xl mx-auto leading-relaxed">
             Choose the perfect plan to keep your digital product thriving and users happy.
-          </p>
+          </Body>
         </div>
 
         <div className="flex flex-col items-center justify-center mb-20">
           <div className="inline-flex rounded-full bg-muted p-1 relative mb-4">
-            <button 
+            <Button 
+              type="button"
+              variant={billingInterval === 'monthly' ? 'default' : 'ghost'}
+              size="sm"
               onClick={() => setBillingInterval('monthly')}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all relative z-10 ${
                 billingInterval === 'monthly' 
@@ -154,8 +158,11 @@ export function Pricing() {
               }`}
             >
               Monthly
-            </button>
-            <button 
+            </Button>
+            <Button 
+              type="button"
+              variant={billingInterval === 'annual' ? 'default' : 'ghost'}
+              size="sm"
               onClick={() => setBillingInterval('annual')}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all relative z-10 ${
                 billingInterval === 'annual' 
@@ -164,7 +171,7 @@ export function Pricing() {
               }`}
             >
               Annual
-            </button>
+            </Button>
             <div 
               className={`absolute inset-y-1 w-[50%] bg-primary rounded-full transition-transform duration-200 ${
                 billingInterval === 'annual' ? 'translate-x-full' : 'translate-x-0'
@@ -192,7 +199,7 @@ export function Pricing() {
             >
               {/* Plan header */}
               <div className="flex items-center justify-between mb-8">
-                <h3 className="text-2xl font-semibold">{plan.name}</h3>
+                <Subheading className="text-2xl font-semibold mb-0">{plan.name}</Subheading>
                 {plan.popular ? (
                   <div className="bg-white/10 text-slate-50 px-3 py-1 rounded-full text-sm font-medium">
                     Most Popular
@@ -219,9 +226,9 @@ export function Pricing() {
                     Save ${calculateSavings(plan.monthlyPrice, plan.annualPrice)} per year
                   </div>
                 )}
-                <p className={`mt-4 text-base leading-relaxed ${plan.popular ? 'text-slate-300' : 'text-muted-foreground'}`}>
+                <Body className={`mt-4 text-base leading-relaxed ${plan.popular ? 'text-slate-300' : 'text-muted-foreground'}`}>
                   {plan.description}
-                </p>
+                </Body>
               </div>
 
               {/* CTA Button */}
@@ -276,7 +283,7 @@ export function Pricing() {
 
         {/* FAQ Section */}
         <div className="max-w-3xl mx-auto">
-          <h3 className="text-2xl font-bold text-foreground mb-8 text-center">Frequently Asked Questions</h3>
+          <Heading size="2xl" className="font-bold text-foreground mb-8 text-center">Frequently Asked Questions</Heading>
           <Accordion type="single" collapsible className="space-y-4">
             {FAQ_ITEMS.map((item, index) => (
               <AccordionItem 

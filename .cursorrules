@@ -1,0 +1,27 @@
+# Scratchpad
+
+## Project Consistency & Cleanup Checklist
+
+### 1. Consistency Refactor
+[ ] Refactor all headings, subheadings, and body text to use unified `Heading`, `Subheading`, and `Body` components (especially in components/features/services/)
+[ ] Standardize all button and badge usage to use unified components
+[ ] Remove direct Tailwind typography classes from feature and section files
+
+### 2. Orphaned/Unused Elements
+[ ] Run script/tool to find unused files in components/ and app/components/
+[ ] Run ts-prune or eslint-plugin-unused-imports to find unused exports
+[ ] Remove or archive orphaned files and dead code
+
+### 3. Performance Improvements
+[ ] Audit and optimize all images in public/images/
+[ ] Use Next.js <Image /> for images where possible
+[ ] Lazy load/code split heavy or below-the-fold components (e.g., BlogResources, InteractiveQuiz)
+[ ] Extract repeated SVGs into shared components or use SVG sprites
+[ ] Memoize or virtualize large lists/grids if needed
+
+---
+
+# Lessons
+- Use unified UI components for all typography and controls
+- Regularly audit for unused files and exports
+- Optimize static assets and use code splitting for performance 

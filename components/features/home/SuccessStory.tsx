@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { Subheading, Body } from "@/components/ui/typography"
 
 interface SuccessStoryProps {
   company: {
@@ -27,20 +28,20 @@ export function SuccessStory({ company, challenge, vitamins, outcomes }: Success
           <div className="w-6 h-6 text-primary">{company.icon}</div>
         </div>
         <div>
-          <div className="font-semibold text-foreground">{company.name}</div>
-          <div className="text-sm text-muted-foreground">{company.type}</div>
+          <Body className="font-semibold text-foreground">{company.name}</Body>
+          <Body as="div" size="sm" className="text-sm text-muted-foreground">{company.type}</Body>
         </div>
       </div>
 
       {/* Challenge */}
       <div className="mb-6">
-        <h4 className="text-sm font-medium text-muted-foreground mb-2">Challenge</h4>
-        <p className="text-foreground">{challenge}</p>
+        <Subheading as="h4" className="text-sm font-medium text-muted-foreground mb-2">Challenge</Subheading>
+        <Body className="text-foreground">{challenge}</Body>
       </div>
 
       {/* Prescription */}
       <div className="mb-6">
-        <h4 className="text-sm font-medium text-muted-foreground mb-2">Prescription</h4>
+        <Subheading as="h4" className="text-sm font-medium text-muted-foreground mb-2">Prescription</Subheading>
         <div className="flex flex-wrap gap-2">
           {vitamins.map((vitamin, index) => (
             <Link
@@ -58,12 +59,12 @@ export function SuccessStory({ company, challenge, vitamins, outcomes }: Success
       {/* Outcome */}
       <div className="group">
         <div className="h-[52px] overflow-hidden transition-all duration-300 group-hover:h-auto">
-          <h4 className="text-sm font-medium text-muted-foreground mb-2">Outcome</h4>
+          <Subheading as="h4" className="text-sm font-medium text-muted-foreground mb-2">Outcome</Subheading>
           <div className="space-y-4">
             {outcomes.map((outcome, index) => (
               <div key={index} className="flex items-center justify-between">
-                <span className="text-foreground">{outcome.label}</span>
-                <span className="text-primary font-semibold">{outcome.value}</span>
+                <Body as="span" className="text-foreground">{outcome.label}</Body>
+                <Body as="span" className="text-primary font-semibold">{outcome.value}</Body>
               </div>
             ))}
           </div>
@@ -71,8 +72,8 @@ export function SuccessStory({ company, challenge, vitamins, outcomes }: Success
         
         {/* Hover indicator */}
         <div className="flex items-center justify-center mt-2 text-muted-foreground text-sm">
-          <span className="group-hover:hidden">Hover to see outcomes →</span>
-          <span className="hidden group-hover:block">↑ View less</span>
+          <Body as="span" size="sm" className="group-hover:hidden text-muted-foreground text-sm">Hover to see outcomes →</Body>
+          <Body as="span" size="sm" className="hidden group-hover:block text-muted-foreground text-sm">↑ View less</Body>
         </div>
       </div>
 

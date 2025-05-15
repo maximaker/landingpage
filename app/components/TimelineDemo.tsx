@@ -1,6 +1,7 @@
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { Zap, Code, LineChart } from "lucide-react";
+import { Subheading } from "./ui/typography";
 
 export function TimelineDemo() {
   const data = [
@@ -12,7 +13,7 @@ export function TimelineDemo() {
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-purple-500 bg-primary/5">
               <Zap className="w-5 h-5" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground">Diagnosis & Strategy</h3>
+            <Subheading className="text-foreground">Diagnosis & Strategy</Subheading>
           </div>
           <p className="text-muted-foreground text-base mb-6">
             We assess your product's health, identify gaps, and create a customized strategy for success.
@@ -45,7 +46,7 @@ export function TimelineDemo() {
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-blue-500 bg-primary/5">
               <Code className="w-5 h-5" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground">Treatment & Execution</h3>
+            <Subheading className="text-foreground">Treatment & Execution</Subheading>
           </div>
           <p className="text-muted-foreground text-base mb-6">
             From design systems to full-feature rollouts, we build high-quality, scalable solutions.
@@ -78,7 +79,7 @@ export function TimelineDemo() {
             <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg text-green-500 bg-primary/5">
               <LineChart className="w-5 h-5" />
             </div>
-            <h3 className="text-xl font-semibold text-foreground">Optimization & Growth</h3>
+            <Subheading className="text-foreground">Optimization & Growth</Subheading>
           </div>
           <p className="text-muted-foreground text-base mb-6">
             We monitor performance, track results, and refine your product for continuous success.

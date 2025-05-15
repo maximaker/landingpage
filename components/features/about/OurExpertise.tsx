@@ -1,3 +1,5 @@
+import { Heading, Subheading, Body } from "@/components/ui/typography";
+
 const EXPERTISE_ITEMS = [
   {
     title: "Figma Design",
@@ -92,12 +94,12 @@ export function OurExpertise() {
           >
             Our Expertise
           </Badge>
-          <h2 className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
+          <Heading as="h2" size="4xl" className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
             Mastering Digital <span className="text-primary">Craft</span>
-          </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
+          </Heading>
+          <Body size="lg" className="lg:text-xl text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
             We combine strategic thinking with cutting-edge technology to deliver solutions that set you apart from the competition.
-          </p>
+          </Body>
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8 relative">
@@ -111,12 +113,12 @@ export function OurExpertise() {
                 {/* Header */}
                 <div className="flex items-start justify-between mb-8">
                   <div>
-                    <h3 className="text-2xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors duration-200">
+                    <Subheading as="h3" className="text-2xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors duration-200">
                       {item.title}
-                    </h3>
-                    <p className="text-muted-foreground group-hover:text-foreground transition-colors duration-200">
+                    </Subheading>
+                    <Body className="text-muted-foreground group-hover:text-foreground transition-colors duration-200">
                       {item.description}
-                    </p>
+                    </Body>
                   </div>
                   <div className="relative flex-shrink-0 ml-6">
                     <div className="absolute inset-0 bg-primary/[0.03] dark:bg-primary/[0.02] rounded-2xl blur-xl group-hover:bg-primary/10 transition-colors duration-200" />
@@ -131,8 +133,8 @@ export function OurExpertise() {
                       key={statIndex}
                       className="bg-card/50 dark:bg-card/40 backdrop-blur-sm group-hover:bg-primary/[0.03] dark:group-hover:bg-primary/[0.02] rounded-2xl p-4 transition-colors duration-200"
                     >
-                      <div className="text-2xl font-bold text-primary">{stat.value}</div>
-                      <div className="text-sm text-muted-foreground">{stat.label}</div>
+                      <Heading as="div" size="2xl" className="text-2xl font-bold text-primary">{stat.value}</Heading>
+                      <Body as="div" size="sm" className="text-sm text-muted-foreground">{stat.label}</Body>
                     </div>
                   ))}
                 </div>
@@ -159,8 +161,8 @@ export function OurExpertise() {
           <div className="md:col-span-2">
             <div className="bg-card/50 dark:bg-card/40 backdrop-blur-sm p-8 sm:p-12 rounded-3xl border border-border hover:border-primary/20 hover:shadow-lg transition-all duration-200 group">
               <div className="max-w-2xl mx-auto text-center">
-                <h3 className="text-2xl sm:text-3xl font-semibold mb-4">Ready to elevate your digital presence?</h3>
-                <p className="text-lg text-muted-foreground mb-8">Let's discuss how our expertise can help your product thrive in today's competitive landscape.</p>
+                <Subheading as="h3" className="text-2xl sm:text-3xl font-semibold mb-4">Ready to elevate your digital presence?</Subheading>
+                <Body size="lg" className="text-lg text-muted-foreground mb-8">Let's discuss how our expertise can help your product thrive in today's competitive landscape.</Body>
                 <Button 
                   size="lg"
                   className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm hover:shadow transition-all duration-200 rounded-full px-6"

@@ -2,6 +2,7 @@
 
 import { Card } from "@/components/ui/card"
 import Image from "next/image"
+import { Heading, Subheading, Body } from "@/components/ui/typography"
 
 interface TeamMember {
   name: string
@@ -57,10 +58,10 @@ export function TeamSection() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 relative">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Meet Our Team</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <Heading as="h2" size="4xl" className="text-3xl sm:text-4xl font-bold mb-4">Meet Our Team</Heading>
+          <Body size="lg" className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Passionate experts dedicated to transforming your digital presence
-          </p>
+          </Body>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -75,11 +76,11 @@ export function TeamSection() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-1 group-hover:text-primary transition-colors">
+                <Subheading as="h3" className="text-xl font-semibold mb-1 group-hover:text-primary transition-colors">
                   {member.name}
-                </h3>
-                <p className="text-sm text-primary mb-3">{member.role}</p>
-                <p className="text-muted-foreground mb-4">{member.bio}</p>
+                </Subheading>
+                <Body as="p" size="sm" className="text-sm text-primary mb-3">{member.role}</Body>
+                <Body className="text-muted-foreground mb-4">{member.bio}</Body>
                 <div className="flex gap-4">
                   {member.socialLinks.twitter && (
                     <a

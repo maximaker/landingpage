@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Heading, Subheading, Body } from "../../../app/components/ui/typography";
 
 interface TabContent {
   badge: string;
@@ -139,12 +140,12 @@ export function TopReasons() {
           >
             Why Choose Us
           </Badge>
-          <h2 className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
+          <Heading size="4xl" className="sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight mb-6">
             Why leading ventures trust <span className="text-primary">Digital Vitamins</span>
-          </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mb-8 lg:mb-12 leading-relaxed">
+          </Heading>
+          <Body size="lg" className="text-muted-foreground max-w-[520px] mb-8 lg:mb-12 leading-relaxed">
             Discover how our expertise, track record, and commitment to long-term success make us the perfect partner for your digital journey.
-          </p>
+          </Body>
         </motion.div>
 
         <div>
@@ -187,12 +188,12 @@ export function TopReasons() {
                       >
                         {tab.content.badge}
                       </Badge>
-                      <h3 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
+                      <Subheading className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
                         {tab.content.title}
-                      </h3>
-                      <p className="text-lg text-muted-foreground leading-relaxed">
+                      </Subheading>
+                      <Body size="lg" className="text-muted-foreground leading-relaxed">
                         {tab.content.description}
-                      </p>
+                      </Body>
                       <Button 
                         className="mt-4 w-full sm:w-auto px-6 py-3
                           bg-primary hover:bg-primary/90 text-primary-foreground"

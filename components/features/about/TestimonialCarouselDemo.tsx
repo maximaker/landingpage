@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Heading, Subheading, Body } from "@/components/ui/typography"
 
 const TESTIMONIALS = [
   {
@@ -109,9 +110,9 @@ export function TestimonialCarouselDemo() {
 
                 {/* Content */}
                 <div className="flex-1">
-                  <blockquote className="text-2xl lg:text-3xl font-medium tracking-tight text-foreground leading-relaxed mb-8">
+                  <Body as="blockquote" size="lg" className="text-2xl lg:text-3xl font-medium tracking-tight text-foreground leading-relaxed mb-8">
                     "{TESTIMONIALS[currentIndex].content}"
-                  </blockquote>
+                  </Body>
                 </div>
 
                 {/* Author info and stats */}
@@ -121,21 +122,21 @@ export function TestimonialCarouselDemo() {
                       {TESTIMONIALS[currentIndex].author.charAt(0)}
                     </div>
                     <div>
-                      <div className="font-bold tracking-tight text-foreground">
+                      <Body className="font-bold tracking-tight text-foreground">
                         {TESTIMONIALS[currentIndex].author}
-                      </div>
-                      <div className="text-sm text-muted-foreground">
+                      </Body>
+                      <Body size="sm" className="text-sm text-muted-foreground">
                         {TESTIMONIALS[currentIndex].role}
-                      </div>
+                      </Body>
                     </div>
                   </div>
                   <div className="bg-card/50 dark:bg-card/40 rounded-xl border border-border p-4 backdrop-blur-sm">
-                    <div className="text-sm text-muted-foreground mb-1">
+                    <Body size="sm" className="text-sm text-muted-foreground mb-1">
                       {TESTIMONIALS[currentIndex].stats.label}
-                    </div>
-                    <div className="text-2xl font-bold text-primary">
+                    </Body>
+                    <Heading as="div" size="2xl" className="text-2xl font-bold text-primary">
                       {TESTIMONIALS[currentIndex].stats.value}
-                    </div>
+                    </Heading>
                   </div>
                 </div>
               </div>

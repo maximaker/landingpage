@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge'
+import { Heading, Subheading, Body } from "@/components/ui/typography";
 
 const SECURITY_CERTS = [
   {
@@ -135,12 +136,12 @@ export function TrustElements() {
           >
             Enterprise-Grade Security
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <Heading as="h2" size="5xl" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Your Trust is Our Priority
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+          </Heading>
+          <Body size="lg" className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Industry-leading security measures and compliance standards to keep your data safe
-          </p>
+          </Body>
         </div>
 
         {/* Security Certifications */}
@@ -153,12 +154,12 @@ export function TrustElements() {
               <div className="text-primary mb-4 group-hover:scale-110 transition-transform">
                 {cert.icon}
               </div>
-              <h3 className="text-lg font-semibold mb-2">
+              <Subheading as="h3" className="text-lg font-semibold mb-2">
                 {cert.name}
-              </h3>
-              <p className="text-sm text-muted-foreground">
+              </Subheading>
+              <Body as="p" size="sm" className="text-sm text-muted-foreground">
                 {cert.description}
-              </p>
+              </Body>
             </div>
           ))}
         </div>
@@ -173,12 +174,12 @@ export function TrustElements() {
               <div className="text-primary mb-4">
                 {commitment.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2">
+              <Subheading as="h3" className="text-xl font-semibold mb-2">
                 {commitment.title}
-              </h3>
-              <p className="text-muted-foreground">
+              </Subheading>
+              <Body className="text-muted-foreground">
                 {commitment.description}
-              </p>
+              </Body>
             </div>
           ))}
         </div>
@@ -190,21 +191,21 @@ export function TrustElements() {
               key={index}
               className="group p-8 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300"
             >
-              <h3 className="text-2xl font-semibold mb-2 text-primary">
+              <Subheading as="h3" className="text-2xl font-semibold mb-2 text-primary">
                 {guarantee.title}
-              </h3>
-              <p className="text-lg text-muted-foreground mb-6">
+              </Subheading>
+              <Body size="lg" className="text-lg text-muted-foreground mb-6">
                 {guarantee.description}
-              </p>
+              </Body>
               <div className="space-y-3">
                 {guarantee.terms.map((term, termIndex) => (
                   <div key={termIndex} className="flex items-center space-x-3">
                     <svg className="w-5 h-5 text-primary flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <polyline points="20 6 9 17 4 12"/>
                     </svg>
-                    <span className="text-sm text-muted-foreground">
+                    <Body as="span" size="sm" className="text-sm text-muted-foreground">
                       {term}
-                    </span>
+                    </Body>
                   </div>
                 ))}
               </div>
@@ -222,12 +223,12 @@ export function TrustElements() {
               <div className="inline-block mb-4 px-4 py-2 rounded-full bg-primary/10 text-primary font-semibold">
                 {badge.name}
               </div>
-              <p className="text-muted-foreground mb-4">
+              <Body as="p" className="text-muted-foreground mb-4">
                 {badge.description}
-              </p>
-              <div className="text-sm font-medium text-primary">
+              </Body>
+              <Body as="div" size="sm" className="text-sm font-medium text-primary">
                 {badge.level}
-              </div>
+              </Body>
             </div>
           ))}
         </div>

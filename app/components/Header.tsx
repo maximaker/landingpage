@@ -195,7 +195,36 @@ const menuItems = [
     children: serviceItems
   },
   { label: 'Products', href: '/products' },
-  { label: 'Resources', href: '/resources' },
+  {
+    label: 'Resources',
+    href: '/resources',
+    children: [
+      {
+        label: 'Resource Hub',
+        href: '/resources',
+        description: 'Guides, tools, and expert insights',
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 20h9" />
+            <path d="M12 4h9" />
+            <rect x="3" y="8" width="13" height="8" rx="1" />
+          </svg>
+        )
+      },
+      {
+        label: 'Style Guide',
+        href: '/resources/style-guide',
+        description: 'Visual standards and component reference',
+        icon: (
+          <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 20h9" />
+            <path d="M12 4h9" />
+            <rect x="3" y="8" width="13" height="8" rx="1" />
+          </svg>
+        )
+      }
+    ]
+  },
   { label: 'Contact', href: '/contact' }
 ]
 
@@ -351,124 +380,31 @@ export function Navigation() {
                           <ChevronDown className={`w-4 h-4 transition-transform duration-200 group-hover:rotate-180`} />
                           <span className={`absolute -bottom-1 left-0 w-full h-0.5 bg-primary transform origin-left transition-transform ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`} />
                         </Link>
-                        
-                        {item.label === 'Services' ? (
-                          <div className="absolute top-full left-0 pt-3 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
-                            <div className="w-[800px] bg-popover/95 backdrop-blur-sm rounded-xl shadow-lg border border-border p-6">
-                              <div className="mb-4">
-                                <div className="font-medium text-sm uppercase text-muted-foreground mb-1">Our Vitamins</div>
-                                <h3 className="text-xl font-medium">Choose the right vitamin for your digital product</h3>
-                              </div>
-                              
-                              {/* Display all vitamins as cards in a grid */}
-                              <div className="grid grid-cols-4 gap-3">
-                                {/* First row: 4 vitamins */}
-                                {serviceItems.slice(0, 4).map((vitamin, i) => (
-                                  <Link
-                                    key={i}
-                                    href={vitamin.href}
-                                    className="group p-3 rounded-lg hover:bg-muted/70 transition-colors flex flex-col h-full"
-                                  >
-                                    <div className="flex items-center gap-2 mb-2">
-                                      <div className="bg-primary/10 p-1.5 rounded text-primary">
-                                        {vitamin.icon}
-                                      </div>
-                                      <div className="font-medium text-sm">{vitamin.label.split(' - ')[0]}</div>
-                                    </div>
-                                    <div className="mb-1">
-                                      <span className="text-xs font-medium text-primary">{vitamin.label.split(' - ')[1]}</span>
-                                    </div>
-                                    <p className="text-xs text-muted-foreground">{vitamin.description}</p>
-                                  </Link>
-                                ))}
-                                
-                                {/* Second row: 3 vitamins + UX Audit promo */}
-                                {serviceItems.slice(4, 7).map((vitamin, i) => (
-                                  <Link
-                                    key={i + 4}
-                                    href={vitamin.href}
-                                    className="group p-3 rounded-lg hover:bg-muted/70 transition-colors flex flex-col h-full"
-                                  >
-                                    <div className="flex items-center gap-2 mb-2">
-                                      <div className="bg-primary/10 p-1.5 rounded text-primary">
-                                        {vitamin.icon}
-                                      </div>
-                                      <div className="font-medium text-sm">{vitamin.label.split(' - ')[0]}</div>
-                                    </div>
-                                    <div className="mb-1">
-                                      <span className="text-xs font-medium text-primary">{vitamin.label.split(' - ')[1]}</span>
-                                    </div>
-                                    <p className="text-xs text-muted-foreground">{vitamin.description}</p>
-                                  </Link>
-                                ))}
-                                
-                                {/* UX Audit Promo Card */}
+                        <div className="absolute top-full left-0 pt-3 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
+                          <div className="w-[800px] bg-popover/95 backdrop-blur-sm rounded-xl shadow-lg border border-border p-6">
+                            <div className="mb-4">
+                              <div className="font-medium text-sm uppercase text-muted-foreground mb-1">{item.label}</div>
+                              <h3 className="text-xl font-medium">{item.label === 'Resources' ? 'Explore resources and visual standards' : item.label === 'About' ? 'Learn more about our approach and values' : item.label === 'Services' ? 'Choose the right vitamin for your digital product' : ''}</h3>
+                            </div>
+                            <div className="grid grid-cols-4 gap-3">
+                              {item.children.map((child, i) => (
                                 <Link
-                                  href="/services/vitamin-a/ux-audit"
-                                  className="group p-3 rounded-lg bg-primary/10 hover:bg-primary/20 transition-colors flex flex-col h-full border border-primary/20"
+                                  key={i}
+                                  href={child.href}
+                                  className="group p-3 rounded-lg hover:bg-muted/70 transition-colors flex flex-col h-full"
                                 >
                                   <div className="flex items-center gap-2 mb-2">
-                                    <div className="bg-primary/20 p-1.5 rounded text-primary">
-                                      <Sparkles className="w-5 h-5" />
+                                    <div className="bg-primary/10 p-1.5 rounded text-primary">
+                                      {child.icon}
                                     </div>
-                                    <div className="font-medium text-sm">UX Audit</div>
+                                    <div className="font-medium text-sm">{child.label}</div>
                                   </div>
-                                  <div className="mb-1">
-                                    <span className="text-xs font-medium text-primary">Product Assessment</span>
-                                  </div>
-                                  <p className="text-xs text-muted-foreground mb-2">Comprehensive evaluation of your product experience</p>
-                                  <Button size="sm" variant="ghost" className="mt-auto text-xs font-medium text-primary">
-                                    Learn more
-                                    <ArrowRight className="ml-1 h-3 w-3" />
-                                  </Button>
+                                  <p className="text-xs text-muted-foreground">{child.description}</p>
                                 </Link>
-                              </div>
+                              ))}
                             </div>
                           </div>
-                        ) : (
-                          <div className="absolute top-full left-0 pt-3 opacity-0 translate-y-2 invisible group-hover:opacity-100 group-hover:translate-y-0 group-hover:visible transition-all duration-200">
-                            <div className="w-[800px] bg-popover/95 backdrop-blur-sm rounded-xl shadow-lg border border-border p-6">
-                              <div className="mb-4">
-                                <div className="font-medium text-sm uppercase text-muted-foreground mb-1">About Us</div>
-                                <h3 className="text-xl font-medium">Learn more about our approach and values</h3>
-                              </div>
-
-                              <div className="grid grid-cols-4 gap-3">
-                                {item.children?.slice(0, 4).map((child, i) => (
-                                  <Link
-                                    key={i}
-                                    href={child.href}
-                                    className="group p-3 rounded-lg hover:bg-muted/70 transition-colors flex flex-col h-full"
-                                  >
-                                    <div className="flex items-center gap-2 mb-2">
-                                      <div className="bg-primary/10 p-1.5 rounded text-primary">
-                                        {child.icon}
-                                      </div>
-                                      <div className="font-medium text-sm">{child.label}</div>
-                                    </div>
-                                    <p className="text-xs text-muted-foreground">{child.description}</p>
-                                  </Link>
-                                ))}
-
-                                {item.children?.slice(4, 8).map((child, i) => (
-                                  <Link
-                                    key={i + 4}
-                                    href={child.href}
-                                    className="group p-3 rounded-lg hover:bg-muted/70 transition-colors flex flex-col h-full"
-                                  >
-                                    <div className="flex items-center gap-2 mb-2">
-                                      <div className="bg-primary/10 p-1.5 rounded text-primary">
-                                        {child.icon}
-                                      </div>
-                                      <div className="font-medium text-sm">{child.label}</div>
-                                    </div>
-                                    <p className="text-xs text-muted-foreground">{child.description}</p>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          </div>
-                        )}
+                        </div>
                       </div>
                     )
                   }

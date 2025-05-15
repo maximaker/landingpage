@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
+import { Heading } from "./ui/typography"
 
 const PRICING_PLANS = [
   {
@@ -138,9 +139,9 @@ export function PricingSection() {
           >
             Flexible Pricing
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-foreground">
+          <Heading size="3xl" className="sm:text-4xl lg:text-5xl mb-6 text-foreground">
             Choose Your Plan
-          </h2>
+          </Heading>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Transparent pricing with no hidden fees. Choose the plan that best fits your needs.
           </p>
@@ -151,14 +152,17 @@ export function PricingSection() {
           <span className={`text-sm font-medium transition-colors duration-200 ${billingCycle === 'monthly' ? 'text-primary' : 'text-muted-foreground'}`}>
             Monthly
           </span>
-          <button
+          <Button
+            type="button"
             onClick={() => setBillingCycle(prev => prev === 'monthly' ? 'annual' : 'monthly')}
+            variant="ghost"
+            size="icon"
             className="relative w-14 h-7 bg-primary/10 rounded-full p-1 transition-colors duration-200 hover:bg-primary/20"
           >
             <span className={`block w-5 h-5 rounded-full bg-primary shadow-sm transition-transform duration-200 ${
               billingCycle === 'annual' ? 'translate-x-7' : ''
             }`} />
-          </button>
+          </Button>
           <span className={`text-sm font-medium transition-colors duration-200 ${billingCycle === 'annual' ? 'text-primary' : 'text-muted-foreground'}`}>
             Annual
           </span>
@@ -249,8 +253,10 @@ export function PricingSection() {
                 key={index}
                 className="rounded-lg border border-border overflow-hidden bg-card/50 dark:bg-card/40 backdrop-blur-sm hover:border-primary/20 transition-all duration-200"
               >
-                <button
+                <Button
+                  type="button"
                   onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  variant="ghost"
                   className="w-full px-6 py-4 text-left flex justify-between items-center"
                 >
                   <span className="font-medium text-foreground">{faq.question}</span>
@@ -265,7 +271,7 @@ export function PricingSection() {
                   >
                     <polyline points="6 9 12 15 18 9" />
                   </svg>
-                </button>
+                </Button>
                 {expandedFaq === index && (
                   <div className="px-6 pb-4">
                     <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
@@ -331,9 +337,9 @@ export function PricingSection() {
                   <code className="text-sm font-mono text-primary">
                     {offer.code}
                   </code>
-                  <button className="text-sm text-primary hover:text-primary/80 transition-colors">
+                  <Button className="text-sm text-primary hover:text-primary/80 transition-colors">
                     Copy
-                  </button>
+                  </Button>
                 </div>
               </div>
             ))}

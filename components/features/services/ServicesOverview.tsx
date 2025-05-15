@@ -83,6 +83,7 @@ const SERVICES = [
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
+import { Heading, Subheading, Body } from "../../../app/components/ui/typography"
 
 export function ServicesOverview() {
   return (
@@ -105,12 +106,12 @@ export function ServicesOverview() {
           >
             Our Digital Vitamins
           </Badge>
-          <h2 className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
+          <Heading size="4xl" className="sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight mb-6">
             Boost your product's <span className="text-primary">health</span>
-          </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
+          </Heading>
+          <Body size="lg" className="text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
             Each vitamin is carefully formulated to address specific aspects of your product's growth and sustainability.
-          </p>
+          </Body>
         </motion.div>
     
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
@@ -141,12 +142,12 @@ export function ServicesOverview() {
               {/* Service content */}
               <div className="flex flex-col">
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
+                  <Subheading className="group-hover:text-primary transition-colors duration-200">
                     {service.name}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-200">
+                  </Subheading>
+                  <Body className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-200">
                     {service.description}
-                  </p>
+                  </Body>
                 </div>
 
                 {/* Stats display */}

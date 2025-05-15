@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import Link from 'next/link'
+import { Heading, Subheading } from "./ui/typography"
 
 type FAQ = {
   question: string
@@ -42,7 +43,7 @@ export function FAQSection() {
           >
             FAQ
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight mb-4">Got questions? We've got answers.</h2>
+          <Heading size="3xl" className="mb-4">Got questions? We've got answers.</Heading>
         </div>
 
         <div className="space-y-4">
@@ -55,7 +56,7 @@ export function FAQSection() {
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full p-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-primary/20 rounded-2xl"
               >
-                <span className="text-lg font-medium pr-8">{faq.question}</span>
+                <Subheading as="span" className="pr-8">{faq.question}</Subheading>
                 <svg
                   className={`w-6 h-6 text-primary transition-transform duration-200 ${openIndex === index ? 'rotate-180' : ''}`}
                   viewBox="0 0 24 24"

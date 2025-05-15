@@ -7,6 +7,7 @@ import { IntegrationLogos } from './assets/svgs'
 import { motion } from "framer-motion"
 import { Check, Clock, Code, Cpu, BarChart, Sparkles, ExternalLink, Lightbulb, Rocket, Zap, Users, RefreshCw, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { Heading, Subheading } from "./ui/typography"
 
 const FEATURE_TIERS = [
   {
@@ -226,9 +227,9 @@ export function FeaturesBreakdown() {
           <Badge variant="outline" className="mb-4 px-4 py-1.5 border-primary/20 text-primary">
             Our Vitamins
           </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <Heading size="3xl" className="md:text-4xl mb-4">
             Digital product enhancement framework
-          </h2>
+          </Heading>
           <p className="text-muted-foreground max-w-2xl mx-auto">
             Our comprehensive approach addresses every aspect of your product health, 
             from user experience to technical performance.

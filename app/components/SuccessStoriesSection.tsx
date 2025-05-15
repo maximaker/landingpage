@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { SuccessStory } from './SuccessStory'
+import { Heading } from "./ui/typography"
 
 const SUCCESS_STORIES = [
   {
@@ -80,9 +81,9 @@ export function SuccessStoriesSection() {
           <Badge variant="secondary" className="mb-8">
             Success Stories Section
           </Badge>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+          <Heading size="2xl" className="sm:text-3xl lg:text-4xl mb-4 text-foreground">
             Patient success stories
-          </h2>
+          </Heading>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             See how we've helped products thrive with our tailored vitamin prescriptions
           </p>

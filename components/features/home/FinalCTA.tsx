@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Badge } from "@/components/ui/badge"
+import { Heading, Body } from "@/components/ui/typography"
 
 export function FinalCTA() {
   return (
@@ -32,12 +33,12 @@ export function FinalCTA() {
               </svg>
             </div>
             
-            <h2 className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
+            <Heading as="h2" size="4xl" className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
               Ready to boost your <span className="text-primary">product's health</span>?
-            </h2>
-            <p className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
+            </Heading>
+            <Body size="lg" className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
               Join hundreds of successful companies that have transformed their digital products with our proven solutions.
-            </p>
+            </Body>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -83,7 +84,7 @@ export function FinalCTA() {
                     <path d="M20 6L9 17l-5-5"/>
                   </svg>
                 </div>
-                <span>30-day money-back guarantee</span>
+                <Body as="span" size="sm">30-day money-back guarantee</Body>
               </div>
               <div className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground">
                 <div className="p-1 rounded-full bg-primary/[0.03] dark:bg-primary/[0.02] backdrop-blur-sm">
@@ -91,7 +92,7 @@ export function FinalCTA() {
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                   </svg>
                 </div>
-                <span>Enterprise-grade security</span>
+                <Body as="span" size="sm">Enterprise-grade security</Body>
               </div>
               <div className="group flex items-center gap-2 text-sm text-muted-foreground transition-colors duration-200 hover:text-foreground">
                 <div className="p-1 rounded-full bg-primary/[0.03] dark:bg-primary/[0.02] backdrop-blur-sm">
@@ -100,7 +101,7 @@ export function FinalCTA() {
                     <path d="M12 16v-4M12 8h.01"/>
                   </svg>
                 </div>
-                <span>24/7 priority support</span>
+                <Body as="span" size="sm">24/7 priority support</Body>
               </div>
             </div>
           </div>

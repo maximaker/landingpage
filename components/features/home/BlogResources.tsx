@@ -3,6 +3,7 @@
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { Heading, Subheading, Body } from "@/components/ui/typography"
 
 export function BlogResources() {
   const resources = [
@@ -36,10 +37,10 @@ export function BlogResources() {
           >
             Latest Resources
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight mb-4">Stay informed with our latest insights</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <Heading as="h2" size="3xl" className="text-3xl font-bold tracking-tight mb-4">Stay informed with our latest insights</Heading>
+          <Body size="lg" className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore our collection of articles, guides, and resources to help you build better digital products.
-          </p>
+          </Body>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -49,13 +50,13 @@ export function BlogResources() {
                 <Badge className="mb-4 bg-primary/[0.03] dark:bg-primary/[0.02] text-primary border-primary/20">
                   {resource.category}
                 </Badge>
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                <Subheading as="h3" className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                   {resource.title}
-                </h3>
-                <p className="text-muted-foreground group-hover:text-foreground transition-colors mb-6">
+                </Subheading>
+                <Body className="text-muted-foreground group-hover:text-foreground transition-colors mb-6">
                   {resource.description}
-                </p>
-                <div className="text-sm text-muted-foreground">{resource.readTime}</div>
+                </Body>
+                <Body as="div" size="sm" className="text-sm text-muted-foreground">{resource.readTime}</Body>
               </Card>
             </Link>
           ))}

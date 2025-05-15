@@ -3,6 +3,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
+import { Heading, Subheading, Body } from "@/components/ui/typography"
 
 const LEARNING_PATHS = [
   {
@@ -174,12 +175,12 @@ export function EducationalContent() {
           >
             Knowledge Hub
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-foreground">
+          <Heading as="h2" size="5xl" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-foreground">
             Learn & Grow With Us
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          </Heading>
+          <Body size="lg" className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Explore our comprehensive resources to enhance your product development skills
-          </p>
+          </Body>
         </div>
 
         {/* Tab Navigation */}
@@ -237,10 +238,10 @@ export function EducationalContent() {
                 className="group p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:bg-card/80 dark:hover:bg-card/60"
               >
                 <div className="mb-6">
-                  <div className="text-sm text-primary font-medium mb-2 tracking-wide">{path.level}</div>
-                  <h3 className="text-xl font-semibold mb-2 text-foreground tracking-tight">{path.title}</h3>
-                  <div className="text-muted-foreground mb-4 leading-relaxed">{path.description}</div>
-                  <div className="text-sm text-muted-foreground/80">{path.duration}</div>
+                  <Body as="div" size="sm" className="text-sm text-primary font-medium mb-2 tracking-wide">{path.level}</Body>
+                  <Subheading as="h3" className="text-xl font-semibold mb-2 text-foreground tracking-tight">{path.title}</Subheading>
+                  <Body as="div" className="text-muted-foreground mb-4 leading-relaxed">{path.description}</Body>
+                  <Body as="div" size="sm" className="text-sm text-muted-foreground/80">{path.duration}</Body>
                 </div>
 
                 <div className="space-y-4 mb-6">
@@ -249,8 +250,8 @@ export function EducationalContent() {
                       key={moduleIndex}
                       className="flex items-center justify-between text-sm group/item"
                     >
-                      <span className="text-foreground group-hover/item:text-primary transition-colors duration-200">{module.title}</span>
-                      <span className="text-muted-foreground">{module.duration}</span>
+                      <Body as="span" size="sm" className="text-foreground group-hover/item:text-primary transition-colors duration-200">{module.title}</Body>
+                      <Body as="span" size="sm" className="text-muted-foreground">{module.duration}</Body>
                     </div>
                   ))}
                 </div>
@@ -274,19 +275,14 @@ export function EducationalContent() {
                 className="group p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:bg-card/80 dark:hover:bg-card/60"
               >
                 <div className="mb-6">
-                  <div className="text-sm text-primary font-medium mb-2 tracking-wide">{guide.category}</div>
-                  <h3 className="text-xl font-semibold mb-4 text-foreground tracking-tight">{guide.title}</h3>
-                  <div className="text-sm text-muted-foreground/80">Reading time: {guide.readingTime}</div>
+                  <Body as="div" size="sm" className="text-sm text-primary font-medium mb-2 tracking-wide">{guide.category}</Body>
+                  <Subheading as="h3" className="text-xl font-semibold mb-4 text-foreground tracking-tight">{guide.title}</Subheading>
+                  <Body as="div" size="sm" className="text-sm text-muted-foreground/80">Reading time: {guide.readingTime}</Body>
                 </div>
 
                 <div className="space-y-2 mb-6">
                   {guide.topics.map((topic, topicIndex) => (
-                    <div 
-                      key={topicIndex}
-                      className="text-sm text-muted-foreground group-hover:text-muted-foreground/80 transition-colors duration-200"
-                    >
-                      • {topic}
-                    </div>
+                    <Body as="div" size="sm" className="text-sm text-muted-foreground group-hover:text-muted-foreground/80 transition-colors duration-200">• {topic}</Body>
                   ))}
                 </div>
 
@@ -309,22 +305,17 @@ export function EducationalContent() {
                 className="group p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:bg-card/80 dark:hover:bg-card/60"
               >
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-4 text-foreground tracking-tight">{insight.title}</h3>
+                  <Subheading as="h3" className="text-xl font-semibold mb-4 text-foreground tracking-tight">{insight.title}</Subheading>
                   <div className="flex items-center space-x-4 text-sm text-muted-foreground/80">
-                    <span>{insight.publishDate}</span>
-                    <span className="text-muted-foreground/60">•</span>
-                    <span>{insight.readTime} read</span>
+                    <Body as="span" size="sm">{insight.publishDate}</Body>
+                    <Body as="span" size="sm" className="text-muted-foreground/60">•</Body>
+                    <Body as="span" size="sm">{insight.readTime} read</Body>
                   </div>
                 </div>
 
                 <div className="space-y-2 mb-6">
                   {insight.highlights.map((highlight, highlightIndex) => (
-                    <div 
-                      key={highlightIndex}
-                      className="text-sm text-muted-foreground group-hover:text-muted-foreground/80 transition-colors duration-200"
-                    >
-                      • {highlight}
-                    </div>
+                    <Body as="div" size="sm" className="text-sm text-muted-foreground group-hover:text-muted-foreground/80 transition-colors duration-200">• {highlight}</Body>
                   ))}
                 </div>
 
@@ -346,12 +337,12 @@ export function EducationalContent() {
                 key={index}
                 className="group p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300 hover:shadow-lg hover:bg-card/80 dark:hover:bg-card/60"
               >
-                <h3 className="text-xl font-semibold mb-6 text-foreground tracking-tight">{section.category}</h3>
+                <Subheading as="h3" className="text-xl font-semibold mb-6 text-foreground tracking-tight">{section.category}</Subheading>
                 <div className="space-y-4">
                   {section.practices.map((practice, practiceIndex) => (
                     <div key={practiceIndex} className="group/item">
-                      <div className="font-medium mb-1 text-foreground group-hover/item:text-primary transition-colors duration-200">{practice.title}</div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{practice.description}</p>
+                      <Body as="div" className="font-medium mb-1 text-foreground group-hover/item:text-primary transition-colors duration-200">{practice.title}</Body>
+                      <Body as="p" size="sm" className="text-sm text-muted-foreground leading-relaxed">{practice.description}</Body>
                     </div>
                   ))}
                 </div>

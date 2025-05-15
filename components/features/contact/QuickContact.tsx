@@ -1,12 +1,13 @@
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
+import { Heading, Subheading, Body } from "@/components/ui/typography";
 
 export function QuickContact() {
   return (
     <section id="quick-contact" className="py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">Prefer to reach out directly?</h2>
+          <Heading as="h2" size="3xl" className="font-bold tracking-tight mb-4">Prefer to reach out directly?</Heading>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -23,8 +24,8 @@ export function QuickContact() {
                 <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold mb-2">Email Us</h3>
-            <p className="text-muted-foreground mb-4">Drop us a line anytime</p>
+            <Subheading as="h3" className="text-xl font-semibold mb-2">Email Us</Subheading>
+            <Body className="text-muted-foreground mb-4">Drop us a line anytime</Body>
             <Button 
               className="group bg-primary/10 hover:bg-primary/20 text-primary transition-all duration-200 rounded-full"
               asChild
@@ -49,9 +50,9 @@ export function QuickContact() {
                 <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold mb-2">Visit Us</h3>
-            <p className="text-muted-foreground mb-4">Our office location</p>
-            <span className="text-foreground">San Francisco, CA</span>
+            <Subheading as="h3" className="text-xl font-semibold mb-2">Visit Us</Subheading>
+            <Body className="text-muted-foreground mb-4">Our office location</Body>
+            <Body className="text-foreground">San Francisco, CA</Body>
           </div>
 
           {/* Schedule Meeting */}
@@ -70,8 +71,8 @@ export function QuickContact() {
                 <line x1="3" y1="10" x2="21" y2="10" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold mb-2">Schedule a Call</h3>
-            <p className="text-muted-foreground mb-4">Book a meeting directly</p>
+            <Subheading as="h3" className="text-xl font-semibold mb-2">Schedule a Call</Subheading>
+            <Body className="text-muted-foreground mb-4">Book a meeting directly</Body>
             <Button 
               className="group bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm hover:shadow transition-all duration-200 rounded-full"
             >

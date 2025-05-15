@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { CompanyLogos, AwardLogos, PressLogos, PartnerLogos, IntegrationLogos } from '@/components/assets/svgs'
+import { Heading, Subheading, Body } from "@/components/ui/typography"
 
 const CASE_STUDIES = [
   {
@@ -224,12 +225,12 @@ export function SocialProofExpansion() {
           >
             Success Stories
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <Heading as="h2" size="5xl" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Real Results, Real Impact
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+          </Heading>
+          <Body size="lg" className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Discover how we've helped businesses transform their digital products and achieve remarkable results
-          </p>
+          </Body>
         </div>
 
         {/* Tab Navigation */}
@@ -277,32 +278,32 @@ export function SocialProofExpansion() {
                 className="group p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300"
               >
                 <div className="mb-6">
-                  <div className="text-sm text-primary font-medium mb-2">{study.industry}</div>
-                  <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
-                  <div className="text-muted-foreground">{study.company}</div>
+                  <Body as="div" size="sm" className="text-sm text-primary font-medium mb-2">{study.industry}</Body>
+                  <Subheading as="h3" className="text-xl font-semibold mb-2">{study.title}</Subheading>
+                  <Body className="text-muted-foreground">{study.company}</Body>
                 </div>
 
                 <div className="space-y-4 mb-6">
                   <div>
-                    <div className="text-sm font-medium mb-1">Challenge:</div>
-                    <p className="text-muted-foreground">{study.challenge}</p>
+                    <Body as="div" size="sm" className="text-sm font-medium mb-1">Challenge:</Body>
+                    <Body className="text-muted-foreground">{study.challenge}</Body>
                   </div>
                   <div>
-                    <div className="text-sm font-medium mb-1">Solution:</div>
-                    <p className="text-muted-foreground">{study.solution}</p>
+                    <Body as="div" size="sm" className="text-sm font-medium mb-1">Solution:</Body>
+                    <Body className="text-muted-foreground">{study.solution}</Body>
                   </div>
                 </div>
 
                 <div className="space-y-3 mb-6">
                   {study.results.map((result, resultIndex) => (
                     <div key={resultIndex} className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">{result.metric}</span>
+                      <Body as="span" size="sm" className="text-sm text-muted-foreground">{result.metric}</Body>
                       <div className="flex items-center space-x-4">
-                        <span className="text-sm text-red-500">{result.before}</span>
+                        <Body as="span" size="sm" className="text-sm text-red-500">{result.before}</Body>
                         <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
-                        <span className="text-sm text-green-500">{result.after}</span>
+                        <Body as="span" size="sm" className="text-sm text-green-500">{result.after}</Body>
                       </div>
                     </div>
                   ))}
@@ -313,9 +314,9 @@ export function SocialProofExpansion() {
                     <Avatar />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground italic mb-2">"{study.testimonial.quote}"</p>
-                    <div className="text-sm font-medium">{study.testimonial.author}</div>
-                    <div className="text-sm text-muted-foreground">{study.testimonial.role}</div>
+                    <Body as="p" size="sm" className="text-sm text-muted-foreground italic mb-2">"{study.testimonial.quote}"</Body>
+                    <Body as="div" size="sm" className="text-sm font-medium">{study.testimonial.author}</Body>
+                    <Body as="div" size="sm" className="text-sm text-muted-foreground">{study.testimonial.role}</Body>
                   </div>
                 </div>
               </div>
@@ -346,8 +347,8 @@ export function SocialProofExpansion() {
                 </div>
 
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-2">{video.title}</h3>
-                  <div className="text-muted-foreground">{video.company}</div>
+                  <Subheading as="h3" className="text-xl font-semibold mb-2">{video.title}</Subheading>
+                  <Body className="text-muted-foreground">{video.company}</Body>
                 </div>
 
                 <div className="flex items-center space-x-4 mb-6">
@@ -355,16 +356,16 @@ export function SocialProofExpansion() {
                     <Avatar />
                   </div>
                   <div>
-                    <div className="font-medium">{video.speaker.name}</div>
-                    <div className="text-sm text-muted-foreground">{video.speaker.role}</div>
+                    <Body as="div" className="font-medium">{video.speaker.name}</Body>
+                    <Body as="div" size="sm" className="text-sm text-muted-foreground">{video.speaker.role}</Body>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-3 gap-4">
                   {video.metrics.map((metric, metricIndex) => (
                     <div key={metricIndex} className="text-center">
-                      <div className="text-lg font-bold text-primary">{metric.value}</div>
-                      <div className="text-xs text-muted-foreground">{metric.label}</div>
+                      <Heading as="div" size="2xl" className="text-lg font-bold text-primary">{metric.value}</Heading>
+                      <Body as="div" size="sm" className="text-xs text-muted-foreground">{metric.label}</Body>
                     </div>
                   ))}
                 </div>
@@ -385,50 +386,46 @@ export function SocialProofExpansion() {
                   <div className="text-primary mb-4">
                     {industry.icon}
                   </div>
-                  <h3 className="text-lg font-semibold mb-4">{industry.industry}</h3>
+                  <Subheading as="h3" className="text-lg font-semibold mb-4">{industry.industry}</Subheading>
                   
                   <div className="space-y-3 mb-6">
                     {industry.metrics.map((metric, metricIndex) => (
                       <div key={metricIndex}>
-                        <div className="text-2xl font-bold text-primary mb-1">
-                          {metric.value}
-                        </div>
-                        <div className="text-sm text-muted-foreground">
+                        <Heading as="div" size="2xl" className="text-lg font-bold text-primary">{metric.value}</Heading>
+                        <Body as="div" size="sm" className="text-sm text-muted-foreground">
                           {metric.label}
-                        </div>
+                        </Body>
                       </div>
                     ))}
                   </div>
 
                   <div>
-                    <div className="text-sm font-medium mb-2">Featured Clients:</div>
-                    <div className="text-sm text-muted-foreground">
+                    <Body as="div" size="sm" className="text-sm font-medium mb-2">Featured Clients:</Body>
+                    <Body as="div" size="sm" className="text-sm text-muted-foreground">
                       {industry.clients.join(', ')}
-                    </div>
+                    </Body>
                   </div>
                 </div>
               ))}
             </div>
 
             <div className="max-w-5xl mx-auto">
-              <h3 className="text-2xl font-semibold text-center mb-12">ROI Statistics</h3>
+              <Subheading as="h3" className="text-2xl font-semibold text-center mb-12">ROI Statistics</Subheading>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {ROI_STATISTICS.map((category, index) => (
                   <div 
                     key={index}
                     className="p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border backdrop-blur-sm"
                   >
-                    <h4 className="text-lg font-semibold mb-6">{category.category}</h4>
+                    <Subheading as="h4" className="text-lg font-semibold mb-6">{category.category}</Subheading>
                     <div className="space-y-6">
                       {category.metrics.map((metric, metricIndex) => (
                         <div key={metricIndex}>
-                          <div className="text-2xl font-bold text-primary mb-1">
-                            {metric.value}
-                          </div>
-                          <div className="font-medium mb-1">{metric.label}</div>
-                          <div className="text-sm text-muted-foreground">
+                          <Heading as="div" size="2xl" className="text-lg font-bold text-primary">{metric.value}</Heading>
+                          <Body as="div" className="font-medium mb-1">{metric.label}</Body>
+                          <Body as="div" size="sm" className="text-sm text-muted-foreground">
                             {metric.description}
-                          </div>
+                          </Body>
                         </div>
                       ))}
                     </div>

@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Heading, Subheading, Body } from "@/components/ui/typography"
 
 const FEATURES = [
   {
@@ -57,12 +58,12 @@ export function Features() {
           >
             How It Works
           </Badge>
-          <h2 className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
+          <Heading as="h2" size="4xl" className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
             Create in <span className="text-primary">Minutes</span>, Not Months
-          </h2>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
+          </Heading>
+          <Body size="lg" className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
             Transform your ideas into reality with three simple steps. No coding required.
-          </p>
+          </Body>
         </div>
 
         <div className="relative">
@@ -91,18 +92,18 @@ export function Features() {
 
                 {/* Content */}
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
+                  <Subheading as="h3" className="text-xl font-bold tracking-tight text-foreground group-hover:text-primary transition-colors duration-200">
                     {feature.title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-200">
+                  </Subheading>
+                  <Body className="text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-200">
                     {feature.description}
-                  </p>
+                  </Body>
 
                   {/* Stats */}
                   <div className="pt-4 border-t border-border">
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground group-hover:text-foreground transition-colors duration-200">{feature.stats.label}</span>
-                      <span className="font-medium text-primary">{feature.stats.value}</span>
+                      <Body as="span" size="sm" className="text-muted-foreground group-hover:text-foreground transition-colors duration-200">{feature.stats.label}</Body>
+                      <Body as="span" size="sm" className="font-medium text-primary">{feature.stats.value}</Body>
                     </div>
                   </div>
 

@@ -1,6 +1,7 @@
 import * as React from "react"
 import { motion, PanInfo } from "framer-motion"
 import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
 
 interface Testimonial {
   id: number | string
@@ -120,18 +121,24 @@ const TestimonialCarousel = React.forwardRef<
               >
                 {showArrows && isCurrentCard && (
                   <div className="absolute inset-x-0 top-5 flex justify-between px-8">
-                    <button 
+                    <Button 
+                      type="button"
                       onClick={handlePrev}
+                      variant="ghost"
+                      size="icon"
                       className="text-2xl select-none cursor-pointer text-gray-300 hover:text-gray-400 dark:text-muted-foreground dark:hover:text-primary"
                     >
                       &larr;
-                    </button>
-                    <button 
+                    </Button>
+                    <Button 
+                      type="button"
                       onClick={handleNext}
+                      variant="ghost"
+                      size="icon"
                       className="text-2xl select-none cursor-pointer text-gray-300 hover:text-gray-400 dark:text-muted-foreground dark:hover:text-primary"
                     >
                       &rarr;
-                    </button>
+                    </Button>
                   </div>
                 )}
 
@@ -229,9 +236,12 @@ const TestimonialCarousel = React.forwardRef<
           {showDots && (
             <div className="absolute -bottom-12 left-0 right-0 flex justify-center gap-2">
               {testimonials.map((_, index) => (
-                <button
+                <Button
                   key={index}
+                  type="button"
                   onClick={() => setCurrentIndex(index)}
+                  variant="ghost"
+                  size="icon"
                   className={cn(
                     "w-2.5 h-2.5 rounded-full transition-colors",
                     index === currentIndex

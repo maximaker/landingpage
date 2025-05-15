@@ -2,6 +2,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { CompanyLogos, AwardLogos, PressLogos, PartnerLogos, IntegrationLogos } from './assets/svgs'
+import { Heading, Subheading } from "./ui/typography"
 
 const CASE_STUDIES = [
   {
@@ -224,9 +225,9 @@ export function SocialProofExpansion() {
           >
             Success Stories
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <Heading size="3xl" className="sm:text-4xl lg:text-5xl mb-6">
             Real Results, Real Impact
-          </h2>
+          </Heading>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Discover how we've helped businesses transform their digital products and achieve remarkable results
           </p>
@@ -278,7 +279,7 @@ export function SocialProofExpansion() {
               >
                 <div className="mb-6">
                   <div className="text-sm text-primary font-medium mb-2">{study.industry}</div>
-                  <h3 className="text-xl font-semibold mb-2">{study.title}</h3>
+                  <Subheading className="mb-2">{study.title}</Subheading>
                   <div className="text-muted-foreground">{study.company}</div>
                 </div>
 
@@ -346,7 +347,7 @@ export function SocialProofExpansion() {
                 </div>
 
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold mb-2">{video.title}</h3>
+                  <Subheading className="mb-2">{video.title}</Subheading>
                   <div className="text-muted-foreground">{video.company}</div>
                 </div>
 
@@ -385,7 +386,7 @@ export function SocialProofExpansion() {
                   <div className="text-primary mb-4">
                     {industry.icon}
                   </div>
-                  <h3 className="text-lg font-semibold mb-4">{industry.industry}</h3>
+                  <Subheading as="h3" className="mb-4">{industry.industry}</Subheading>
                   
                   <div className="space-y-3 mb-6">
                     {industry.metrics.map((metric, metricIndex) => (

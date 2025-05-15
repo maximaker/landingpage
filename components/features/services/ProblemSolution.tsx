@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { Heading, Subheading, Body } from "../../../app/components/ui/typography"
 
 const PAIN_POINTS = [
   {
@@ -146,12 +147,12 @@ export function ProblemSolution() {
           >
             Transform Your Digital Product
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <Heading size="3xl" className="sm:text-4xl lg:text-5xl mb-6">
             From Challenges to Solutions
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+          </Heading>
+          <Body size="lg" className="sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             We identify and solve your product's pain points with proven methodologies and innovative solutions
-          </p>
+          </Body>
         </div>
 
         {/* Pain Points and Solutions */}
@@ -167,12 +168,12 @@ export function ProblemSolution() {
                   <div className="text-2xl text-primary mb-4">
                     {point.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-foreground group-hover:text-primary transition-colors duration-200">
+                  <Subheading className="mb-3 text-foreground group-hover:text-primary transition-colors duration-200">
                     {point.title}
-                  </h3>
-                  <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-200">
+                  </Subheading>
+                  <Body className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-200">
                     {point.description}
-                  </p>
+                  </Body>
                 </div>
 
                 {/* Divider with Arrow */}
@@ -187,12 +188,12 @@ export function ProblemSolution() {
 
                 {/* Solution Section */}
                 <div>
-                  <h3 className="text-xl font-semibold mb-3 text-primary">
+                  <Subheading className="mb-3 text-primary">
                     {point.solution}
-                  </h3>
-                  <p className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-200">
+                  </Subheading>
+                  <Body className="text-muted-foreground group-hover:text-foreground/80 transition-colors duration-200">
                     {point.solutionDesc}
-                  </p>
+                  </Body>
                 </div>
               </div>
             </div>
@@ -209,12 +210,12 @@ export function ProblemSolution() {
               <div className="text-primary mb-4 group-hover:scale-110 transition-transform">
                 {benefit.icon}
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-foreground">
+              <Subheading as="h3" className="text-lg mb-2 text-foreground">
                 {benefit.title}
-              </h3>
-              <p className="text-sm text-muted-foreground">
+              </Subheading>
+              <Body size="sm" className="text-muted-foreground">
                 {benefit.description}
-              </p>
+              </Body>
             </div>
           ))}
         </div>
@@ -222,7 +223,7 @@ export function ProblemSolution() {
         {/* ROI Calculator */}
         <div className="max-w-3xl mx-auto">
           <div className="p-8 rounded-2xl bg-card/50 dark:bg-card/40 border border-border backdrop-blur-sm">
-            <h3 className="text-2xl font-semibold mb-6 text-center">Calculate Your ROI</h3>
+            <Heading size="2xl" className="font-semibold mb-6 text-center">Calculate Your ROI</Heading>
             
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
               <div>
@@ -264,21 +265,21 @@ export function ProblemSolution() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-6 rounded-xl bg-primary/5">
               <div>
-                <div className="text-sm font-medium text-muted-foreground mb-1">
+                <Body size="sm" className="font-medium text-muted-foreground mb-1">
                   Projected Revenue Increase
-                </div>
-                <div className="text-2xl font-bold text-primary">
+                </Body>
+                <Body size="lg" className="font-bold text-primary">
                   ${roiResults.increase.toLocaleString()}
-                </div>
+                </Body>
               </div>
               
               <div>
-                <div className="text-sm font-medium text-muted-foreground mb-1">
+                <Body size="sm" className="font-medium text-muted-foreground mb-1">
                   Return on Investment
-                </div>
-                <div className="text-2xl font-bold text-primary">
+                </Body>
+                <Body size="lg" className="font-bold text-primary">
                   {roiResults.roi}%
-                </div>
+                </Body>
               </div>
             </div>
           </div>

@@ -147,13 +147,16 @@ export function StickyCTA({ scrollThreshold = 800 }: StickyCTAProps) {
             </div>
             
             {/* Close button */}
-            <button 
+            <Button 
+              type="button"
               onClick={() => setIsVisible(false)}
+              variant="ghost"
+              size="icon"
               className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-muted text-muted-foreground flex items-center justify-center text-xs hover:bg-background hover:text-foreground border border-border transition-colors"
               aria-label="Close sticky CTA"
             >
               ✕
-            </button>
+            </Button>
           </div>
         </motion.div>
       )}

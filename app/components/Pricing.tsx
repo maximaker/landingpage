@@ -145,7 +145,10 @@ export function Pricing() {
 
         <div className="flex flex-col items-center justify-center mb-20">
           <div className="inline-flex rounded-full bg-muted p-1 relative mb-4">
-            <button 
+            <Button 
+              type="button"
+              variant={billingInterval === 'monthly' ? 'default' : 'ghost'}
+              size="sm"
               onClick={() => setBillingInterval('monthly')}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all relative z-10 ${
                 billingInterval === 'monthly' 
@@ -154,8 +157,11 @@ export function Pricing() {
               }`}
             >
               Monthly
-            </button>
-            <button 
+            </Button>
+            <Button 
+              type="button"
+              variant={billingInterval === 'annual' ? 'default' : 'ghost'}
+              size="sm"
               onClick={() => setBillingInterval('annual')}
               className={`px-6 py-2 rounded-full text-sm font-medium transition-all relative z-10 ${
                 billingInterval === 'annual' 
@@ -164,7 +170,7 @@ export function Pricing() {
               }`}
             >
               Annual
-            </button>
+            </Button>
             <div 
               className={`absolute inset-y-1 w-[50%] bg-primary rounded-full transition-transform duration-200 ${
                 billingInterval === 'annual' ? 'translate-x-full' : 'translate-x-0'

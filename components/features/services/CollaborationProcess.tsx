@@ -2,6 +2,7 @@ import { motion } from "framer-motion"
 import { Zap, Code, LineChart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { Heading, Subheading, Body } from "../../../app/components/ui/typography"
 
 const PROCESS_STEPS = [
   {
@@ -56,24 +57,12 @@ export function CollaborationProcess() {
           >
             Our Process
           </Badge>
-          <motion.h2 
-            className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
+          <Heading size="4xl" className="sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight mb-6">
             Our Collaboration <span className="text-primary">Process</span>
-          </motion.h2>
-          <motion.p 
-            className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
+          </Heading>
+          <Body size="lg" className="text-muted-foreground max-w-[520px] mx-auto mb-8 lg:mb-12 leading-relaxed">
             A systematic approach to transform your digital product from concept to reality.
-          </motion.p>
+          </Body>
         </div>
 
         {/* Process Steps */}
@@ -103,12 +92,12 @@ export function CollaborationProcess() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold tracking-tight mb-4 text-foreground group-hover:text-primary transition-colors duration-200">
+                  <Subheading className="mb-4 text-foreground group-hover:text-primary transition-colors duration-200">
                     {step.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed group-hover:text-foreground transition-colors duration-200">
+                  </Subheading>
+                  <Body className="text-muted-foreground mb-6 leading-relaxed group-hover:text-foreground transition-colors duration-200">
                     {step.description}
-                  </p>
+                  </Body>
 
                   {/* Items */}
                   <ul className="space-y-3">

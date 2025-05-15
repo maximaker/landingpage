@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useState } from 'react'
 import { IntegrationLogos } from './assets/svgs'
+import { Heading, Subheading, Body } from "@/components/ui/typography";
 
 const FEATURE_TIERS = [
   {
@@ -148,12 +149,12 @@ export function FeaturesBreakdown() {
           >
             Features & Capabilities
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-foreground">
+          <Heading as="h2" size="5xl" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6 text-foreground">
             Everything You Need to Succeed
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+          </Heading>
+          <Body size="lg" className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Comprehensive tools and services to transform your digital product into a market leader
-          </p>
+          </Body>
         </div>
 
         {/* Feature Comparison Grid */}
@@ -175,9 +176,9 @@ export function FeaturesBreakdown() {
                 )}
 
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-semibold mb-2">{tier.name}</h3>
-                  <p className="text-muted-foreground mb-4">{tier.description}</p>
-                  <div className="text-3xl font-bold text-primary">{tier.price}</div>
+                  <Subheading as="h3" className="text-2xl font-semibold mb-2">{tier.name}</Subheading>
+                  <Body className="text-muted-foreground mb-4">{tier.description}</Body>
+                  <Heading as="div" size="3xl" className="text-3xl font-bold text-primary">{tier.price}</Heading>
                 </div>
 
                 <div className="space-y-4">
@@ -222,8 +223,8 @@ export function FeaturesBreakdown() {
         {/* Interactive Demo */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4">See It in Action</h3>
-            <p className="text-muted-foreground">Experience our features through interactive demonstrations</p>
+            <Subheading as="h3" className="text-2xl sm:text-3xl font-bold mb-4">See It in Action</Subheading>
+            <Body className="text-muted-foreground">Experience our features through interactive demonstrations</Body>
           </div>
 
           <div className="bg-card/50 dark:bg-card/40 border border-border rounded-2xl overflow-hidden backdrop-blur-sm">
@@ -255,8 +256,8 @@ export function FeaturesBreakdown() {
         {/* Use Cases */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4">Success Stories</h3>
-            <p className="text-muted-foreground">Real results from real clients</p>
+            <Subheading as="h3" className="text-2xl sm:text-3xl font-bold mb-4">Success Stories</Subheading>
+            <Body className="text-muted-foreground">Real results from real clients</Body>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -265,19 +266,19 @@ export function FeaturesBreakdown() {
                 key={index}
                 className="group p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300"
               >
-                <h4 className="text-xl font-semibold mb-3">{useCase.title}</h4>
-                <p className="text-muted-foreground mb-6">{useCase.description}</p>
+                <Subheading as="h4" className="text-xl font-semibold mb-3">{useCase.title}</Subheading>
+                <Body className="text-muted-foreground mb-6">{useCase.description}</Body>
 
                 <div className="space-y-4 mb-6">
                   {useCase.metrics.map((metric, metricIndex) => (
                     <div key={metricIndex} className="flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">{metric.label}</span>
+                      <Body as="span" size="sm" className="text-sm text-muted-foreground">{metric.label}</Body>
                       <div className="flex items-center space-x-4">
-                        <span className="text-sm text-red-500">{metric.before}</span>
+                        <Body as="span" size="sm" className="text-sm text-red-500">{metric.before}</Body>
                         <svg className="w-4 h-4 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
-                        <span className="text-sm text-green-500">{metric.after}</span>
+                        <Body as="span" size="sm" className="text-sm text-green-500">{metric.after}</Body>
                       </div>
                     </div>
                   ))}
@@ -301,8 +302,8 @@ export function FeaturesBreakdown() {
         {/* Technical Specifications */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-foreground">Technical Specifications</h3>
-            <p className="text-muted-foreground leading-relaxed">Built with modern, scalable technologies</p>
+            <Subheading as="h3" className="text-2xl sm:text-3xl font-bold mb-4 text-foreground">Technical Specifications</Subheading>
+            <Body className="text-muted-foreground leading-relaxed">Built with modern, scalable technologies</Body>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -311,15 +312,15 @@ export function FeaturesBreakdown() {
                 key={index}
                 className="p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border backdrop-blur-sm hover:shadow-lg transition-all duration-300"
               >
-                <h4 className="text-lg font-semibold mb-4 text-foreground">{category.category}</h4>
+                <Subheading as="h4" className="text-lg font-semibold mb-4 text-foreground">{category.category}</Subheading>
                 <div className="space-y-4">
                   {category.items.map((item, itemIndex) => (
                     <div key={itemIndex} className="group">
                       <div className="flex items-center justify-between mb-1">
-                        <span className="font-medium text-foreground">{item.name}</span>
-                        <span className="text-sm text-primary">{item.version}</span>
+                        <Body as="span" className="font-medium text-foreground">{item.name}</Body>
+                        <Body as="span" size="sm" className="text-sm text-primary">{item.version}</Body>
                       </div>
-                      <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+                      <Body as="p" size="sm" className="text-sm text-muted-foreground leading-relaxed">{item.description}</Body>
                     </div>
                   ))}
                 </div>
@@ -331,21 +332,21 @@ export function FeaturesBreakdown() {
         {/* Integration Capabilities */}
         <div>
           <div className="text-center mb-12">
-            <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-foreground">Integration Ecosystem</h3>
-            <p className="text-muted-foreground leading-relaxed">Connect with your favorite tools seamlessly</p>
+            <Subheading as="h3" className="text-2xl sm:text-3xl font-bold mb-4 text-foreground">Integration Ecosystem</Subheading>
+            <Body className="text-muted-foreground leading-relaxed">Connect with your favorite tools seamlessly</Body>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
             {/* Analytics */}
             <div className="p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border backdrop-blur-sm hover:shadow-lg transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-6 text-foreground">Analytics & Tracking</h3>
+              <Subheading as="h3" className="text-xl font-semibold mb-6 text-foreground">Analytics & Tracking</Subheading>
               <div className="space-y-6">
                 {ANALYTICS_INTEGRATIONS.map(({ name, Logo }) => (
                   <div key={name} className="flex items-center space-x-4 group">
                     <div className="text-muted-foreground/50 transition-colors duration-200 group-hover:text-primary/70">
                       {Logo}
                     </div>
-                    <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">{name}</span>
+                    <Body as="span" className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">{name}</Body>
                   </div>
                 ))}
               </div>
@@ -353,14 +354,14 @@ export function FeaturesBreakdown() {
 
             {/* Payment Processing */}
             <div className="p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border backdrop-blur-sm hover:shadow-lg transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-6 text-foreground">Payment Processing</h3>
+              <Subheading as="h3" className="text-xl font-semibold mb-6 text-foreground">Payment Processing</Subheading>
               <div className="space-y-6">
                 {PAYMENT_INTEGRATIONS.map(({ name, Logo }) => (
                   <div key={name} className="flex items-center space-x-4 group">
                     <div className="text-muted-foreground/50 transition-colors duration-200 group-hover:text-primary/70">
                       {Logo}
                     </div>
-                    <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">{name}</span>
+                    <Body as="span" className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">{name}</Body>
                   </div>
                 ))}
               </div>
@@ -368,14 +369,14 @@ export function FeaturesBreakdown() {
 
             {/* Communication */}
             <div className="p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border backdrop-blur-sm hover:shadow-lg transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-6 text-foreground">Communication</h3>
+              <Subheading as="h3" className="text-xl font-semibold mb-6 text-foreground">Communication</Subheading>
               <div className="space-y-6">
                 {COMMUNICATION_INTEGRATIONS.map(({ name, Logo }) => (
                   <div key={name} className="flex items-center space-x-4 group">
                     <div className="text-muted-foreground/50 transition-colors duration-200 group-hover:text-primary/70">
                       {Logo}
                     </div>
-                    <span className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">{name}</span>
+                    <Body as="span" className="font-medium text-foreground group-hover:text-primary transition-colors duration-200">{name}</Body>
                   </div>
                 ))}
               </div>

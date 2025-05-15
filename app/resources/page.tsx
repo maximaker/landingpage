@@ -72,6 +72,25 @@ export default function ResourcesPage() {
                 </svg>
               </Link>
             </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-primary text-primary hover:bg-primary/10 hover:text-primary rounded-full px-6"
+              asChild
+            >
+              <Link href="/resources/style-guide">
+                View Style Guide
+                <svg
+                  className="w-4 h-4 ml-2"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </Link>
+            </Button>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@
 
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { Heading, Body } from "@/components/ui/typography"
 
 export function Testimonials() {
   const testimonials = [
@@ -35,10 +36,10 @@ export function Testimonials() {
           >
             Success Stories
           </Badge>
-          <h2 className="text-3xl font-bold tracking-tight mb-4">What our clients say</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <Heading as="h2" size="3xl" className="text-3xl font-bold tracking-tight mb-4">What our clients say</Heading>
+          <Body size="lg" className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Don't just take our word for it—hear from the products we've helped thrive.
-          </p>
+          </Body>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -51,12 +52,10 @@ export function Testimonials() {
               <blockquote className="text-lg mb-6 text-muted-foreground group-hover:text-foreground transition-colors">
                 {testimonial.quote}
               </blockquote>
-              <div>
-                <div className="font-semibold">{testimonial.author}</div>
-                <div className="text-sm text-muted-foreground">
-                  {testimonial.role}, {testimonial.company}
-                </div>
-              </div>
+              <Body className="font-semibold">{testimonial.author}</Body>
+              <Body as="div" size="sm" className="text-sm text-muted-foreground">
+                {testimonial.role}, {testimonial.company}
+              </Body>
             </Card>
           ))}
         </div>

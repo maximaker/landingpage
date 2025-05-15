@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge'
 import { Marquee } from '@/components/ui/marquee'
 import { CompanyLogos, AwardLogos, PressLogos, PartnerLogos } from '@/components/assets/svgs'
+import { Heading, Subheading, Body } from "@/components/ui/typography"
 
 const COMPANY_LOGOS = [
   { name: 'TechCorp', Logo: CompanyLogos.TechCorp },
@@ -51,12 +52,12 @@ export function SocialProof() {
           >
             Trusted By Industry Leaders
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <Heading as="h2" size="5xl" className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
             Empowering Digital Excellence
-          </h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
+          </Heading>
+          <Body size="lg" className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Join the ranks of innovative companies transforming their digital presence
-          </p>
+          </Body>
         </div>
 
         {/* Company Logos */}
@@ -82,24 +83,24 @@ export function SocialProof() {
               key={index}
               className="group p-6 rounded-2xl bg-card/50 dark:bg-card/40 border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-300"
             >
-              <div className="text-3xl sm:text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
+              <Heading as="div" size="4xl" className="text-3xl sm:text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
                 {stat.value}
-              </div>
-              <div className="text-lg font-medium text-foreground mb-1">
+              </Heading>
+              <Subheading as="div" className="text-lg font-medium text-foreground mb-1">
                 {stat.label}
-              </div>
-              <div className="text-sm text-muted-foreground">
+              </Subheading>
+              <Body as="div" size="sm" className="text-sm text-muted-foreground">
                 {stat.context}
-              </div>
+              </Body>
             </div>
           ))}
         </div>
 
         {/* Awards */}
         <div className="mb-24">
-          <h3 className="text-2xl font-semibold text-center mb-12">
+          <Subheading as="h3" className="text-2xl font-semibold text-center mb-12">
             Industry Recognition
-          </h3>
+          </Subheading>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {AWARDS.map(({ name, Logo }) => (
               <div 
@@ -109,7 +110,7 @@ export function SocialProof() {
                 <div className="mb-4 text-muted-foreground/50 group-hover:text-primary transition-colors">
                   <Logo />
                 </div>
-                <div className="font-medium">{name}</div>
+                <Body as="div" className="font-medium">{name}</Body>
               </div>
             ))}
           </div>
@@ -117,9 +118,9 @@ export function SocialProof() {
 
         {/* Press Mentions */}
         <div className="mb-24">
-          <h3 className="text-2xl font-semibold text-center mb-12">
+          <Subheading as="h3" className="text-2xl font-semibold text-center mb-12">
             Featured In
-          </h3>
+          </Subheading>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {PRESS_MENTIONS.map(({ name, Logo }) => (
               <div 
@@ -136,9 +137,9 @@ export function SocialProof() {
 
         {/* Integration Partners */}
         <div>
-          <h3 className="text-2xl font-semibold text-center mb-12">
+          <Subheading as="h3" className="text-2xl font-semibold text-center mb-12">
             Integration Partners
-          </h3>
+          </Subheading>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {INTEGRATION_PARTNERS.map(({ name, Logo }) => (
               <div 
@@ -148,7 +149,7 @@ export function SocialProof() {
                 <div className="mb-4 text-muted-foreground/50 group-hover:text-primary transition-colors">
                   <Logo />
                 </div>
-                <div className="font-medium">{name}</div>
+                <Body as="div" className="font-medium">{name}</Body>
               </div>
             ))}
           </div>

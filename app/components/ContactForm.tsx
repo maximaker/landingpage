@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { Subheading } from "./ui/typography"
 
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -30,7 +31,7 @@ export function ContactForm() {
         >
           <path d="M20 6L9 17l-5-5" />
         </svg>
-        <h3 className="text-xl font-semibold mb-2">Thanks for reaching out!</h3>
+        <Subheading className="mb-2">Thanks for reaching out!</Subheading>
         <p className="text-muted-foreground">We'll review your request and get back to you shortly.</p>
       </div>
     )

@@ -1,4 +1,5 @@
 import { Badge } from '@/components/ui/badge'
+import { Heading, Subheading } from "./ui/typography"
 
 const SECURITY_CERTS = [
   {
@@ -135,9 +136,9 @@ export function TrustElements() {
           >
             Enterprise-Grade Security
           </Badge>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
+          <Heading size="3xl" className="sm:text-4xl lg:text-5xl mb-6">
             Your Trust is Our Priority
-          </h2>
+          </Heading>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
             Industry-leading security measures and compliance standards to keep your data safe
           </p>
@@ -173,9 +174,9 @@ export function TrustElements() {
               <div className="text-primary mb-4">
                 {commitment.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-2">
+              <Subheading className="mb-2">
                 {commitment.title}
-              </h3>
+              </Subheading>
               <p className="text-muted-foreground">
                 {commitment.description}
               </p>

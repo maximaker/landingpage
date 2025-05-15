@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Heading } from "./ui/typography";
 
 interface TabContent {
   badge: string;
@@ -139,9 +140,9 @@ export function TopReasons() {
           >
             Why Choose Us
           </Badge>
-          <h2 className="text-[42px] sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight font-bold mb-6">
+          <Heading size="4xl" className="sm:text-[56px] lg:text-[84px] leading-[0.95] tracking-tight mb-6">
             Why leading ventures trust <span className="text-primary">Digital Vitamins</span>
-          </h2>
+          </Heading>
           <p className="text-lg lg:text-xl text-muted-foreground max-w-[520px] mb-8 lg:mb-12 leading-relaxed">
             Discover how our expertise, track record, and commitment to long-term success make us the perfect partner for your digital journey.
           </p>
