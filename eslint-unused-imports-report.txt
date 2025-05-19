@@ -1,0 +1,474 @@
+
+/Users/max/Documents/Applications/landingpage-2/app/about/CallToActionSection.tsx
+  11:14  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  25:40  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/MilestonesSection.tsx
+  15:105  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/MissionVisionValuesSection.tsx
+  46:21  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  47:72  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  47:80  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  48:86  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/TeamBlockSection.tsx
+  23:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/TrustPhilosophySection.tsx
+  11:61   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  18:79   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  18:218  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  24:92   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  24:131  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  30:35   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/availability/AvailabilityCalendar.tsx
+  4:10  error    'Button' is defined but never used                                        unused-imports/no-unused-imports
+  4:10  warning  'Button' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+/Users/max/Documents/Applications/landingpage-2/app/about/availability/AvailabilityKanban.tsx
+  129:19  error    Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     jsx-a11y/click-events-have-key-events
+  129:19  error    Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  jsx-a11y/no-static-element-interactions
+  150:19  error    Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     jsx-a11y/click-events-have-key-events
+  150:19  error    Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  jsx-a11y/no-static-element-interactions
+  152:53  warning  Forbidden non-null assertion                                                                                                                                                                       @typescript-eslint/no-non-null-assertion
+  170:19  error    Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     jsx-a11y/click-events-have-key-events
+  170:19  error    Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  jsx-a11y/no-static-element-interactions
+
+/Users/max/Documents/Applications/landingpage-2/app/about/availability/AvailabilityTimeline.tsx
+  65:10  warning  'activeSlot' is assigned a value but never used. Allowed unused vars must match /^_/u     unused-imports/no-unused-vars
+  65:10  warning  'activeSlot' is assigned a value but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+  65:22  warning  'setActiveSlot' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+  65:22  warning  'setActiveSlot' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+/Users/max/Documents/Applications/landingpage-2/app/about/availability/page.tsx
+    9:83  error    'ChevronRight' is defined but never used                                                     unused-imports/no-unused-imports
+    9:83  warning  'ChevronRight' is defined but never used. Allowed unused vars must match /^_/u               @typescript-eslint/no-unused-vars
+    9:97  error    'ChevronLeft' is defined but never used                                                      unused-imports/no-unused-imports
+    9:97  warning  'ChevronLeft' is defined but never used. Allowed unused vars must match /^_/u                @typescript-eslint/no-unused-vars
+   12:10  error    'AvailabilityCalendar' is defined but never used                                             unused-imports/no-unused-imports
+   12:10  warning  'AvailabilityCalendar' is defined but never used. Allowed unused vars must match /^_/u       @typescript-eslint/no-unused-vars
+   13:10  error    'AvailabilityTimeline' is defined but never used                                             unused-imports/no-unused-imports
+   13:10  warning  'AvailabilityTimeline' is defined but never used. Allowed unused vars must match /^_/u       @typescript-eslint/no-unused-vars
+  108:7   warning  'KANBAN_SLOTS' is assigned a value but never used. Allowed unused vars must match /^_/u      unused-imports/no-unused-vars
+  108:7   warning  'KANBAN_SLOTS' is assigned a value but never used. Allowed unused vars must match /^_/u      @typescript-eslint/no-unused-vars
+  179:10  warning  'activeView' is assigned a value but never used. Allowed unused vars must match /^_/u        unused-imports/no-unused-vars
+  179:10  warning  'activeView' is assigned a value but never used. Allowed unused vars must match /^_/u        @typescript-eslint/no-unused-vars
+  179:22  warning  'setActiveView' is assigned a value but never used. Allowed unused vars must match /^_/u     unused-imports/no-unused-vars
+  179:22  warning  'setActiveView' is assigned a value but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+  180:10  warning  'selectedPhase' is assigned a value but never used. Allowed unused vars must match /^_/u     unused-imports/no-unused-vars
+  180:10  warning  'selectedPhase' is assigned a value but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+  180:25  warning  'setSelectedPhase' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+  180:25  warning  'setSelectedPhase' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  256:9   warning  'formatDateRange' is assigned a value but never used. Allowed unused vars must match /^_/u   unused-imports/no-unused-vars
+  256:9   warning  'formatDateRange' is assigned a value but never used. Allowed unused vars must match /^_/u   @typescript-eslint/no-unused-vars
+  478:23  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                              react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/case-studies/page.tsx
+  168:11  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  168:31  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  217:30  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  323:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  337:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/case-studies/techflow/components/BeforeAfterSlider.tsx
+  24:7  error  Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  jsx-a11y/no-static-element-interactions
+
+/Users/max/Documents/Applications/landingpage-2/app/about/case-studies/techflow/components/TargetAudienceSection.tsx
+  90:95   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  93:101  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/case-studies/techflow/components/TestimonialsSection.tsx
+  37:15  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  37:35  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/case-studies/techflow/page.tsx
+   18:10  warning  'currentVisual' is assigned a value but never used. Allowed unused vars must match /^_/u     unused-imports/no-unused-vars
+   18:10  warning  'currentVisual' is assigned a value but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+   18:25  warning  'setCurrentVisual' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+   18:25  warning  'setCurrentVisual' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+   20:10  warning  'activePersona' is assigned a value but never used. Allowed unused vars must match /^_/u     unused-imports/no-unused-vars
+   20:10  warning  'activePersona' is assigned a value but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+   20:25  warning  'setActivePersona' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+   20:25  warning  'setActivePersona' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+   21:10  warning  'isMenuOpen' is assigned a value but never used. Allowed unused vars must match /^_/u        unused-imports/no-unused-vars
+   21:10  warning  'isMenuOpen' is assigned a value but never used. Allowed unused vars must match /^_/u        @typescript-eslint/no-unused-vars
+   22:22  warning  'setIsHovering' is assigned a value but never used. Allowed unused vars must match /^_/u     unused-imports/no-unused-vars
+   22:22  warning  'setIsHovering' is assigned a value but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+  515:14  error    Unknown property 'jsx' found                                                                 react/no-unknown-property
+  515:18  error    Unknown property 'global' found                                                              react/no-unknown-property
+
+/Users/max/Documents/Applications/landingpage-2/app/about/design-process/page.tsx
+  160:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  174:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/how-we-work-together/page.tsx
+  357:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  371:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/impact/page.tsx
+  129:48  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  242:25  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  242:51  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  310:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  324:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/page.tsx
+    5:10   error    'Timeline' is defined but never used                                                  unused-imports/no-unused-imports
+    5:10   warning  'Timeline' is defined but never used. Allowed unused vars must match /^_/u            @typescript-eslint/no-unused-vars
+   10:10   error    'ScrollToTeamButton' is defined but never used                                        unused-imports/no-unused-imports
+   10:10   warning  'ScrollToTeamButton' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+   12:10   error    'Badge' is defined but never used                                                     unused-imports/no-unused-imports
+   12:10   warning  'Badge' is defined but never used. Allowed unused vars must match /^_/u               @typescript-eslint/no-unused-vars
+   14:10   error    'ArrowRight' is defined but never used                                                unused-imports/no-unused-imports
+   14:10   warning  'ArrowRight' is defined but never used. Allowed unused vars must match /^_/u          @typescript-eslint/no-unused-vars
+  249:20   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                       react/no-unescaped-entities
+  271:63   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                       react/no-unescaped-entities
+  279:81   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                       react/no-unescaped-entities
+  279:220  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                       react/no-unescaped-entities
+  285:94   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                       react/no-unescaped-entities
+  285:133  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                       react/no-unescaped-entities
+  291:37   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                       react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/people-we-work-with/page.tsx
+  150:60  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  204:26  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  220:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  234:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/about/why-work-with-us/page.tsx
+  152:39  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  295:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  309:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/BentoDemo.tsx
+  88:93  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/ContactForm.tsx
+   35:48  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  105:9   error  A form label must be associated with a control                   jsx-a11y/label-has-associated-control
+
+/Users/max/Documents/Applications/landingpage-2/app/components/ContactNextStepsSection.tsx
+   3:10   error    'Mail' is defined but never used                                               unused-imports/no-unused-imports
+   3:10   warning  'Mail' is defined but never used. Allowed unused vars must match /^_/u         @typescript-eslint/no-unused-vars
+   3:16   error    'User' is defined but never used                                               unused-imports/no-unused-imports
+   3:16   warning  'User' is defined but never used. Allowed unused vars must match /^_/u         @typescript-eslint/no-unused-vars
+   3:22   error    'Building2' is defined but never used                                          unused-imports/no-unused-imports
+   3:22   warning  'Building2' is defined but never used. Allowed unused vars must match /^_/u    @typescript-eslint/no-unused-vars
+   3:33   error    'DollarSign' is defined but never used                                         unused-imports/no-unused-imports
+   3:33   warning  'DollarSign' is defined but never used. Allowed unused vars must match /^_/u   @typescript-eslint/no-unused-vars
+   3:68   error    'CheckCircle' is defined but never used                                        unused-imports/no-unused-imports
+   3:68   warning  'CheckCircle' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  18:71   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                react/no-unescaped-entities
+  26:67   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                react/no-unescaped-entities
+  32:72   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                react/no-unescaped-entities
+  44:101  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                react/no-unescaped-entities
+  54:13   error    A form label must be associated with a control                                 jsx-a11y/label-has-associated-control
+  59:70   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/FAQSection.tsx
+  46:65  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/FeaturedServicesSection.tsx
+  75:13  error  `tabIndex` should only be declared on interactive elements                                                                                                                                                                                                                                                                                                         jsx-a11y/no-noninteractive-tabindex
+  87:17  error  The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  94:16  error  Unknown property 'jsx' found                                                                                                                                                                                                                                                                                                                                       react/no-unknown-property
+  94:20  error  Unknown property 'global' found                                                                                                                                                                                                                                                                                                                                    react/no-unknown-property
+
+/Users/max/Documents/Applications/landingpage-2/app/components/FeaturesBreakdown.tsx
+   13:7   warning  'FEATURE_TIERS' is assigned a value but never used. Allowed unused vars must match /^_/u               unused-imports/no-unused-vars
+   13:7   warning  'FEATURE_TIERS' is assigned a value but never used. Allowed unused vars must match /^_/u               @typescript-eslint/no-unused-vars
+   62:7   warning  'USE_CASES' is assigned a value but never used. Allowed unused vars must match /^_/u                   unused-imports/no-unused-vars
+   62:7   warning  'USE_CASES' is assigned a value but never used. Allowed unused vars must match /^_/u                   @typescript-eslint/no-unused-vars
+   95:7   warning  'TECH_SPECS' is assigned a value but never used. Allowed unused vars must match /^_/u                  unused-imports/no-unused-vars
+   95:7   warning  'TECH_SPECS' is assigned a value but never used. Allowed unused vars must match /^_/u                  @typescript-eslint/no-unused-vars
+  122:7   warning  'ANALYTICS_INTEGRATIONS' is assigned a value but never used. Allowed unused vars must match /^_/u      unused-imports/no-unused-vars
+  122:7   warning  'ANALYTICS_INTEGRATIONS' is assigned a value but never used. Allowed unused vars must match /^_/u      @typescript-eslint/no-unused-vars
+  128:7   warning  'PAYMENT_INTEGRATIONS' is assigned a value but never used. Allowed unused vars must match /^_/u        unused-imports/no-unused-vars
+  128:7   warning  'PAYMENT_INTEGRATIONS' is assigned a value but never used. Allowed unused vars must match /^_/u        @typescript-eslint/no-unused-vars
+  134:7   warning  'COMMUNICATION_INTEGRATIONS' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+  134:7   warning  'COMMUNICATION_INTEGRATIONS' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  155:10  warning  'activeDemo' is assigned a value but never used. Allowed unused vars must match /^_/u                  unused-imports/no-unused-vars
+  155:10  warning  'activeDemo' is assigned a value but never used. Allowed unused vars must match /^_/u                  @typescript-eslint/no-unused-vars
+  155:22  warning  'setActiveDemo' is assigned a value but never used. Allowed unused vars must match /^_/u               unused-imports/no-unused-vars
+  155:22  warning  'setActiveDemo' is assigned a value but never used. Allowed unused vars must match /^_/u               @typescript-eslint/no-unused-vars
+
+/Users/max/Documents/Applications/landingpage-2/app/components/FinalCTA.tsx
+  134:51  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/Footer.tsx
+  174:23  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/Header.tsx
+  232:10  warning  'isBusinessHours' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                         unused-imports/no-unused-vars
+  232:10  warning  'isBusinessHours' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                         @typescript-eslint/no-unused-vars
+  235:10  warning  'activeDropdown' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                          unused-imports/no-unused-vars
+  235:10  warning  'activeDropdown' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                          @typescript-eslint/no-unused-vars
+  235:26  warning  'setActiveDropdown' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                       unused-imports/no-unused-vars
+  235:26  warning  'setActiveDropdown' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                       @typescript-eslint/no-unused-vars
+  472:7   error    Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     jsx-a11y/click-events-have-key-events
+  472:7   error    Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  jsx-a11y/no-static-element-interactions
+  495:8   error    Unknown property 'jsx' found                                                                                                                                                                       react/no-unknown-property
+  495:12  error    Unknown property 'global' found                                                                                                                                                                    react/no-unknown-property
+
+/Users/max/Documents/Applications/landingpage-2/app/components/HowWeDoItSection.tsx
+  53:17  error  'grow' is never reassigned. Use 'const' instead  prefer-const
+
+/Users/max/Documents/Applications/landingpage-2/app/components/InteractiveQuiz.tsx
+   61:7   warning  'SOLUTIONS' is assigned a value but never used. Allowed unused vars must match /^_/u          unused-imports/no-unused-vars
+   61:7   warning  'SOLUTIONS' is assigned a value but never used. Allowed unused vars must match /^_/u          @typescript-eslint/no-unused-vars
+  115:10  warning  'isLoading' is assigned a value but never used. Allowed unused vars must match /^_/u          unused-imports/no-unused-vars
+  115:10  warning  'isLoading' is assigned a value but never used. Allowed unused vars must match /^_/u          @typescript-eslint/no-unused-vars
+  116:10  warning  'error' is assigned a value but never used. Allowed unused vars must match /^_/u              unused-imports/no-unused-vars
+  116:10  warning  'error' is assigned a value but never used. Allowed unused vars must match /^_/u              @typescript-eslint/no-unused-vars
+  117:10  warning  'lastActiveElement' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+  117:10  warning  'lastActiveElement' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+/Users/max/Documents/Applications/landingpage-2/app/components/OurExpertise.tsx
+  163:70   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  163:136  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/Pricing.tsx
+  139:35  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/ProblemSolution.tsx
+  153:47  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  229:17  error  A form label must be associated with a control                   jsx-a11y/label-has-associated-control
+  241:17  error  A form label must be associated with a control                   jsx-a11y/label-has-associated-control
+  253:17  error  A form label must be associated with a control                   jsx-a11y/label-has-associated-control
+
+/Users/max/Documents/Applications/landingpage-2/app/components/ProblemSolutionV2.tsx
+  262:44  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  262:67  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/ProcessSection.tsx
+    3:7   warning  'steps' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+    3:7   warning  'steps' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+   50:82  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                   react/no-unescaped-entities
+   50:97  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                   react/no-unescaped-entities
+  100:82  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                   react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/ServicesOverview.tsx
+  109:31  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  112:93  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/SimplicitySection.tsx
+  21:63  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/SocialProof.tsx
+   94:23  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  229:76  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  229:96  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/SocialProofExpansion.tsx
+  230:28   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  315:78   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  315:104  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/StickyMenu.tsx
+   8:10  warning  'hovered' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                                                                                                                                        unused-imports/no-unused-vars
+   8:10  warning  'hovered' is assigned a value but never used. Allowed unused vars must match /^_/u                                                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  14:9   error    The href attribute is required for an anchor to be keyboard accessible. Provide a valid, navigable address as the href value. If you cannot provide an href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+
+/Users/max/Documents/Applications/landingpage-2/app/components/SuccessStories.tsx
+  311:21  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  311:71  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/SuccessStoriesSection.tsx
+  88:23  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/TestimonialCarouselDemo.tsx
+  113:21  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  113:58  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/Testimonials.tsx
+  77:17  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  96:17  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  96:37  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/TimelineDemo.tsx
+  19:35  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/ui/card.tsx
+  36:3  error  Headings must have content and the content must be accessible by a screen reader  jsx-a11y/heading-has-content
+
+/Users/max/Documents/Applications/landingpage-2/app/components/ui/logo.tsx
+  8:14  error  Unknown property 'jsx' found     react/no-unknown-property
+  8:18  error  Unknown property 'global' found  react/no-unknown-property
+
+/Users/max/Documents/Applications/landingpage-2/app/components/ui/testimonial.tsx
+  187:21  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  187:47  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/components/ui/timezone-selector.tsx
+  16:6  warning  React Hook useEffect has missing dependencies: 'selectedTimezone' and 'setSelectedTimezone'. Either include them or remove the dependency array  react-hooks/exhaustive-deps
+
+/Users/max/Documents/Applications/landingpage-2/app/contact/page.tsx
+   28:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   31:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   34:78  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   35:48  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   90:46  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  107:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  110:58  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  111:15  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/products/page.tsx
+  22:85  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/providers/theme-provider.tsx
+  6:46  warning  'props' is defined but never used. Allowed unused args must match /^_/u  unused-imports/no-unused-vars
+  6:46  warning  'props' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+
+/Users/max/Documents/Applications/landingpage-2/app/resources/page.tsx
+  190:80  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  193:50  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/services/vitamin-a/page.tsx
+   10:7   warning  'FEATURES' is assigned a value but never used. Allowed unused vars must match /^_/u                       unused-imports/no-unused-vars
+   10:7   warning  'FEATURES' is assigned a value but never used. Allowed unused vars must match /^_/u                       @typescript-eslint/no-unused-vars
+   72:10  warning  'analysisHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u           unused-imports/no-unused-vars
+   72:10  warning  'analysisHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u           @typescript-eslint/no-unused-vars
+   72:32  warning  'setAnalysisHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u        unused-imports/no-unused-vars
+   72:32  warning  'setAnalysisHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u        @typescript-eslint/no-unused-vars
+   73:10  warning  'strategyHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u           unused-imports/no-unused-vars
+   73:10  warning  'strategyHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u           @typescript-eslint/no-unused-vars
+   73:32  warning  'setStrategyHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u        unused-imports/no-unused-vars
+   73:32  warning  'setStrategyHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u        @typescript-eslint/no-unused-vars
+   74:10  warning  'implementationHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u     unused-imports/no-unused-vars
+   74:10  warning  'implementationHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+   74:38  warning  'setImplementationHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+   74:38  warning  'setImplementationHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+   75:10  warning  'optimizationHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u       unused-imports/no-unused-vars
+   75:10  warning  'optimizationHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u       @typescript-eslint/no-unused-vars
+   75:36  warning  'setOptimizationHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u    unused-imports/no-unused-vars
+   75:36  warning  'setOptimizationHoveredIndex' is assigned a value but never used. Allowed unused vars must match /^_/u    @typescript-eslint/no-unused-vars
+   76:10  warning  'scrollProgress' is assigned a value but never used. Allowed unused vars must match /^_/u                 unused-imports/no-unused-vars
+   76:10  warning  'scrollProgress' is assigned a value but never used. Allowed unused vars must match /^_/u                 @typescript-eslint/no-unused-vars
+  119:51  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                           react/no-unescaped-entities
+  131:77  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                           react/no-unescaped-entities
+  177:16  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                           react/no-unescaped-entities
+  191:42  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                           react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/services/vitamin-a/ux-audit/page.tsx
+    6:78   error    'CheckCircle2' is defined but never used                                                    unused-imports/no-unused-imports
+    6:78   warning  'CheckCircle2' is defined but never used. Allowed unused vars must match /^_/u              @typescript-eslint/no-unused-vars
+    6:111  error    'Clock' is defined but never used                                                           unused-imports/no-unused-imports
+    6:111  warning  'Clock' is defined but never used. Allowed unused vars must match /^_/u                     @typescript-eslint/no-unused-vars
+    8:13   error    'Accordion' is defined but never used                                                       unused-imports/no-unused-imports
+    8:13   warning  'Accordion' is defined but never used. Allowed unused vars must match /^_/u                 @typescript-eslint/no-unused-vars
+   36:7    warning  'PROCESS_STEPS' is assigned a value but never used. Allowed unused vars must match /^_/u    unused-imports/no-unused-vars
+   36:7    warning  'PROCESS_STEPS' is assigned a value but never used. Allowed unused vars must match /^_/u    @typescript-eslint/no-unused-vars
+   75:7    warning  'DELIVERABLES' is assigned a value but never used. Allowed unused vars must match /^_/u     unused-imports/no-unused-vars
+   75:7    warning  'DELIVERABLES' is assigned a value but never used. Allowed unused vars must match /^_/u     @typescript-eslint/no-unused-vars
+   93:7    warning  'FAQ_ITEMS' is assigned a value but never used. Allowed unused vars must match /^_/u        unused-imports/no-unused-vars
+   93:7    warning  'FAQ_ITEMS' is assigned a value but never used. Allowed unused vars must match /^_/u        @typescript-eslint/no-unused-vars
+  112:7    warning  'WHEN_QUESTIONS' is assigned a value but never used. Allowed unused vars must match /^_/u   unused-imports/no-unused-vars
+  112:7    warning  'WHEN_QUESTIONS' is assigned a value but never used. Allowed unused vars must match /^_/u   @typescript-eslint/no-unused-vars
+  118:7    warning  'PRICING_OPTIONS' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+  118:7    warning  'PRICING_OPTIONS' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  337:101  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                             react/no-unescaped-entities
+  401:61   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                             react/no-unescaped-entities
+  415:42   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                             react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/services/vitamin-a/ux-audit/sections/DeliverablesSection.tsx
+  52:58  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/services/vitamin-a/ux-audit/sections/FAQSection.tsx
+  32:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  32:38  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  48:61  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/services/vitamin-a/ux-audit/sections/PricingSection.tsx
+   70:60  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  149:66  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  165:84  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/services/vitamin-a/ux-audit/sections/WhenSection.tsx
+  31:52  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  32:46  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/services/vitamin-a/ux-audit/sections/WhySection.tsx
+  23:16   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  23:87   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  23:104  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/app/style-guide/page.tsx
+   97:222  error    The href attribute requires a valid value to be accessible. Provide a valid, navigable address as the href value. If you cannot provide a valid href, but still need the element to resemble a link, use a button and change it with appropriate styles. Learn more: https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/HEAD/docs/rules/anchor-is-valid.md  jsx-a11y/anchor-is-valid
+  127:51   warning  'i' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                unused-imports/no-unused-vars
+  127:51   warning  'i' is defined but never used. Allowed unused args must match /^_/u                                                                                                                                                                                                                                                                                                @typescript-eslint/no-unused-vars
+  167:77   error    The autoFocus prop should not be used, as it can reduce usability and accessibility for users                                                                                                                                                                                                                                                                      jsx-a11y/no-autofocus
+
+/Users/max/Documents/Applications/landingpage-2/components/features/about/EducationalContent.tsx
+  284:45  warning  'topicIndex' is defined but never used. Allowed unused args must match /^_/u      unused-imports/no-unused-vars
+  284:45  warning  'topicIndex' is defined but never used. Allowed unused args must match /^_/u      @typescript-eslint/no-unused-vars
+  285:21  error    Missing "key" prop for element in iterator                                        react/jsx-key
+  317:55  warning  'highlightIndex' is defined but never used. Allowed unused args must match /^_/u  unused-imports/no-unused-vars
+  317:55  warning  'highlightIndex' is defined but never used. Allowed unused args must match /^_/u  @typescript-eslint/no-unused-vars
+  318:21  error    Missing "key" prop for element in iterator                                        react/jsx-key
+
+/Users/max/Documents/Applications/landingpage-2/components/features/about/OurExpertise.tsx
+  165:83   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  165:149  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/components/features/about/TestimonialCarouselDemo.tsx
+  114:21  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  114:58  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/components/features/home/FinalCTA.tsx
+  37:73  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/components/features/home/Hero.tsx
+  43:58  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                    react/no-unescaped-entities
+  91:13  error  Visible, non-interactive elements with click handlers must have at least one keyboard listener                                                                                                     jsx-a11y/click-events-have-key-events
+  91:13  error  Avoid non-native interactive elements. If using native HTML is not possible, add an appropriate role and support for tabbing, mouse, keyboard, and touch inputs to an interactive content element  jsx-a11y/no-static-element-interactions
+
+/Users/max/Documents/Applications/landingpage-2/components/features/home/InteractiveQuiz.tsx
+   61:7   warning  'SOLUTIONS' is assigned a value but never used. Allowed unused vars must match /^_/u          unused-imports/no-unused-vars
+   61:7   warning  'SOLUTIONS' is assigned a value but never used. Allowed unused vars must match /^_/u          @typescript-eslint/no-unused-vars
+  115:10  warning  'isLoading' is assigned a value but never used. Allowed unused vars must match /^_/u          unused-imports/no-unused-vars
+  115:10  warning  'isLoading' is assigned a value but never used. Allowed unused vars must match /^_/u          @typescript-eslint/no-unused-vars
+  116:10  warning  'error' is assigned a value but never used. Allowed unused vars must match /^_/u              unused-imports/no-unused-vars
+  116:10  warning  'error' is assigned a value but never used. Allowed unused vars must match /^_/u              @typescript-eslint/no-unused-vars
+  117:10  warning  'lastActiveElement' is assigned a value but never used. Allowed unused vars must match /^_/u  unused-imports/no-unused-vars
+  117:10  warning  'lastActiveElement' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+/Users/max/Documents/Applications/landingpage-2/components/features/home/PricingSection.tsx
+  71:61  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/components/features/home/SocialProofExpansion.tsx
+  230:28   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  315:98   error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  315:124  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/components/features/home/Testimonials.tsx
+  41:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  41:70  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  51:46  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/components/features/services/Pricing.tsx
+  140:35  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/components/features/services/ProblemSolution.tsx
+  152:47  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  228:17  error  A form label must be associated with a control                   jsx-a11y/label-has-associated-control
+  240:17  error  A form label must be associated with a control                   jsx-a11y/label-has-associated-control
+  252:17  error  A form label must be associated with a control                   jsx-a11y/label-has-associated-control
+
+/Users/max/Documents/Applications/landingpage-2/components/features/services/ServicesOverview.tsx
+  110:31  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  113:93  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/components/features/services/TimelineDemo.tsx
+  19:35  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/components/layout/Footer.tsx
+  161:23  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+/Users/max/Documents/Applications/landingpage-2/components/ui/card.tsx
+  36:3  error  Headings must have content and the content must be accessible by a screen reader  jsx-a11y/heading-has-content
+
+✖ 316 problems (189 errors, 127 warnings)
+  18 errors and 0 warnings potentially fixable with the `--fix` option.
+

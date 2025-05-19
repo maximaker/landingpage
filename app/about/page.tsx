@@ -2,16 +2,13 @@
 
 import { Navigation } from "@/components/Header"
 import { Footer } from "@/components/Footer"
-import { Timeline } from "@/components/ui/timeline"
 import { OurExpertise } from "@/components/OurExpertise"
 import { TeamSection } from "@/components/TeamSection"
 import { TrustElements } from "@/components/TrustElements"
 import { Button } from "@/components/ui/button"
-import { ScrollToTeamButton } from "@/components/ScrollToTeamButton"
 import Link from "next/link"
-import { Badge } from '@/components/ui/badge'
 import { motion } from 'framer-motion'
-import { ArrowRight, Heart, Lightbulb, Users, Target, Zap, Shield, LineChart, Code } from 'lucide-react'
+import { Heart, Lightbulb, Users, Target, Zap, Shield, LineChart, Code } from 'lucide-react'
 import { HeroSection } from './HeroSection'
 import { CoreValuesSection } from './CoreValuesSection'
 import { ExpertiseSection } from './ExpertiseSection'

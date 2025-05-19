@@ -29,6 +29,8 @@ import { CurrencySelector } from '@/components/ui/currency-selector';
 import { useState } from 'react';
 
 const TOC = [
+  { id: 'typography', label: 'Typography & Elements' },
+  { id: 'colors', label: 'Color Theme' },
   { id: 'button', label: 'Button' },
   { id: 'badge', label: 'Badge' },
   { id: 'input', label: 'Input' },
@@ -82,6 +84,55 @@ export default function StyleGuidePage() {
           {/* Main Content */}
           <div className="flex-1">
             <h1 className="text-4xl font-bold mb-8">Style Guide</h1>
+            {/* Typography & Elements */}
+            <section id="typography" className="mb-16">
+              <h2 className="text-2xl font-semibold mb-8">Typography & Elements</h2>
+              <div className="prose max-w-none dark:prose-invert">
+                <h1 className="mt-0 mb-6 text-5xl font-extrabold tracking-tight">Heading 1 (h1)</h1>
+                <h2 className="mt-8 mb-5 text-4xl font-bold tracking-tight">Heading 2 (h2)</h2>
+                <h3 className="mt-8 mb-4 text-3xl font-bold">Heading 3 (h3)</h3>
+                <h4 className="mt-8 mb-3 text-2xl font-semibold">Heading 4 (h4)</h4>
+                <h5 className="mt-8 mb-2 text-xl font-semibold">Heading 5 (h5)</h5>
+                <h6 className="mt-8 mb-2 text-lg font-semibold">Heading 6 (h6)</h6>
+                <p className="mt-8 mb-4">This is a standard paragraph of text. <strong>Bold</strong>, <em>italic</em>, <u>underline</u>, <small>small</small>, <sub>sub</sub>, <sup>sup</sup>, <code>inline code</code>, and <a href="#">a link</a> are all shown here.</p>
+                <blockquote className="mt-8 mb-4">Blockquote: “Design is not just what it looks like and feels like. Design is how it works.”</blockquote>
+                <ul className="mt-8 mb-4">
+                  <li>Unordered list item one</li>
+                  <li>Unordered list item two</li>
+                  <li>Unordered list item three</li>
+                </ul>
+                <ol className="mt-8 mb-4">
+                  <li>Ordered list item one</li>
+                  <li>Ordered list item two</li>
+                  <li>Ordered list item three</li>
+                </ol>
+                <pre className="mt-8 mb-4"><code>{`// Block code sample\nfunction helloWorld() {\n  console.log('Hello, world!');\n}`}</code></pre>
+                <hr className="my-8" />
+                <p className="mt-8 mb-4">Horizontal rule above. <br />Line break here.</p>
+              </div>
+            </section>
+            {/* Color Theme */}
+            <section id="colors" className="mb-16">
+              <h2 className="text-2xl font-semibold mb-8">Color Theme</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                {[
+                  { name: 'Primary', class: 'bg-primary', text: 'text-primary-foreground' },
+                  { name: 'Secondary', class: 'bg-secondary', text: 'text-secondary-foreground' },
+                  { name: 'Accent', class: 'bg-accent', text: 'text-accent-foreground' },
+                  { name: 'Destructive', class: 'bg-destructive', text: 'text-destructive-foreground' },
+                  { name: 'Muted', class: 'bg-muted', text: 'text-muted-foreground' },
+                  { name: 'Card', class: 'bg-card', text: 'text-foreground' },
+                  { name: 'Background', class: 'bg-background', text: 'text-foreground border' },
+                  { name: 'Border', class: 'bg-border', text: 'text-foreground border' },
+                ].map(({ name, class: bg, text }, i) => (
+                  <div key={name} className={`rounded-xl shadow border p-4 flex flex-col items-center justify-center gap-2 ${bg} ${text}` + (bg === 'bg-background' || bg === 'bg-border' ? ' border' : '')}>
+                    <div className={`w-12 h-12 rounded-full ${bg} border`} />
+                    <div className="font-semibold text-sm">{name}</div>
+                    <div className="text-xs opacity-70 font-mono">.{bg.replace('bg-', '')}</div>
+                  </div>
+                ))}
+              </div>
+            </section>
             {/* Button */}
             <section id="button" className="mb-12">
               <h2 className="text-2xl font-semibold mb-4">Button</h2>

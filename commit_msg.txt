@@ -1,1 +1,1 @@
-[Cursor] Refactor: extract VisualTransformationSection as a subcomponent from TechFlow case study page. Continue modularizing large sections.
+[Cursor] UI/UX: Style guide, sections TOC, ProcessSection and FeaturedServicesSection improvements - Add sticky TOC to /sections-database (like style guide) - FeaturedServicesSection: interactive arrow scroll, hide scrollbar - ProcessSection: restore layout, align big counters left, ensure 2/3 visible above title, perfect circles - General: maintain modularity, accessibility, and visual consistency

@@ -4,6 +4,12 @@ import { useEffect, useRef } from "react"
 import { Navigation } from './components/Header'
 import { Hero } from './components/Hero'
 import { SocialProof } from './components/SocialProof'
+import { HowWeDoItSection } from './components/HowWeDoItSection'
+import { SimplicitySection } from './components/SimplicitySection'
+import { ContactNextStepsSection } from './components/ContactNextStepsSection'
+import { ProcessSection } from './components/ProcessSection'
+import { FeaturedServicesSection } from './components/FeaturedServicesSection'
+import { AdvertisingMarketingSection } from './components/AdvertisingMarketingSection'
 import { ProblemSolution } from './components/ProblemSolution'
 import { ServicesOverview } from './components/ServicesOverview'
 import { FeaturesBreakdown } from './components/FeaturesBreakdown'
@@ -47,6 +53,12 @@ export default function Page() {
         
         <section id="hero">
           <Hero />
+          <HowWeDoItSection />
+          <SimplicitySection />
+          <ContactNextStepsSection />
+          <ProcessSection />
+          <FeaturedServicesSection />
+          <AdvertisingMarketingSection />
         </section>
         
         <section id="social-proof">

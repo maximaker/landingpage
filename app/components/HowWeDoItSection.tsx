@@ -50,7 +50,7 @@ export function HowWeDoItSection() {
         <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-12 font-display tracking-tight">How We Do It</h2>
         <div className="flex flex-col md:flex-row gap-8 group">
           {cards.map((card, idx) => {
-            let grow =
+            const grow =
               hovered === null
                 ? idx === 0
                   ? "md:basis-1/2 md:grow md:shrink"

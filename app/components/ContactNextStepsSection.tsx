@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, User, Building2, DollarSign, FileText, UploadCloud, CheckCircle } from "lucide-react";
+import { FileText, UploadCloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function ContactNextStepsSection() {

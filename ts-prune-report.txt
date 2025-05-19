@@ -1,0 +1,134 @@
+tailwind.config.ts:167 - default
+app/error.tsx:6 - default
+app/layout.tsx:45 - default
+app/layout.tsx:11 - viewport
+app/layout.tsx:17 - metadata
+app/loading.tsx:1 - default
+components/theme-toggle.tsx:7 - ThemeToggle
+lib/utils.ts:4 - cn
+util/cn.ts:4 - cn
+app/(marketing)/layout.tsx:8 - default
+app/(marketing)/layout.tsx:3 - metadata
+app/components/AIPortraits.tsx:4 - AIPortraits
+app/components/BentoDemo.tsx:79 - BentoDemo
+app/components/CollaborationProcess.tsx:45 - CollaborationProcess
+app/components/DigitalMagic.tsx:6 - DigitalMagic
+app/components/MobileMenu.tsx:136 - default
+app/components/Pricing.tsx:113 - Pricing
+app/components/PricingSection.tsx:123 - PricingSection
+app/components/ScrollToQuizButton.tsx:11 - ScrollToQuizButton
+app/components/SocialProofExpansion.tsx:202 - SocialProofExpansion
+app/components/StickyCTA.tsx:13 - StickyCTA
+app/components/SuccessStoriesSection.tsx:76 - SuccessStoriesSection
+app/components/TimelineDemo.tsx:6 - TimelineDemo
+app/components/TopReasons.tsx:123 - TopReasons
+app/config/footer-links.tsx:1 - FOOTER_LINKS
+app/lib/utils.ts:14 - wait
+app/lib/utils.ts:21 - formatCurrency
+app/lib/utils.ts:33 - truncate
+app/lib/utils.ts:41 - getInitials
+app/lib/utils.ts:54 - slugify
+app/lib/utils.ts:68 - isExternalUrl
+components/features/ClientLogos.tsx:54 - ClientLogos
+components/layout/Footer.tsx:12 - Footer
+components/ui/avatar.tsx:48 - Avatar (used in module)
+components/ui/avatar.tsx:48 - AvatarImage (used in module)
+components/ui/avatar.tsx:48 - AvatarFallback (used in module)
+components/ui/badge.tsx:26 - BadgeProps (used in module)
+components/ui/badge.tsx:36 - Badge (used in module)
+components/ui/badge.tsx:36 - badgeVariants (used in module)
+components/ui/card.tsx:76 - Card (used in module)
+components/ui/card.tsx:76 - CardHeader (used in module)
+components/ui/card.tsx:76 - CardFooter (used in module)
+components/ui/card.tsx:76 - CardTitle (used in module)
+components/ui/card.tsx:76 - CardDescription (used in module)
+components/ui/card.tsx:76 - CardContent (used in module)
+components/ui/content-card.tsx:9 - ContentCard
+components/ui/logo.tsx:1 - Logo
+components/ui/timeline.tsx:14 - Timeline
+.next/types/app/page.ts:49 - PageProps (used in module)
+.next/types/app/page.ts:53 - LayoutProps
+app/about/availability/AvailabilityCalendar.tsx:7 - AvailabilityStatus (used in module)
+app/about/availability/AvailabilityCalendar.tsx:8 - CalendarDate (used in module)
+app/about/availability/AvailabilityCalendar.tsx:10 - AvailabilityData (used in module)
+app/about/availability/AvailabilityTimeline.tsx:4 - ProjectSlot (used in module)
+app/components/ui/badge.tsx:25 - BadgeProps (used in module)
+app/components/ui/badge.tsx:35 - badgeVariants (used in module)
+app/components/ui/button.tsx:35 - ButtonProps (used in module)
+app/components/ui/button.tsx:55 - buttonVariants (used in module)
+app/components/ui/calendar.tsx:7 - CalendarProps (used in module)
+app/components/ui/input.tsx:4 - InputProps (used in module)
+app/components/ui/service-buttons.tsx:37 - ServiceCTAButtons
+app/components/ui/testimonial.tsx:262 - Testimonial (used in module)
+app/components/ui/textarea.tsx:4 - TextareaProps (used in module)
+components/features/about/EducationalContent.tsx:160 - EducationalContent
+components/features/about/OurExpertise.tsx:83 - OurExpertise
+components/features/about/ScrollToTeamButton.tsx:5 - ScrollToTeamButton
+components/features/about/TeamSection.tsx:52 - TeamSection
+components/features/about/TestimonialCarouselDemo.tsx:44 - TestimonialCarouselDemo
+components/features/contact/QuickContact.tsx:4 - QuickContact
+components/features/home/BlogResources.tsx:8 - BlogResources
+components/features/home/DigitalMagic.tsx:7 - DigitalMagic
+components/features/home/Features.tsx:45 - Features
+components/features/home/FeaturesBreakdown.tsx:7 - FeaturesBreakdown
+components/features/home/FinalCTA.tsx:5 - FinalCTA
+components/features/home/Hero.tsx:12 - Hero
+components/features/home/InteractiveQuiz.tsx:110 - InteractiveQuiz
+components/features/home/PricingSection.tsx:52 - PricingSection
+components/features/home/ScrollToQuizButton.tsx:11 - ScrollToQuizButton
+components/features/home/SocialProof.tsx:40 - SocialProof
+components/features/home/SocialProofExpansion.tsx:202 - SocialProofExpansion
+components/features/home/SuccessStory.tsx:22 - SuccessStory
+components/features/home/Testimonials.tsx:7 - Testimonials
+components/features/home/TrustElements.tsx:123 - TrustElements
+components/features/services/CollaborationProcess.tsx:46 - CollaborationProcess
+components/features/services/FeaturesBreakdown.tsx:136 - FeaturesBreakdown
+components/features/services/Pricing.tsx:114 - Pricing
+components/features/services/ProblemSolution.tsx:114 - ProblemSolution
+components/features/services/ServicesOverview.tsx:88 - ServicesOverview
+components/features/services/TimelineDemo.tsx:6 - TimelineDemo
+components/features/services/TopReasons.tsx:123 - TopReasons
+.next/types/app/about/layout.ts:49 - PageProps
+.next/types/app/about/layout.ts:53 - LayoutProps (used in module)
+.next/types/app/about/page.ts:49 - PageProps (used in module)
+.next/types/app/about/page.ts:53 - LayoutProps
+.next/types/app/contact/page.ts:49 - PageProps (used in module)
+.next/types/app/contact/page.ts:53 - LayoutProps
+.next/types/app/products/page.ts:49 - PageProps (used in module)
+.next/types/app/products/page.ts:53 - LayoutProps
+.next/types/app/resources/page.ts:49 - PageProps (used in module)
+.next/types/app/resources/page.ts:53 - LayoutProps
+.next/types/app/sections-database/page.ts:49 - PageProps (used in module)
+.next/types/app/sections-database/page.ts:53 - LayoutProps
+.next/types/app/services/layout.ts:49 - PageProps
+.next/types/app/services/layout.ts:53 - LayoutProps (used in module)
+.next/types/app/services/page.ts:49 - PageProps (used in module)
+.next/types/app/services/page.ts:53 - LayoutProps
+.next/types/app/style-guide/page.ts:49 - PageProps (used in module)
+.next/types/app/style-guide/page.ts:53 - LayoutProps
+app/about/case-studies/techflow/data.tsx:3 - ProcessPhase (used in module)
+app/about/case-studies/techflow/data.tsx:29 - ProgressSection (used in module)
+.next/types/app/about/availability/page.ts:49 - PageProps (used in module)
+.next/types/app/about/availability/page.ts:53 - LayoutProps
+.next/types/app/about/case-studies/page.ts:49 - PageProps (used in module)
+.next/types/app/about/case-studies/page.ts:53 - LayoutProps
+.next/types/app/about/design-process/page.ts:49 - PageProps (used in module)
+.next/types/app/about/design-process/page.ts:53 - LayoutProps
+.next/types/app/about/how-we-work-together/page.ts:49 - PageProps (used in module)
+.next/types/app/about/how-we-work-together/page.ts:53 - LayoutProps
+.next/types/app/about/impact/page.ts:49 - PageProps (used in module)
+.next/types/app/about/impact/page.ts:53 - LayoutProps
+.next/types/app/about/people-we-work-with/page.ts:49 - PageProps (used in module)
+.next/types/app/about/people-we-work-with/page.ts:53 - LayoutProps
+.next/types/app/about/why-work-with-us/page.ts:49 - PageProps (used in module)
+.next/types/app/about/why-work-with-us/page.ts:53 - LayoutProps
+.next/types/app/resources/style-guide/page.ts:49 - PageProps (used in module)
+.next/types/app/resources/style-guide/page.ts:53 - LayoutProps
+.next/types/app/services/vitamin-a/page.ts:49 - PageProps (used in module)
+.next/types/app/services/vitamin-a/page.ts:53 - LayoutProps
+app/about/case-studies/techflow/components/ProcessSection.tsx:13 - default
+components/features/services/assets/svgs/index.tsx:1 - IntegrationLogos
+.next/types/app/about/case-studies/techflow/page.ts:49 - PageProps (used in module)
+.next/types/app/about/case-studies/techflow/page.ts:53 - LayoutProps
+.next/types/app/services/vitamin-a/ux-audit/page.ts:49 - PageProps (used in module)
+.next/types/app/services/vitamin-a/ux-audit/page.ts:53 - LayoutProps
