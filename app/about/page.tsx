@@ -12,6 +12,15 @@ import Link from "next/link"
 import { Badge } from '@/components/ui/badge'
 import { motion } from 'framer-motion'
 import { ArrowRight, Heart, Lightbulb, Users, Target, Zap, Shield, LineChart, Code } from 'lucide-react'
+import { HeroSection } from './HeroSection'
+import { CoreValuesSection } from './CoreValuesSection'
+import { ExpertiseSection } from './ExpertiseSection'
+import { MilestonesSection } from './MilestonesSection'
+import { CallToActionSection } from './CallToActionSection'
+import { MissionVisionValuesSection } from './MissionVisionValuesSection'
+import { OurJourneySection } from './OurJourneySection'
+import { TeamBlockSection } from './TeamBlockSection'
+import { TrustPhilosophySection } from './TrustPhilosophySection'
 
 const CORE_VALUES = [
   {
@@ -107,176 +116,20 @@ const EXPERTISE = [
   }
 ]
 
-const MILESTONES = [
-  {
-    year: "2018",
-    title: "Our Beginning",
-    description: "Founded with a vision to transform digital products through innovative solutions."
-  },
-  {
-    year: "2019",
-    title: "First Major Success",
-    description: "Completed our first enterprise-level digital transformation project."
-  },
-  {
-    year: "2020",
-    title: "Team Expansion",
-    description: "Grew our team of experts and expanded our service offerings."
-  },
-  {
-    year: "2021",
-    title: "Global Reach",
-    description: "Started working with clients across multiple continents."
-  },
-  {
-    year: "2022",
-    title: "Innovation Focus",
-    description: "Launched our research and development division for emerging technologies."
-  },
-  {
-    year: "2023",
-    title: "Industry Recognition",
-    description: "Received multiple awards for excellence in digital product development."
-  }
-]
-
 export default function AboutPage() {
-  const timelineData = [
-    {
-      title: "2020",
-      content: (
-        <div className="bg-card p-6 rounded-xl shadow-sm">
-          <h3 className="text-xl font-semibold mb-2">Foundation</h3>
-          <p className="text-muted-foreground">Digital Vitamins was founded with a vision to revolutionize digital product development.</p>
-        </div>
-      ),
-    },
-    {
-      title: "2021",
-      content: (
-        <div className="bg-card p-6 rounded-xl shadow-sm">
-          <h3 className="text-xl font-semibold mb-2">Growth & Innovation</h3>
-          <p className="text-muted-foreground">Expanded our services and built a strong team of digital experts.</p>
-        </div>
-      ),
-    },
-    {
-      title: "2022",
-      content: (
-        <div className="bg-card p-6 rounded-xl shadow-sm">
-          <h3 className="text-xl font-semibold mb-2">Global Expansion</h3>
-          <p className="text-muted-foreground">Started serving clients worldwide and launched innovative digital solutions.</p>
-        </div>
-      ),
-    },
-    {
-      title: "2023",
-      content: (
-        <div className="bg-card p-6 rounded-xl shadow-sm">
-          <h3 className="text-xl font-semibold mb-2">Industry Leadership</h3>
-          <p className="text-muted-foreground">Became a leading force in digital transformation and product development.</p>
-        </div>
-      ),
-    },
-  ];
-
   return (
     <main className="min-h-screen bg-background">
       <Navigation />
+      <HeroSection />
+      <CoreValuesSection />
+      <MilestonesSection />
+      <CallToActionSection />
+      <MissionVisionValuesSection />
+      <ExpertiseSection />
+      <OurJourneySection />
+      <TeamBlockSection />
+      <TrustPhilosophySection />
       
-      {/* Hero Section */}
-      <section className="py-24 sm:py-32 relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/[0.03] via-transparent to-transparent dark:from-primary/[0.02]" />
-        </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center relative">
-          <Badge 
-            variant="secondary" 
-            className="mb-8 px-4 py-2 text-base bg-muted text-foreground border-border backdrop-blur-sm"
-          >
-            About Us
-          </Badge>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
-            Transforming Digital Products with{' '}
-            <span className="text-primary">Purpose</span>
-          </h1>
-          <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-            We're a team of passionate experts dedicated to creating exceptional digital experiences that drive growth
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <ScrollToTeamButton />
-            <Button 
-              size="lg"
-              variant="secondary"
-              className="group bg-card/50 dark:bg-card/40 hover:bg-card/80 text-foreground border border-border hover:border-primary/20 backdrop-blur-sm transition-all duration-200 rounded-full px-6"
-              asChild
-            >
-              <Link href="/services">
-                Explore the vitamins
-                <svg 
-                  className="w-4 h-4 ml-2 transition-transform duration-200 group-hover:translate-x-1" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2"
-                >
-                  <path d="M15 10l5 5-5 5"/>
-                  <path d="M4 4v7a4 4 0 0 0 4 4h12"/>
-                </svg>
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Story & Mission */}
-      <section className="py-24 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold">Our Story</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Founded in 2018, we set out with a clear mission: to help businesses transform their digital products into powerful tools for growth. We believe that every digital product has the potential to make a significant impact.
-              </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                Our journey has been driven by a passion for innovation and a commitment to excellence. We've grown from a small team of dedicated experts to a diverse group of specialists, each bringing unique perspectives and skills to our mission.
-              </p>
-            </div>
-
-            <div className="space-y-8">
-              <div className="relative">
-                <div className="absolute left-0 top-0 bottom-0 w-px bg-border" />
-                
-                <div className="space-y-12">
-                  {MILESTONES.map((milestone, index) => (
-                    <motion.div
-                      key={milestone.year}
-                      initial={{ opacity: 0, x: 20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                      className="relative pl-8"
-                    >
-                      <div className="absolute left-0 top-2 w-2 h-2 rounded-full bg-primary transform -translate-x-1/2" />
-                      <div className="text-sm text-primary font-medium mb-1">
-                        {milestone.year}
-                      </div>
-                      <div className="font-medium mb-1">
-                        {milestone.title}
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {milestone.description}
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Core Values */}
       <section className="py-24 bg-muted/50 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -370,153 +223,6 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-muted/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to work together?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Let's discuss how we can help transform your digital product.
-          </p>
-          <div className="inline-flex flex-col items-center">
-            <Button 
-              size="lg" 
-              className="rounded-full px-8 shadow-lg hover:shadow-xl transition-shadow"
-              asChild
-            >
-              <Link href="/contact">
-                Schedule a Free Consultation
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-            </Button>
-            <p className="mt-4 text-sm text-muted-foreground">
-              No commitment required. Let's explore the possibilities together.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Vision, Mission, Values Sections */}
-      <section className="py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          {/* Vision Section - Full-width with diagonal background */}
-          <div className="relative mb-24 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent transform -skew-y-6" />
-            <div className="relative bg-card/30 dark:bg-card/20 backdrop-blur-sm p-12 sm:p-16 rounded-3xl border border-border hover:border-primary/20 transition-all duration-300 hover:shadow-xl">
-              <div className="absolute -top-4 left-8 px-6 py-2 bg-primary/10 rounded-full border border-primary/20">
-                <span className="text-primary font-medium">Our Vision</span>
-              </div>
-              <div className="flex flex-col lg:flex-row items-center gap-12">
-                <div className="flex-1 text-left">
-                  <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-foreground leading-tight">
-                    Empowering Digital <span className="text-primary">Excellence</span>
-                  </h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    We envision a digital landscape where every product reaches its full potential, 
-                    creating meaningful experiences that drive innovation and success. Our goal is to 
-                    be the catalyst that transforms good products into extraordinary digital solutions.
-                  </p>
-                </div>
-                <div className="flex-1 relative aspect-square w-full max-w-md">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-transparent rounded-full animate-pulse opacity-60" />
-                  <div className="absolute inset-4 bg-gradient-to-tl from-primary/20 to-transparent rounded-full animate-pulse delay-150 opacity-40" />
-                  <div className="absolute inset-8 bg-gradient-to-tr from-primary/10 to-transparent rounded-full animate-pulse delay-300 opacity-30" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Mission Section - Split layout with geometric patterns */}
-          <div className="relative mb-24">
-            <div className="grid lg:grid-cols-2 gap-8">
-              <div className="relative bg-card/30 dark:bg-card/20 backdrop-blur-sm p-12 rounded-3xl border border-border hover:border-primary/20 transition-all duration-300 hover:shadow-xl order-2 lg:order-1">
-                <div className="absolute -top-4 right-8 px-6 py-2 bg-primary/10 rounded-full border border-primary/20">
-                  <span className="text-primary font-medium">Our Mission</span>
-                </div>
-                <div className="relative z-10">
-                  <h2 className="text-4xl font-bold mb-6 text-foreground leading-tight">
-                    Nurturing Digital <span className="text-primary">Growth</span>
-                  </h2>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
-                    We're committed to providing tailored digital solutions that enhance product health 
-                    and drive sustainable growth. Through our innovative "vitamin" approach, we diagnose, 
-                    treat, and optimize digital products to ensure they thrive in today's competitive landscape.
-                  </p>
-                </div>
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-12 left-12 w-24 h-24 border-2 border-primary rounded-xl transform rotate-45" />
-                  <div className="absolute bottom-12 right-12 w-32 h-32 border-2 border-primary rounded-full" />
-                </div>
-              </div>
-              <div className="relative order-1 lg:order-2">
-                <div className="grid grid-cols-2 gap-4 h-full">
-                  <div className="bg-primary/5 rounded-3xl transform hover:scale-105 transition-transform duration-300" />
-                  <div className="bg-primary/10 rounded-3xl transform hover:scale-105 transition-transform duration-300 translate-y-8" />
-                  <div className="bg-primary/15 rounded-3xl transform hover:scale-105 transition-transform duration-300 -translate-y-8" />
-                  <div className="bg-primary/5 rounded-3xl transform hover:scale-105 transition-transform duration-300" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Values Section - Modern grid with hover effects */}
-          <div className="relative">
-            <div className="text-center mb-12">
-              <div className="inline-block px-6 py-2 bg-primary/10 rounded-full border border-primary/20 mb-8">
-                <span className="text-primary font-medium">Our Values</span>
-              </div>
-              <h2 className="text-4xl font-bold mb-6 text-foreground leading-tight">
-                Principles that Drive <span className="text-primary">Us</span>
-              </h2>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                {
-                  title: "Innovation First",
-                  description: "Constantly pushing boundaries and exploring new solutions to stay ahead of digital trends.",
-                  gradient: "from-blue-500/10 to-transparent"
-                },
-                {
-                  title: "Customer Success",
-                  description: "Your success is our success. We're dedicated to delivering results that exceed expectations.",
-                  gradient: "from-green-500/10 to-transparent"
-                },
-                {
-                  title: "Continuous Growth",
-                  description: "Embracing learning and improvement as core elements of our service delivery.",
-                  gradient: "from-purple-500/10 to-transparent"
-                },
-                {
-                  title: "Transparency",
-                  description: "Building trust through open communication and honest partnerships.",
-                  gradient: "from-orange-500/10 to-transparent"
-                }
-              ].map((value, index) => (
-                <div key={index} className="group relative bg-card/30 dark:bg-card/20 backdrop-blur-sm p-8 rounded-2xl border border-border hover:border-primary/20 transition-all duration-300 hover:shadow-xl overflow-hidden">
-                  <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
-                  <div className="relative z-10">
-                    <h3 className="text-xl font-semibold mb-3 text-primary group-hover:text-primary/90 transition-colors">{value.title}</h3>
-                    <p className="text-muted-foreground group-hover:text-foreground/90 transition-colors">{value.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story Section with Timeline */}
-      <section className="py-16 sm:py-24 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight mb-4">Our Journey</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              From our humble beginnings to industry leadership, every step has been driven by our passion for digital excellence.
-            </p>
-          </div>
-          <Timeline data={timelineData} />
         </div>
       </section>
 
