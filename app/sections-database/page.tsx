@@ -11,12 +11,12 @@ import { ExpertiseSection } from '@/about/ExpertiseSection';
 import { OurJourneySection } from '@/about/OurJourneySection';
 import { TeamBlockSection } from '@/about/TeamBlockSection';
 import { TrustPhilosophySection } from '@/about/TrustPhilosophySection';
-import { ContactNextStepsSection } from '@/components/ContactNextStepsSection';
-import { ProcessSection } from '@/components/ProcessSection';
-import { FeaturedServicesSection } from '@/components/FeaturedServicesSection';
-import { SimplicitySection } from '@/components/SimplicitySection';
-import { AdvertisingMarketingSection } from '@/components/AdvertisingMarketingSection';
-import { HowWeDoItSection } from '@/components/HowWeDoItSection';
+import { ContactNextStepsSection } from '../components/ContactNextStepsSection';
+import { ProcessSection } from '../components/ProcessSection';
+import { FeaturedServicesSection } from '../components/FeaturedServicesSection';
+import { SimplicitySection } from '../components/SimplicitySection';
+import { AdvertisingMarketingSection } from '../components/AdvertisingMarketingSection';
+import { HowWeDoItSection } from '../components/HowWeDoItSection';
 
 const SECTIONS = [
   { id: 'SECTION-HEADER-01', label: 'Header', component: <Header /> },
