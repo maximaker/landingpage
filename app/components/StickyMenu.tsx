@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import { MessageSquare } from 'lucide-react';
+import { MessageSquare, BookOpen, LayoutGrid } from 'lucide-react';
 import { Badge } from './ui/badge';
 import Link from 'next/link';
 
@@ -25,6 +25,14 @@ export function StickyMenu() {
         </a>
       </Link>
       {/* TODO: Add more menu items here */}
+      <Link href="/style-guide" className="flex items-center gap-2 p-2 rounded hover:bg-muted transition-colors">
+        <BookOpen className="w-5 h-5" />
+        <span className="hidden md:inline">Style Guide</span>
+      </Link>
+      <Link href="/sections-database" className="flex items-center gap-2 p-2 rounded hover:bg-muted transition-colors">
+        <LayoutGrid className="w-5 h-5" />
+        <span className="hidden md:inline">Sections DB</span>
+      </Link>
     </div>
   );
 } 
