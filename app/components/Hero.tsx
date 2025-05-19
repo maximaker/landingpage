@@ -158,7 +158,7 @@ export function Hero() {
                       animate={{ y: 5 }}
                       transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
                     >
-                      <ellipse cx="200" cy="200" rx="50" ry="25" fill="#FF8A65" fillOpacity="0.7" />
+                      <ellipse cx="200" cy="200" rx="50" ry="25" style={{ fill: 'hsl(var(--primary))', opacity: 0.7 }} />
                       <text x="200" y="205" fontSize="12" fill="white" textAnchor="middle" fontWeight="bold">A</text>
                     </motion.g>
                     
@@ -168,7 +168,7 @@ export function Hero() {
                       animate={{ y: -10 }}
                       transition={{ duration: 2.5, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.3 }}
                     >
-                      <ellipse cx="140" cy="240" rx="40" ry="20" fill="#64B5F6" fillOpacity="0.7" />
+                      <ellipse cx="140" cy="240" rx="40" ry="20" style={{ fill: 'hsl(var(--accent))', opacity: 0.7 }} />
                       <text x="140" y="245" fontSize="12" fill="white" textAnchor="middle" fontWeight="bold">B</text>
                     </motion.g>
                     
@@ -178,7 +178,7 @@ export function Hero() {
                       animate={{ y: -5 }}
                       transition={{ duration: 2.2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.6 }}
                     >
-                      <ellipse cx="260" cy="240" rx="40" ry="20" fill="#81C784" fillOpacity="0.7" />
+                      <ellipse cx="260" cy="240" rx="40" ry="20" style={{ fill: 'hsl(var(--muted))', opacity: 0.7 }} />
                       <text x="260" y="245" fontSize="12" fill="white" textAnchor="middle" fontWeight="bold">C</text>
                     </motion.g>
                     
@@ -188,7 +188,7 @@ export function Hero() {
                       animate={{ y: 8 }}
                       transition={{ duration: 2.8, repeat: Infinity, repeatType: "reverse", ease: "easeInOut", delay: 0.9 }}
                     >
-                      <ellipse cx="200" cy="150" rx="40" ry="20" fill="#BA68C8" fillOpacity="0.7" />
+                      <ellipse cx="200" cy="150" rx="40" ry="20" style={{ fill: 'hsl(var(--secondary))', opacity: 0.7 }} />
                       <text x="200" y="155" fontSize="12" fill="white" textAnchor="middle" fontWeight="bold">D</text>
                     </motion.g>
                   </g>

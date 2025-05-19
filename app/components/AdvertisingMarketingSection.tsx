@@ -55,10 +55,10 @@ export function AdvertisingMarketingSection() {
         </div>
         {/* Decorative geometric shape */}
         <div className="hidden md:block absolute top-0 right-0 mt-8 mr-8 opacity-10 pointer-events-none select-none">
-          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <polygon points="100,10 190,60 160,190 40,190 10,60" stroke="#222" strokeWidth="1.5" fill="none" />
-            <polyline points="100,10 100,190" stroke="#222" strokeWidth="1.5" fill="none" />
-            <polyline points="10,60 190,60" stroke="#222" strokeWidth="1.5" fill="none" />
+          <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-border">
+            <polygon points="100,10 190,60 160,190 40,190 10,60" stroke="currentColor" strokeWidth="1.5" fill="none" />
+            <polyline points="100,10 100,190" stroke="currentColor" strokeWidth="1.5" fill="none" />
+            <polyline points="10,60 190,60" stroke="currentColor" strokeWidth="1.5" fill="none" />
           </svg>
         </div>
       </div>
