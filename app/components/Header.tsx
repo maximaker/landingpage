@@ -188,6 +188,7 @@ const menuItems = [
       }
     ]
   },
+  { label: 'Outcomes Canvas', href: '/outcomes-canvas' },
   { 
     label: 'Services', 
     href: '/services',
